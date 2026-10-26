@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/UIHoverRegion.gd" id="2"]
+
+[node name="NunHoverRegion" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -0.0
+offset_right = 50.0
+offset_bottom = 100.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"shape\":{\"color\":[0.21960786,0.21960786,0.21960786,0.11764706],\"order\":3,\"poly\":[[72.79683,65.03783],[49.851135,145.12798],[36.99438,176.1157],[23.478447,184.6868],[6.5491934,187.43094],[-15.091423,183.36816],[-31.060457,167.16373],[-47.890236,72.609955],[-65.92117,43.760216],[-62.869804,36.547825],[-94.77082,-31.692621],[-93.66135,-66.09022],[-88.39077,-79.40544],[-93.66137,-108.25506],[-101.42857,-225.59535],[-72.88924,-270.76425],[-93.54939,-417.92636],[-125.196465,-433.0906],[-136.7345,-442.98013],[-133.76761,-452.54025],[-116.95507,-464.0782],[-79.04446,-477.2645],[-27.288345,-482.86856],[1.0621805,-479.57202],[5.3477306,-489.1322],[35.01686,-488.80252],[43.258347,-481.87967],[108.860085,-483.52792],[139.51817,-476.60522],[158.63829,-465.72653],[171.4949,-449.57333],[171.16525,-441.6616],[144.7927,-421.22284],[124.80968,-418.3618],[97.49136,-268.8277],[127.62692,-221.65173],[113.14549,-77.390465],[118.74965,-64.20418],[120.068214,-31.897823],[113.80473,-25.634342],[100.2888,2.0568507],[103.2557,7.3313503],[89.73975,31.725967],[87.2874,49.121384]]},\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"NunHoverRegion\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIHoverRegion" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"hoverShape\":{\"$n\":\".\",\"type\":\"SpriteShapeRenderer\"},\"maxAlpha\":0.4,\"fadeSpeed\":8,\"$type\":\"UIHoverRegion\"}"

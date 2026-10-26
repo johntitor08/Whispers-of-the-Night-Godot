@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/WorldItem.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/UIHoverRegion.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="5"]
+
+[node name="Cinnamon" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 250.0
+offset_top = 100.0
+offset_right = 350.0
+offset_bottom = 200.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Item/Ashenveil/af09cb83-f694-4905-85f9-69493d7a5d83-Photoroom.png#af09cb83-f694-4905-85f9-69493d7a5d83-Photoroom_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Cinnamon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_WorldItem" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"data\":{\"$so\":\"eebeaa784ff83374e8fad2fe44363193\"},\"quantity\":1,\"catalogObjectiveID\":null,\"$type\":\"WorldItem\"}"
+
+[node name="CinnamonRegionHover" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"shape\":{\"color\":[0.8352942,0.45098042,0.17254902,0],\"order\":3,\"poly\":[[2.2582655,24.037806],[0.2573751,23.24475],[-1.5616022,21.112932],[-1.9617803,19.803291],[-2.315772,17.640453],[-2.0563154,17.133047],[-1.9421113,16.496107],[-2.7829382,16.233406],[-2.9582093,15.949582],[-4.3187222,16.563778],[-6.075886,17.667807],[-6.596833,17.644482],[-8.175148,18.072079],[-9.453586,17.862864],[-9.512387,17.434546],[-9.294714,17.279058],[-9.429334,17.06942],[-10.079958,17.201298],[-10.272066,16.870747],[-9.954015,16.507551],[-9.673086,15.4625025],[-5.695042,14.327489],[-6.8524795,13.608306],[-6.976081,13.001499],[-7.684013,12.799235],[-8.700214,11.989598],[-9.563517,10.54647],[-29.503323,0.50352895],[-30.481909,-0.8883154],[-30.851658,-2.2257607],[-30.82993,-3.4001126],[-30.589342,-4.6773667],[-30.129206,-5.6050696],[-32.65681,-7.0532565],[-33.40336,-7.808817],[-34.131966,-8.888208],[-34.509743,-10.291419],[-34.527687,-11.793606],[-34.122955,-13.763499],[-33.58329,-15.247665],[-32.827705,-16.560936],[-32.000214,-17.550375],[-31.037792,-18.386942],[-30.111313,-18.899664],[-29.004953,-19.160511],[-28.114437,-19.061573],[-28.064081,-19.7728],[-27.28687,-21.256348],[-26.342394,-22.425692],[-25.532873,-23.118305],[-24.615454,-23.658047],[-23.311193,-24.233715],[-22.177828,-24.341663],[-21.260332,-24.296686],[-20.270855,-23.873919],[-18.130066,-22.416733],[-18.399925,-23.918894],[-18.387232,-25.303093],[-17.93165,-26.512392],[-16.997473,-28.047005],[-15.257609,-29.591272],[-14.315914,-29.807283],[-13.895244,-30.373554],[-12.324859,-30.954115],[-10.084695,-31.15603],[-8.63562,-30.837246],[-7.6905265,-29.96945],[6.688647,-14.6144705],[7.6768374,-14.750352],[8.208135,-14.589768],[8.714613,-14.095621],[10.426183,-13.527381],[11.535889,-11.540251],[12.25847,-10.817644],[13.032643,-8.778922],[15.019786,-7.230497],[17.703688,-10.559578],[17.703688,-9.707951],[18.090788,-10.069242],[18.42627,-9.785365],[19.07146,-9.966017],[18.761776,-9.062772],[19.406942,-9.295042],[19.095867,-8.105462],[19.951317,-7.9356875],[17.207611,-5.777174],[30.684761,1.8587512],[31.213818,2.4150848],[32.02406,3.7043614],[32.37805,4.715349],[32.407196,5.8509936],[32.19073,6.8679414],[31.944998,7.7961593],[31.57749,8.507992],[30.979668,9.316046],[30.28932,9.799328],[30.278198,9.9178705],[31.726965,10.768803],[31.97221,11.065383],[32.531002,12.13767],[32.51388,12.679496],[32.800705,12.856569],[33.03377,13.503151],[33.116467,14.307588],[32.931618,15.42077],[32.61797,16.947144],[31.990488,18.358889],[31.556122,18.859627],[31.23637,19.010452],[31.133802,19.378475],[30.874372,19.891287],[30.21072,20.458408],[28.569693,21.128057],[27.960388,21.176329],[26.421953,20.470457],[26.150473,21.007391],[25.679857,21.459883],[24.84732,21.761536],[26.091492,22.849257],[26.173334,23.955706],[25.960167,24.719503],[25.83188,24.773684],[25.834583,25.044764],[25.926416,25.169846],[25.882984,25.72609],[25.509426,27.20929],[24.915003,28.40089],[24.425901,28.546877],[24.353662,28.819218],[24.58153,29.01376],[24.570435,29.291662],[24.304258,29.661345],[22.535149,30.86569],[21.14382,31.242775],[20.215357,31.180498],[19.758823,30.794209],[19.360832,30.981503],[18.6235,30.881046],[17.213789,30.219442],[6.957552,21.601532],[6.763848,21.916288],[6.5459948,22.586208],[5.787319,23.19147],[4.454791,23.970484]]},\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CinnamonRegionHover\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIHoverRegion" type="Node" parent="CinnamonRegionHover"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"hoverShape\":{\"$n\":\"CinnamonRegionHover\",\"type\":\"SpriteShapeRenderer\"},\"spriteShapeController\":{\"$n\":\"CinnamonRegionHover\",\"type\":\"MonoBehaviour\"},\"hoverCollider\":{\"$n\":\"CinnamonRegionHover\",\"type\":\"PolygonCollider2D\"},\"maxAlpha\":0.4,\"fadeSpeed\":8,\"$type\":\"UIHoverRegion\"}"
+
+[node name="C_Button" type="Node" parent="CinnamonRegionHover"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"CinnamonRegionHover\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="CinnamonRegionHover"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"

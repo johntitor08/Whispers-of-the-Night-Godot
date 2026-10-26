@@ -1,0 +1,213 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/ConfirmDialog.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/ClickableIcon.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/game/UIButtonStyle.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="9"]
+
+[node name="ConfirmationCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":1000,\"override\":false,\"mode\":0},\"name\":\"ConfirmationCanvas\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_ConfirmationDialog" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"confirmationPanel\":{\"$n\":\"ConfirmationOverlay\"},\"titleText\":{\"$n\":\"ConfirmationOverlay/ConfirmationPanel/Title\"},\"messageText\":{\"$n\":\"ConfirmationOverlay/ConfirmationPanel/Message\"},\"confirmButton\":{\"$n\":\"ConfirmationOverlay/ConfirmationPanel/ConfirmButton/C_Button\"},\"cancelButton\":{\"$n\":\"ConfirmationOverlay/ConfirmationPanel/CancelButton/C_Button\"},\"confirmButtonText\":{\"$n\":\"ConfirmationOverlay/ConfirmationPanel/ConfirmButton/Text (TMP)\"},\"cancelButtonText\":{\"$n\":\"ConfirmationOverlay/ConfirmationPanel/CancelButton/Text (TMP)\"},\"$type\":\"ConfirmationDialog\"}"
+
+[node name="ConfirmationOverlay" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0.72],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ConfirmationOverlay\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ConfirmationOverlay"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":12,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ConfirmationPanel" type="Control" parent="ConfirmationOverlay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -150.0
+offset_right = 280.0
+offset_bottom = 150.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ConfirmationPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Title" type="Control" parent="ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("4")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -250.0
+offset_top = -0.0
+offset_right = 250.0
+offset_bottom = 100.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Start New Game?\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Title\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/Title"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Message" type="Control" parent="ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("4")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"This will overwrite your current save. Continue?\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":32,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"Message\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/Message"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ConfirmButton" type="Control" parent="ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 25.0
+offset_top = -70.0
+offset_right = 225.0
+offset_bottom = -30.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ConfirmButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/ConfirmButton"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ConfirmationOverlay/ConfirmationPanel/ConfirmButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/ConfirmButton"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,1,0.8,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/ConfirmButton"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":1,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ConfirmationOverlay/ConfirmationPanel/ConfirmButton"]
+script = ExtResource("4")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Confirm\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":14,\"maxSize\":28,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="CancelButton" type="Control" parent="ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -225.0
+offset_top = -70.0
+offset_right = -25.0
+offset_bottom = -30.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CancelButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/CancelButton"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ConfirmationOverlay/ConfirmationPanel/CancelButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/CancelButton"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,1,0.8,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/CancelButton"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":1,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ConfirmationOverlay/ConfirmationPanel/CancelButton"]
+script = ExtResource("4")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Cancel\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":14,\"maxSize\":28,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="GoldRim" type="Control" parent="ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/GoldRim"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="ConfirmationOverlay/ConfirmationPanel/GoldRim"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"

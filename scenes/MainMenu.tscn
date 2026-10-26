@@ -1,0 +1,971 @@
+[gd_scene load_steps=23 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UScene.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/u/UObj.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/ClickableIcon.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/game/UIButtonStyle.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/game/LocalizedText.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/u/UDropdown.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/u/UScrollRect.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/u/UMask.gd" id="12"]
+[ext_resource type="Script" path="res://scripts/u/UToggle.gd" id="13"]
+[ext_resource type="Script" path="res://scripts/u/UScrollbar.gd" id="14"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="15"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="16"]
+[ext_resource type="Script" path="res://scripts/game/PanelDim.gd" id="17"]
+[ext_resource type="Script" path="res://scripts/game/ConfirmDialog.gd" id="18"]
+[ext_resource type="Script" path="res://scripts/game/SettingsManager.gd" id="19"]
+[ext_resource type="Script" path="res://scripts/game/MainMenuManager.gd" id="20"]
+[ext_resource type="Script" path="res://scripts/game/CreditsPanel.gd" id="21"]
+[ext_resource type="Script" path="res://scripts/u/UAudioSource.gd" id="22"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1")
+
+[node name="Main Camera" type="Node2D" parent="."]
+script = ExtResource("2")
+visible = true
+metadata/u = "{\"name\":\"Main Camera\",\"tag\":\"MainCamera\",\"layer\":0}"
+
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+layer = 0
+metadata/unity_order = 0
+
+[node name="MenuCanvas" type="Control" parent="MenuCanvas"]
+script = ExtResource("3")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":0,\"override\":false,\"mode\":0},\"name\":\"MenuCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Logo" type="Control" parent="MenuCanvas/MenuCanvas"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -768.0
+offset_top = -92.5
+offset_right = 768.0
+offset_bottom = 392.5
+scale = Vector2(0.6, 0.6)
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Logo/ChatGPT Image 28 Nis 2026 04_13_59-Photoroom.png\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Logo\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ButtonPanel" type="Control" parent="MenuCanvas/MenuCanvas"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 20.0
+offset_top = -620.0
+offset_right = 420.0
+offset_bottom = -20.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ButtonPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="NewGame" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -150.0
+offset_top = 62.5
+offset_right = 150.0
+offset_bottom = 137.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"NewGame\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/NewGame"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/NewGame\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/NewGame"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,1,0.8,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/NewGame"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":1,\"labelColor\":{\"$c\":[0.9339623,0.89724994,0.82382524,1]},\"labelFontSize\":35,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/NewGame"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"New Game\",\"color\":[0.9339623,0.89724994,0.82382524,1],\"vertexColor\":[1,1,1,1],\"fontSize\":35,\"autoSize\":true,\"minSize\":14,\"maxSize\":35,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/NewGame/Text (TMP)"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"New Game\",\"tr\":\"Yeni Oyun\",\"$type\":\"LocalizedText\"}"
+
+[node name="Continue" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -150.0
+offset_top = 162.5
+offset_right = 150.0
+offset_bottom = 237.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Continue\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Continue"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/Continue\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Continue"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,1,0.8,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Continue"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/Continue"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Continue\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":35,\"autoSize\":true,\"minSize\":14,\"maxSize\":35,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Continue/Text (TMP)"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Continue\",\"tr\":\"Devam Et\",\"$type\":\"LocalizedText\"}"
+
+[node name="LanguageDropdown" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -150.0
+offset_top = -137.5
+offset_right = 150.0
+offset_bottom = -62.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"LanguageDropdown\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_TMP_Dropdown" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[0.47843137,0.33333334,0.1882353,1]},\"m_HighlightedColor\":{\"$c\":[0.5803922,0.40784314,0.21960784,1]},\"m_PressedColor\":{\"$c\":[0.33333334,0.22745098,0.1254902,1]},\"m_SelectedColor\":{\"$c\":[0.5803922,0.40784314,0.21960784,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown\"},\"m_Template\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template\"},\"m_CaptionText\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Label\"},\"m_CaptionImage\":null,\"m_Placeholder\":null,\"m_ItemText\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item/Item Label\"},\"m_ItemImage\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item/Item Background\"},\"m_Value\":0,\"m_MultiSelect\":0,\"m_Options\":{\"m_Options\":[{\"m_Text\":\"English\",\"m_Image\":null,\"m_Color\":{\"$c\":[1,1,1,1]}},{\"m_Text\":\"Türkçe\",\"m_Image\":null,\"m_Color\":{\"$c\":[1,1,1,1]}}]},\"m_OnValueChanged\":{\"$event\":[]},\"m_AlphaFadeSpeed\":0.15,\"$type\":\"TMP_Dropdown\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Label" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 10.0
+offset_top = 7.0
+offset_right = -25.0
+offset_bottom = -6.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"English\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"Label\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Label"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Arrow" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown"]
+script = ExtResource("3")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -10.0
+offset_right = -5.0
+offset_bottom = 10.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Arrow\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Arrow"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Template" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = 0
+offset_right = 0.0
+offset_bottom = 100
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Template\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content\"},\"m_Horizontal\":0,\"m_Vertical\":1,\"m_MovementType\":2,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Scrollbar/C_Scrollbar\"},\"m_HorizontalScrollbarVisibility\":0,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":0,\"m_VerticalScrollbarSpacing\":-5,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Viewport" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = -15
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.9372549,0.8862745,0.7607843,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0.0
+offset_top = -8e-06
+offset_right = 0.0
+offset_bottom = 99.999992
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Item" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Item\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Toggle" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[0.9372549,0.8862745,0.7607843,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item/Item Background\"},\"toggleTransition\":1,\"graphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item/Item Checkmark\"},\"m_Group\":null,\"onValueChanged\":{\"$event\":[]},\"m_IsOn\":1,\"$type\":\"Toggle\"}"
+
+[node name="Item Background" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Item Background\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item/Item Background"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Item Checkmark" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0.5
+anchor_right = 0
+anchor_bottom = 0.5
+offset_left = 12.5
+offset_top = -12.5
+offset_right = 37.5
+offset_bottom = 12.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Item Checkmark\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item/Item Checkmark"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Item Label" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 50.0
+offset_top = -0.0
+offset_right = -5.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Option A\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":1,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"Item Label\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Viewport/Content/Item/Item Label"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Scrollbar" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template"]
+script = ExtResource("3")
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -20
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [1, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Scrollbar\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Scrollbar" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Scrollbar"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Scrollbar/Sliding Area/Handle\"},\"m_HandleRect\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Scrollbar/Sliding Area/Handle\"},\"m_Direction\":2,\"m_Value\":0,\"m_Size\":1,\"m_NumberOfSteps\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"Scrollbar\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Scrollbar"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Sliding Area" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Scrollbar"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Sliding Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Handle" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Scrollbar/Sliding Area"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Handle\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/Template/Scrollbar/Sliding Area/Handle"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Credits" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -150.0
+offset_top = 262.5
+offset_right = 150.0
+offset_bottom = 337.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Credits\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Credits"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Credits"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,1,0.8,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Credits"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/Credits\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="Text (TMP)" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/Credits"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Credits\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":35,\"autoSize\":true,\"minSize\":14,\"maxSize\":35,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Credits/Text (TMP)"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Credits\",\"tr\":\"Emeği Geçenler\",\"$type\":\"LocalizedText\"}"
+
+[node name="Quit" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -150.0
+offset_top = 362.5
+offset_right = 150.0
+offset_bottom = 437.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Quit\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Quit"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,1,0.8,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Quit"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/Quit\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Quit"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel/Quit"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Quit\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":35,\"autoSize\":true,\"minSize\":14,\"maxSize\":35,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/Quit/Text (TMP)"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Quit\",\"tr\":\"Çıkış\",\"$type\":\"LocalizedText\"}"
+
+[node name="GoldRim" type="Control" parent="MenuCanvas/MenuCanvas/ButtonPanel"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRim" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"
+
+[node name="C_LayoutElement" type="Node" parent="MenuCanvas/MenuCanvas/ButtonPanel/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="CreditsPanel" type="Control" parent="MenuCanvas/MenuCanvas"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -255.0
+offset_right = 500.0
+offset_bottom = 445.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CreditsPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_PanelDim" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"darkness\":0.75,\"$type\":\"PanelDim\"}"
+
+[node name="Title" type="Control" parent="MenuCanvas/MenuCanvas/CreditsPanel"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0.0
+offset_top = 20
+offset_right = 0.0
+offset_bottom = 90
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Credits\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Title\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel/Title"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Message" type="Control" parent="MenuCanvas/MenuCanvas/CreditsPanel"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 60.0
+offset_top = 95.0
+offset_right = -60.0
+offset_bottom = -100.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"This will overwrite your current save. Continue?\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":true,\"minSize\":16,\"maxSize\":24,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"Message\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel/Message"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CloseButton" type="Control" parent="MenuCanvas/MenuCanvas/CreditsPanel"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -120.0
+offset_top = -83.0
+offset_right = 120.0
+offset_bottom = -27.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CloseButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel/CloseButton"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/CreditsPanel/CloseButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel/CloseButton"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":1,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel/CloseButton"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,1,0.8,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="Text (TMP)" type="Control" parent="MenuCanvas/MenuCanvas/CreditsPanel/CloseButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Close\",\"color\":[0.09,0.08,0.07,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel/CloseButton/Text (TMP)"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Close\",\"tr\":\"Kapat\",\"$type\":\"LocalizedText\"}"
+
+[node name="GoldRim" type="Control" parent="MenuCanvas/MenuCanvas/CreditsPanel"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRim" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"
+
+[node name="C_LayoutElement" type="Node" parent="MenuCanvas/MenuCanvas/CreditsPanel/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="ConfirmationOverlay" type="Control" parent="MenuCanvas/MenuCanvas"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0.72],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ConfirmationOverlay\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":12,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ConfirmationPanel" type="Control" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -150.0
+offset_right = 280.0
+offset_bottom = 150.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ConfirmationPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Title" type="Control" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("8")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -250.0
+offset_top = -0.0
+offset_right = 250.0
+offset_bottom = 100.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Start New Game?\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Title\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/Title"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Message" type="Control" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("8")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"This will overwrite your current save. Continue?\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":32,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"Message\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/Message"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ConfirmButton" type="Control" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 25.0
+offset_top = -70.0
+offset_right = 225.0
+offset_bottom = -30.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ConfirmButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/ConfirmButton"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/ConfirmButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/ConfirmButton"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,1,0.8,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/ConfirmButton"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":1,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/ConfirmButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Confirm\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":14,\"maxSize\":28,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="CancelButton" type="Control" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("3")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -225.0
+offset_top = -70.0
+offset_right = -25.0
+offset_bottom = -30.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CancelButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/CancelButton"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/CancelButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/CancelButton"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,1,0.8,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/CancelButton"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":1,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/CancelButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Cancel\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":14,\"maxSize\":28,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="GoldRim" type="Control" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRim" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"
+
+[node name="C_LayoutElement" type="Node" parent="MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="BgCanvas" type="CanvasLayer" parent="."]
+layer = -1
+metadata/unity_order = -1
+
+[node name="BgCanvas" type="Control" parent="BgCanvas"]
+script = ExtResource("3")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":-1,\"override\":false,\"mode\":0},\"name\":\"BgCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Bg" type="Control" parent="BgCanvas/BgCanvas"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Map/ChatGPT Image Apr 27, 2026, 10_13_53 PM 1.png#ChatGPT Image Apr 27, 2026, 10_13_53 PM 1_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Bg\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Char" type="Control" parent="BgCanvas/BgCanvas"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Scene/Character/char01_morning.png\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Char\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Char2" type="Control" parent="BgCanvas/BgCanvas"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -250.0
+offset_top = -500.0
+offset_right = 250.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Scene/Character/char00_morning.png\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Char2\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Goblin" type="Control" parent="BgCanvas/BgCanvas"]
+script = ExtResource("3")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -725.0
+offset_top = -725.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Scene/Character/ComfyUI_00620_ (1).png\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Goblin\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EventSystem" type="Node2D" parent="."]
+script = ExtResource("2")
+visible = true
+metadata/u = "{\"name\":\"EventSystem\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="MenuManager" type="Node2D" parent="."]
+script = ExtResource("2")
+visible = true
+metadata/u = "{\"name\":\"MenuManager\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_ConfirmationDialog" type="Node" parent="MenuManager"]
+script = ExtResource("18")
+metadata/u = "{\"m_Enabled\":1,\"confirmationPanel\":{\"$n\":\"MenuCanvas/MenuCanvas/ConfirmationOverlay\"},\"titleText\":{\"$n\":\"MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/Title\"},\"messageText\":{\"$n\":\"MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/Message\"},\"confirmButton\":{\"$n\":\"MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/ConfirmButton/C_Button\"},\"cancelButton\":{\"$n\":\"MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/CancelButton/C_Button\"},\"confirmButtonText\":{\"$n\":\"MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/ConfirmButton/Text (TMP)\"},\"cancelButtonText\":{\"$n\":\"MenuCanvas/MenuCanvas/ConfirmationOverlay/ConfirmationPanel/CancelButton/Text (TMP)\"},\"$type\":\"ConfirmationDialog\"}"
+
+[node name="C_SettingsManager" type="Node" parent="MenuManager"]
+script = ExtResource("19")
+metadata/u = "{\"m_Enabled\":1,\"settingsPanel\":null,\"savePanel\":null,\"audioMixer\":null,\"masterVolumeSlider\":null,\"musicVolumeSlider\":null,\"sfxVolumeSlider\":null,\"masterVolumeText\":null,\"musicVolumeText\":null,\"sfxVolumeText\":null,\"qualityDropdown\":null,\"resolutionDropdown\":null,\"fullscreenToggle\":null,\"vsyncToggle\":null,\"difficultySlider\":null,\"difficultyText\":null,\"subtitlesToggle\":null,\"autosaveToggle\":null,\"languageDropdown\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/LanguageDropdown/C_TMP_Dropdown\"},\"savePanelButton\":null,\"applyButton\":null,\"resetButton\":null,\"closeButton\":null,\"$type\":\"SettingsManager\"}"
+
+[node name="C_MainMenuManager" type="Node" parent="MenuManager"]
+script = ExtResource("20")
+metadata/u = "{\"m_Enabled\":1,\"buttonPanel\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel\"},\"settingsMenu\":null,\"newGameButton\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/NewGame/C_Button\"},\"continueButton\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/Continue/C_Button\"},\"settingsButton\":null,\"quitButton\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/Quit/C_Button\"},\"loadingScreen\":null,\"loadingBar\":null,\"loadingText\":null,\"buttonClickSound\":null,\"menuOpenSound\":null,\"menuCloseSound\":null,\"gameSceneName\":\"GameScene\",\"$type\":\"MainMenuManager\"}"
+
+[node name="C_CreditsPanel" type="Node" parent="MenuManager"]
+script = ExtResource("21")
+metadata/u = "{\"m_Enabled\":1,\"panel\":{\"$n\":\"MenuCanvas/MenuCanvas/CreditsPanel\"},\"buttonPanel\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel\"},\"titleText\":{\"$n\":\"MenuCanvas/MenuCanvas/CreditsPanel/Title\"},\"bodyText\":{\"$n\":\"MenuCanvas/MenuCanvas/CreditsPanel/Message\"},\"openButton\":{\"$n\":\"MenuCanvas/MenuCanvas/ButtonPanel/Credits/C_Button\"},\"closeButton\":{\"$n\":\"MenuCanvas/MenuCanvas/CreditsPanel/CloseButton/C_Button\"},\"$type\":\"CreditsPanel\"}"
+
+[node name="MenuMusic" type="Node2D" parent="."]
+script = ExtResource("2")
+visible = true
+metadata/u = "{\"name\":\"MenuMusic\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_AudioSource" type="Node" parent="MenuMusic"]
+script = ExtResource("22")
+metadata/u = "{\"m_Enabled\":1,\"serializedVersion\":4,\"OutputAudioMixerGroup\":null,\"m_audioClip\":null,\"m_Resource\":{\"$audio\":\"res://Assets/Audio/Music/Angevin.mp3\"},\"m_PlayOnAwake\":1,\"m_Volume\":0.55,\"m_Pitch\":1,\"Loop\":1,\"Mute\":0,\"Spatialize\":0,\"SpatializePostEffects\":0,\"Priority\":128,\"DopplerLevel\":1,\"MinDistance\":1,\"MaxDistance\":500,\"Pan2D\":0,\"rolloffMode\":0,\"BypassEffects\":0,\"BypassListenerEffects\":0,\"BypassReverbZones\":0,\"rolloffCustomCurve\":{\"m_Curve\":[{\"time\":0,\"value\":1,\"inSlope\":0,\"outSlope\":0,\"tangentMode\":0,\"weightedMode\":0,\"inWeight\":0.33333334,\"outWeight\":0.33333334},{\"time\":1,\"value\":0,\"inSlope\":0,\"outSlope\":0,\"tangentMode\":0,\"weightedMode\":0,\"inWeight\":0.33333334,\"outWeight\":0.33333334}],\"m_PreInfinity\":2,\"m_PostInfinity\":2,\"m_RotationOrder\":4},\"panLevelCustomCurve\":{\"m_Curve\":[{\"time\":0,\"value\":0,\"inSlope\":0,\"outSlope\":0,\"tangentMode\":0,\"weightedMode\":0,\"inWeight\":0.33333334,\"outWeight\":0.33333334}],\"m_PreInfinity\":2,\"m_PostInfinity\":2,\"m_RotationOrder\":4},\"spreadCustomCurve\":{\"m_Curve\":[{\"time\":0,\"value\":0,\"inSlope\":0,\"outSlope\":0,\"tangentMode\":0,\"weightedMode\":0,\"inWeight\":0.33333334,\"outWeight\":0.33333334}],\"m_PreInfinity\":2,\"m_PostInfinity\":2,\"m_RotationOrder\":4},\"reverbZoneMixCustomCurve\":{\"m_Curve\":[{\"time\":0,\"value\":1,\"inSlope\":0,\"outSlope\":0,\"tangentMode\":0,\"weightedMode\":0,\"inWeight\":0.33333334,\"outWeight\":0.33333334}],\"m_PreInfinity\":2,\"m_PostInfinity\":2,\"m_RotationOrder\":4},\"$type\":\"AudioSource\"}"

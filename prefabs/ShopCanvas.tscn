@@ -1,0 +1,915 @@
+[gd_scene load_steps=21 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/ShopUI.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/SellUI.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/MarketUI.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/UCanvasGroup.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/UIPanelAnimator.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/game/PanelMusic.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/game/UIRoundedImage.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/game/LocalizedText.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="12"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="13"]
+[ext_resource type="Script" path="res://scripts/game/UIButtonStyle.gd" id="14"]
+[ext_resource type="Script" path="res://scripts/u/UScrollRect.gd" id="15"]
+[ext_resource type="Script" path="res://scripts/u/UMask.gd" id="16"]
+[ext_resource type="Script" path="res://scripts/u/UGridLayout.gd" id="17"]
+[ext_resource type="Script" path="res://scripts/u/UContentSizeFitter.gd" id="18"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="19"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="20"]
+
+[node name="ShopCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":3,\"override\":false,\"mode\":0},\"name\":\"ShopCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ShopUI" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"shopPanel\":{\"$n\":\"MarketPanel/ShopPanel\"},\"marketClosedPanel\":{\"$n\":\"MarketPanel/ShopPanel/ContentArea/MarketClosedPanel\"},\"shopContent\":{\"$n\":\"MarketPanel/ShopPanel/ContentArea/Scroll View/Viewport/Content\"},\"shopSlotPrefab\":{\"$prefab\":\"res://prefabs/ShopSlot.tscn\",\"node\":\"C_ShopSlot\"},\"currencyText\":{\"$n\":\"MarketPanel/ShopPanel/Header/PlayerCurrency/CurrencyText\"},\"shopTitleText\":{\"$n\":\"MarketPanel/ShopPanel/Header/ShopTitle\"},\"marketStatusText\":{\"$n\":\"MarketPanel/ShopPanel/Footer/MarketStatusText\"},\"closeButton\":{\"$n\":\"MarketPanel/ShopPanel/Header/CloseButton/C_Button\"},\"refreshButton\":{\"$n\":\"MarketPanel/ShopPanel/Footer/RefreshButton/C_Button\"},\"switchToSellButton\":{\"$n\":\"MarketPanel/ShopPanel/Footer/SwitchToSellButton/C_Button\"},\"shopScrollRect\":{\"$n\":\"MarketPanel/ShopPanel/ContentArea/Scroll View/C_ScrollRect\"},\"$type\":\"ShopUI\"}"
+
+[node name="C_SellUI" type="Node" parent="."]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"sellPanel\":{\"$n\":\"MarketPanel/SellPanel\"},\"sellContent\":{\"$n\":\"MarketPanel/SellPanel/ContentArea/Scroll View/Viewport/Content\"},\"sellSlotPrefab\":{\"$prefab\":\"res://prefabs/SellSlot.tscn\",\"node\":\"C_SellSlot\"},\"currencyText\":{\"$n\":\"MarketPanel/SellPanel/Header/PlayerCurrency/CurrencyText\"},\"titleText\":{\"$n\":\"MarketPanel/SellPanel/Header/Title\"},\"closeButton\":{\"$n\":\"MarketPanel/SellPanel/Header/CloseButton/C_Button\"},\"switchToShopButton\":{\"$n\":\"MarketPanel/SellPanel/Footer/SwitchToShopButton/C_Button\"},\"sellScrollRect\":{\"$n\":\"MarketPanel/SellPanel/ContentArea/Scroll View/C_ScrollRect\"},\"sellPriceRatio\":0.5,\"$type\":\"SellUI\"}"
+
+[node name="C_MarketUI" type="Node" parent="."]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"marketPanel\":{\"$n\":\"MarketPanel\"},\"toggleKey\":115,\"$type\":\"MarketUI\"}"
+
+[node name="MarketPanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"MarketPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CanvasGroup" type="Node" parent="MarketPanel"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Alpha\":1,\"m_Interactable\":1,\"m_BlocksRaycasts\":1,\"m_IgnoreParentGroups\":0,\"$type\":\"CanvasGroup\"}"
+
+[node name="C_UIPanelAnimator" type="Node" parent="MarketPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"duration\":0.15,\"animateScale\":1,\"startScale\":0.95,\"$type\":\"UIPanelAnimator\"}"
+
+[node name="C_PanelMusic" type="Node" parent="MarketPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"music\":{\"$audio\":\"res://Assets/Audio/Music/Suonatore di Liuto.mp3\"},\"$type\":\"PanelMusic\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Bg" type="Control" parent="MarketPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0.72],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Bg\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/Bg"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":12,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="MarketPanel/Bg"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"radius\":22,\"$type\":\"UIRoundedImage\"}"
+
+[node name="ShopPanel" type="Control" parent="MarketPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ShopPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CanvasGroup" type="Node" parent="MarketPanel/ShopPanel"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Alpha\":1,\"m_Interactable\":1,\"m_BlocksRaycasts\":1,\"m_IgnoreParentGroups\":0,\"$type\":\"CanvasGroup\"}"
+
+[node name="C_UIPanelAnimator" type="Node" parent="MarketPanel/ShopPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"duration\":0.15,\"animateScale\":1,\"startScale\":0.95,\"$type\":\"UIPanelAnimator\"}"
+
+[node name="Header" type="Control" parent="MarketPanel/ShopPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = 200.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Header\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ShopTitle" type="Control" parent="MarketPanel/ShopPanel/Header"]
+script = ExtResource("10")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.5
+offset_top = -50.0
+offset_right = 62.5
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Store\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":64,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"ShopTitle\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MarketPanel/ShopPanel/Header/ShopTitle"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Store\",\"tr\":\"Mağaza\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/ShopPanel/Header/ShopTitle"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="PlayerCurrency" type="Control" parent="MarketPanel/ShopPanel/Header"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 62.5
+offset_top = -37.5
+offset_right = 137.5
+offset_bottom = 37.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"PlayerCurrency\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="CoinIcon" type="Control" parent="MarketPanel/ShopPanel/Header/PlayerCurrency"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 37.5
+offset_bottom = 37.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_two-coins.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CoinIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/ShopPanel/Header/PlayerCurrency/CoinIcon"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CurrencyText" type="Control" parent="MarketPanel/ShopPanel/Header/PlayerCurrency"]
+script = ExtResource("10")
+anchor_left = 0
+anchor_top = 0.5
+anchor_right = 0
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -37.5
+offset_right = 450.0
+offset_bottom = 37.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":0,\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":40,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":1,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CurrencyText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/ShopPanel/Header/PlayerCurrency/CurrencyText"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CloseButton" type="Control" parent="MarketPanel/ShopPanel/Header"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = -78.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = 78.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CloseButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MarketPanel/ShopPanel/Header/CloseButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MarketPanel/ShopPanel/Header/CloseButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="MarketPanel/ShopPanel/Header/CloseButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MarketPanel/ShopPanel/Header/CloseButton"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":1,\"labelColor\":{\"$c\":[0.934,0.897,0.824,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MarketPanel/ShopPanel/Header/CloseButton"]
+script = ExtResource("10")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"X\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":14,\"maxSize\":30,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ContentArea" type="Control" parent="MarketPanel/ShopPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = -325.0
+offset_right = 850.0
+offset_bottom = 275.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"ContentArea\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Scroll View" type="Control" parent="MarketPanel/ShopPanel/ContentArea"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = -300.0
+offset_right = 850.0
+offset_bottom = 300.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Scroll View\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="MarketPanel/ShopPanel/ContentArea/Scroll View"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"MarketPanel/ShopPanel/ContentArea/Scroll View/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"MarketPanel/ShopPanel/ContentArea/Scroll View/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/ShopPanel/ContentArea/Scroll View"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Viewport" type="Control" parent="MarketPanel/ShopPanel/ContentArea/Scroll View"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0.5882353],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="MarketPanel/ShopPanel/ContentArea/Scroll View/Viewport"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="MarketPanel/ShopPanel/ContentArea/Scroll View/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_GridLayoutGroup" type="Node" parent="MarketPanel/ShopPanel/ContentArea/Scroll View/Viewport/Content"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":14,\"m_Right\":14,\"m_Top\":14,\"m_Bottom\":14},\"m_ChildAlignment\":1,\"m_StartCorner\":0,\"m_StartAxis\":0,\"m_CellSize\":{\"x\":395,\"y\":450},\"m_Spacing\":{\"x\":20,\"y\":20},\"m_Constraint\":1,\"m_ConstraintCount\":4,\"$type\":\"GridLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="MarketPanel/ShopPanel/ContentArea/Scroll View/Viewport/Content"]
+script = ExtResource("18")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":0,\"m_VerticalFit\":2,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="MarketClosedPanel" type="Control" parent="MarketPanel/ShopPanel/ContentArea"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = -300.0
+offset_right = 850.0
+offset_bottom = 300.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0.72],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"MarketClosedPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/ShopPanel/ContentArea/MarketClosedPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ClosedMessage" type="Control" parent="MarketPanel/ShopPanel/ContentArea/MarketClosedPanel"]
+script = ExtResource("10")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = -300.0
+offset_right = 850.0
+offset_bottom = 300.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Market Closed\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":64,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[-2.247017,0,0,0],\"lineSpacing\":28,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"ClosedMessage\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MarketPanel/ShopPanel/ContentArea/MarketClosedPanel/ClosedMessage"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Market Closed\",\"tr\":\"Pazar Kapalı\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/ShopPanel/ContentArea/MarketClosedPanel/ClosedMessage"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Footer" type="Control" parent="MarketPanel/ShopPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -960.0
+offset_top = -265.0
+offset_right = 960.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Footer\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="MarketStatusText" type="Control" parent="MarketPanel/ShopPanel/Footer"]
+script = ExtResource("10")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -250.0
+offset_top = 65.0
+offset_right = 250.0
+offset_bottom = 165.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Market Open\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":40,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"MarketStatusText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/ShopPanel/Footer/MarketStatusText"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="RefreshButton" type="Control" parent="MarketPanel/ShopPanel/Footer"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+offset_bottom = -50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"RefreshButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MarketPanel/ShopPanel/Footer/RefreshButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MarketPanel/ShopPanel/Footer/RefreshButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="MarketPanel/ShopPanel/Footer/RefreshButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MarketPanel/ShopPanel/Footer/RefreshButton"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":1,\"labelColor\":{\"$c\":[0.934,0.897,0.824,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MarketPanel/ShopPanel/Footer/RefreshButton"]
+script = ExtResource("10")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Refresh\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":32,\"autoSize\":true,\"minSize\":14,\"maxSize\":35,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MarketPanel/ShopPanel/Footer/RefreshButton/Text (TMP)"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Refresh\",\"tr\":\"Yenile\",\"$type\":\"LocalizedText\"}"
+
+[node name="SwitchToSellButton" type="Control" parent="MarketPanel/ShopPanel/Footer"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -575.0
+offset_top = -100.0
+offset_right = -125.0
+offset_bottom = -50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"SwitchToSellButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MarketPanel/ShopPanel/Footer/SwitchToSellButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MarketPanel/ShopPanel/Footer/SwitchToSellButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="MarketPanel/ShopPanel/Footer/SwitchToSellButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MarketPanel/ShopPanel/Footer/SwitchToSellButton"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":1,\"labelColor\":{\"$c\":[0.934,0.897,0.824,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MarketPanel/ShopPanel/Footer/SwitchToSellButton"]
+script = ExtResource("10")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Switch to Sell Panel\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":32,\"autoSize\":true,\"minSize\":14,\"maxSize\":35,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MarketPanel/ShopPanel/Footer/SwitchToSellButton/Text (TMP)"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Switch to Sell Panel\",\"tr\":\"Satış Paneline Geç\",\"$type\":\"LocalizedText\"}"
+
+[node name="SellPanel" type="Control" parent="MarketPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"SellPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CanvasGroup" type="Node" parent="MarketPanel/SellPanel"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Alpha\":1,\"m_Interactable\":1,\"m_BlocksRaycasts\":1,\"m_IgnoreParentGroups\":0,\"$type\":\"CanvasGroup\"}"
+
+[node name="C_UIPanelAnimator" type="Node" parent="MarketPanel/SellPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"duration\":0.15,\"animateScale\":1,\"startScale\":0.95,\"$type\":\"UIPanelAnimator\"}"
+
+[node name="Header" type="Control" parent="MarketPanel/SellPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0.0
+offset_top = 12.5
+offset_right = 0.0
+offset_bottom = 187.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Header\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Title" type="Control" parent="MarketPanel/SellPanel/Header"]
+script = ExtResource("10")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -100.0
+offset_right = 125.0
+offset_bottom = 100.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Sell Items\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":64,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Title\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MarketPanel/SellPanel/Header/Title"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Sell Items\",\"tr\":\"Eşya Sat\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/SellPanel/Header/Title"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="PlayerCurrency" type="Control" parent="MarketPanel/SellPanel/Header"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 125.0
+offset_top = -50.0
+offset_right = 225.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"PlayerCurrency\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="CoinIcon" type="Control" parent="MarketPanel/SellPanel/Header/PlayerCurrency"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 37.5
+offset_bottom = 37.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_two-coins.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CoinIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/SellPanel/Header/PlayerCurrency/CoinIcon"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CurrencyText" type="Control" parent="MarketPanel/SellPanel/Header/PlayerCurrency"]
+script = ExtResource("10")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = -37.5
+offset_right = 425.0
+offset_bottom = 37.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":0,\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":40,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":1,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CurrencyText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/SellPanel/Header/PlayerCurrency/CurrencyText"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CloseButton" type="Control" parent="MarketPanel/SellPanel/Header"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = -78.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = 78.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CloseButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MarketPanel/SellPanel/Header/CloseButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MarketPanel/SellPanel/Header/CloseButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="MarketPanel/SellPanel/Header/CloseButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MarketPanel/SellPanel/Header/CloseButton"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":1,\"labelColor\":{\"$c\":[0.934,0.897,0.824,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MarketPanel/SellPanel/Header/CloseButton"]
+script = ExtResource("10")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"X\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":14,\"maxSize\":28,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ContentArea" type="Control" parent="MarketPanel/SellPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = -350.0
+offset_right = 850.0
+offset_bottom = 350.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"ContentArea\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Scroll View" type="Control" parent="MarketPanel/SellPanel/ContentArea"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = -350.0
+offset_right = 850.0
+offset_bottom = 350.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Scroll View\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="MarketPanel/SellPanel/ContentArea/Scroll View"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"MarketPanel/SellPanel/ContentArea/Scroll View/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"MarketPanel/SellPanel/ContentArea/Scroll View/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/SellPanel/ContentArea/Scroll View"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Viewport" type="Control" parent="MarketPanel/SellPanel/ContentArea/Scroll View"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = 0
+offset_right = -0.000122
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="MarketPanel/SellPanel/ContentArea/Scroll View/Viewport"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="MarketPanel/SellPanel/ContentArea/Scroll View/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_GridLayoutGroup" type="Node" parent="MarketPanel/SellPanel/ContentArea/Scroll View/Viewport/Content"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":14,\"m_Right\":14,\"m_Top\":14,\"m_Bottom\":14},\"m_ChildAlignment\":1,\"m_StartCorner\":0,\"m_StartAxis\":0,\"m_CellSize\":{\"x\":395,\"y\":450},\"m_Spacing\":{\"x\":20,\"y\":20},\"m_Constraint\":1,\"m_ConstraintCount\":4,\"$type\":\"GridLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="MarketPanel/SellPanel/ContentArea/Scroll View/Viewport/Content"]
+script = ExtResource("18")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":0,\"m_VerticalFit\":2,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="MarketClosedPanel" type="Control" parent="MarketPanel/SellPanel/ContentArea"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = -350.0
+offset_right = 850.0
+offset_bottom = 350.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0.72],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"MarketClosedPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/SellPanel/ContentArea/MarketClosedPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ClosedMessage" type="Control" parent="MarketPanel/SellPanel/ContentArea/MarketClosedPanel"]
+script = ExtResource("10")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = -350.0
+offset_right = 850.0
+offset_bottom = 350.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Market Closed\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":64,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[-2.247017,0,0,0],\"lineSpacing\":28,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"ClosedMessage\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MarketPanel/SellPanel/ContentArea/MarketClosedPanel/ClosedMessage"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Market Closed\",\"tr\":\"Pazar Kapalı\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="MarketPanel/SellPanel/ContentArea/MarketClosedPanel/ClosedMessage"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Footer" type="Control" parent="MarketPanel/SellPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -962.0
+offset_top = -192.0
+offset_right = 962.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Footer\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="RefreshButton" type="Control" parent="MarketPanel/SellPanel/Footer"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+offset_bottom = -50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"RefreshButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MarketPanel/SellPanel/Footer/RefreshButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MarketPanel/SellPanel/Footer/RefreshButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="MarketPanel/SellPanel/Footer/RefreshButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MarketPanel/SellPanel/Footer/RefreshButton"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":1,\"labelColor\":{\"$c\":[0.934,0.897,0.824,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MarketPanel/SellPanel/Footer/RefreshButton"]
+script = ExtResource("10")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Refresh\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":32,\"autoSize\":true,\"minSize\":14,\"maxSize\":32,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MarketPanel/SellPanel/Footer/RefreshButton/Text (TMP)"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Refresh\",\"tr\":\"Yenile\",\"$type\":\"LocalizedText\"}"
+
+[node name="SwitchToShopButton" type="Control" parent="MarketPanel/SellPanel/Footer"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -577.0
+offset_top = -100.0
+offset_right = -127.0
+offset_bottom = -50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"SwitchToShopButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="MarketPanel/SellPanel/Footer/SwitchToShopButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"MarketPanel/SellPanel/Footer/SwitchToShopButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="MarketPanel/SellPanel/Footer/SwitchToShopButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="MarketPanel/SellPanel/Footer/SwitchToShopButton"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":1,\"labelColor\":{\"$c\":[0.934,0.897,0.824,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="MarketPanel/SellPanel/Footer/SwitchToShopButton"]
+script = ExtResource("10")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Switch to Shop Panel\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":32,\"autoSize\":true,\"minSize\":14,\"maxSize\":32,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="MarketPanel/SellPanel/Footer/SwitchToShopButton/Text (TMP)"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Switch to Shop Panel\",\"tr\":\"Mağaza Paneline Geç\",\"$type\":\"LocalizedText\"}"
+
+[node name="GoldRim" type="Control" parent="MarketPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="MarketPanel/GoldRim"]
+script = ExtResource("19")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="MarketPanel/GoldRim"]
+script = ExtResource("20")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UObj.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="2"]
+
+[node name="CurrencyNotification" type="Node2D"]
+script = ExtResource("1")
+visible = true
+metadata/u = "{\"name\":\"CurrencyNotification\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="NotificationText" type="Control" parent="."]
+script = ExtResource("2")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"New Text\",\"color\":[1,1,1,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/TextMesh Pro/Fonts/LiberationSans.ttf\",\"fallbacks\":[\"res://Assets/TextMesh Pro/Fonts/LiberationSans.ttf\"],\"name\":\"LiberationSans SDF.asset\"}},\"name\":\"NotificationText\",\"tag\":\"Untagged\",\"layer\":0}"

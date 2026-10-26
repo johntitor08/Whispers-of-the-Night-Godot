@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/WorldItem.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/UIHoverRegion.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="4"]
+
+[node name="FreshApple" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 250.0
+offset_top = 100.0
+offset_right = 350.0
+offset_bottom = 200.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Item/Ashenveil/3f234117-45b0-4fdb-b65a-0f56c88be4cc-Photoroom.png#3f234117-45b0-4fdb-b65a-0f56c88be4cc-Photoroom_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"FreshApple\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_WorldItem" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"data\":{\"$so\":\"d6b5cac736540b741acc9d945389c9d1\"},\"quantity\":1,\"catalogObjectiveID\":\"q01_obj1\",\"$type\":\"WorldItem\"}"
+
+[node name="FreshAppleRegionHover" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"shape\":{\"color\":[0.8862746,0.18431373,0.23137257,0.11764706],\"order\":3,\"poly\":[[-21.035244,20.14223],[-26.048445,15.174956],[-29.464792,8.695047],[-31.140158,2.2144043],[-31.003319,-3.3046038],[-30.18231,-8.230638],[-27.719332,-14.981122],[-24.708971,-20.59134],[-20.23906,-25.791065],[-16.681366,-28.84703],[-12.7131815,-31.310047],[-8.288823,-32.45035],[-3.864465,-32.45039],[-1.6295092,-32.131123],[3.7982514,-33.18018],[7.025588,-33.19473],[13.10291,-31.538109],[17.98339,-28.527721],[21.951628,-25.334904],[25.463715,-21.275408],[28.428549,-16.486225],[30.836086,-10.527279],[32.123055,-4.5360284],[32.44239,1.3934717],[30.98284,8.189587],[28.406532,13.300034],[24.642834,18.452223],[23.092049,19.683739],[25.737522,22.237976],[27.379541,25.111498],[28.839119,29.398966],[29.842571,31.81638],[32.975636,34.00215],[26.185379,35.845192],[16.098953,35.120026],[10.478088,31.917746],[7.376596,29.131855],[5.88066,25.560978],[5.722602,24.398153],[3.2565079,24.478739],[1.727405,29.516441],[0.21115157,29.780142],[-2.557668,29.054976],[-3.9421034,27.868332],[-3.910018,26.57092],[-2.9977732,24.883295],[-9.0641,24.746456],[-15.723363,22.967585]]},\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"FreshAppleRegionHover\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIHoverRegion" type="Node" parent="FreshAppleRegionHover"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"hoverShape\":{\"$n\":\"FreshAppleRegionHover\",\"type\":\"SpriteShapeRenderer\"},\"spriteShapeController\":{\"$n\":\"FreshAppleRegionHover\",\"type\":\"MonoBehaviour\"},\"hoverCollider\":{\"$n\":\"FreshAppleRegionHover\",\"type\":\"PolygonCollider2D\"},\"maxAlpha\":0.4,\"fadeSpeed\":8,\"$type\":\"UIHoverRegion\"}"
+
+[node name="C_Button" type="Node" parent="FreshAppleRegionHover"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"FreshAppleRegionHover\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"

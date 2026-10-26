@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/RewardItemUI.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="7"]
+
+[node name="RewardItem" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"RewardItem\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_RewardItemUI" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"icon\":{\"$n\":\"Icon\"},\"nameText\":{\"$n\":\"NameText\"},\"amountText\":{\"$n\":\"AmountText\"},\"selectButton\":null,\"selectedIndicator\":null,\"$type\":\"RewardItemUI\"}"
+
+[node name="C_Button" type="Node" parent="."]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":null,\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="Bg" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 96.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.2,0.17,0.146,0.96],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Bg\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="Bg"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="GoldRim" type="Control" parent="Bg"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.35],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="Bg/GoldRim"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="Bg/GoldRim"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.35,\"$type\":\"UIRim\"}"
+
+[node name="NameText" type="Control" parent="."]
+script = ExtResource("7")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -100.0
+offset_top = 12.5
+offset_right = 100.0
+offset_bottom = 37.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Name\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"NameText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="NameText"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Icon" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = 42.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Icon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="AmountText" type="Control" parent="."]
+script = ExtResource("7")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -25.0
+offset_top = -37.5
+offset_right = 25.0
+offset_bottom = -12.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":0,\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"AmountText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="AmountText"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"

@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/QuestTrackerEntry.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/UScrollRect.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/u/UMask.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutGroup.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/u/UContentSizeFitter.gd" id="8"]
+
+[node name="QuestTrackerEntry" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"QuestTrackerEntry\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_QuestTrackerEntry" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"questNameText\":{\"$n\":\"QuestNameText\"},\"objectivesContainer\":{\"$n\":\"ObjectivesParent/Viewport/Content\"},\"objectiveTextPrefab\":{\"$prefab\":\"res://prefabs/ObjectiveText.tscn\",\"node\":\".\"},\"scrollRect\":{\"$n\":\"ObjectivesParent/C_ScrollRect\"},\"$type\":\"QuestTrackerEntry\"}"
+
+[node name="Bg" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -144.0
+offset_right = 144.0
+offset_bottom = 144.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Bg\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="Bg"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="QuestNameText" type="Control" parent="."]
+script = ExtResource("4")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -125.0
+offset_top = 12.5
+offset_right = 125.0
+offset_bottom = 62.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"New Text\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"QuestNameText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ObjectivesParent" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -75.0
+offset_right = 125.0
+offset_bottom = 125.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ChatGPT Image Apr 27, 2026, 01_27_26 PM 1.png#ChatGPT Image Apr 27, 2026, 01_27_26 PM 1_0\"},\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ObjectivesParent\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="ObjectivesParent"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"ObjectivesParent/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"ObjectivesParent/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="Viewport" type="Control" parent="ObjectivesParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="ObjectivesParent/Viewport"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="ObjectivesParent/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_VerticalLayoutGroup" type="Node" parent="ObjectivesParent/Viewport/Content"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":0,\"m_Spacing\":4,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":1,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"VerticalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="ObjectivesParent/Viewport/Content"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":0,\"m_VerticalFit\":2,\"$type\":\"ContentSizeFitter\"}"

@@ -1,0 +1,213 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/u/UAnimator.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/game/UIButtonStyle.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutGroup.gd" id="10"]
+
+[node name="DialogueCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":1,\"override\":false,\"mode\":0},\"name\":\"DialogueCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DialogueBackground" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DialogueBackground\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DialoguePanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -625.0
+offset_top = -375.0
+offset_right = 625.0
+offset_bottom = -25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.95],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DialoguePanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Animator" type="Node" parent="DialoguePanel"]
+script = ExtResource("2")
+metadata/u = "{\"serializedVersion\":7,\"m_Enabled\":1,\"m_Avatar\":null,\"m_Controller\":null,\"m_CullingMode\":0,\"m_UpdateMode\":0,\"m_ApplyRootMotion\":0,\"m_LinearVelocityBlending\":0,\"m_StabilizeFeet\":0,\"m_AnimatePhysics\":0,\"m_WarningMessage\":null,\"m_HasTransformHierarchy\":1,\"m_AllowConstantClipSamplingOptimization\":1,\"m_KeepAnimatorStateOnDisable\":0,\"m_WriteDefaultValuesOnDisable\":0,\"$type\":\"Animator\",\"$anim\":{\"default\":\"DialoguePanelIdle\",\"states\":{\"DialoguePanelClose\":{\"clip\":{\"length\":0.5,\"loop\":false,\"curves\":[{\"path\":\"\",\"attr\":\"m_AnchoredPosition.x\",\"keys\":[[0,0,0,0],[0.5,0,0,0]]},{\"path\":\"\",\"attr\":\"m_AnchoredPosition.y\",\"keys\":[[0,200,0,0],[0.5,0,0,0]]},{\"path\":\"\",\"attr\":\"m_SizeDelta.y\",\"keys\":[[0,350,0,0],[0.5,0,0,0]]},{\"path\":\"SpeakerName\",\"attr\":\"m_fontColor.a\",\"keys\":[[0,1,0,0],[0.25,1,0,0],[0.26666668,0,0,0]]},{\"path\":\"DialogueText\",\"attr\":\"m_fontColor.a\",\"keys\":[[0,1,0,0],[0.25,1,0,0],[0.26666668,0,0,0]]},{\"path\":\"SpeakerPortrait\",\"attr\":\"m_Color.a\",\"keys\":[[0,1,0,0],[0.25,1,0,0],[0.26666668,0,0,0]]}]},\"transitions\":[{\"to\":\"DialoguePanelOpen\",\"conds\":[\"DialoguePanelOpened\"],\"exit\":false,\"exitTime\":0,\"duration\":0}]},\"DialoguePanelIdle\":{\"clip\":{\"length\":1,\"loop\":true,\"curves\":[]},\"transitions\":[{\"to\":\"DialoguePanelOpen\",\"conds\":[\"DialoguePanelOpened\"],\"exit\":false,\"exitTime\":0,\"duration\":0},{\"to\":\"DialoguePanelClose\",\"conds\":[\"DialoguePanelClosed\"],\"exit\":false,\"exitTime\":0.5,\"duration\":0}]},\"DialoguePanelOpen\":{\"clip\":{\"length\":0.5,\"loop\":false,\"curves\":[{\"path\":\"\",\"attr\":\"m_AnchoredPosition.y\",\"keys\":[[0,0,0,0],[0.5,200,0,0]]},{\"path\":\"\",\"attr\":\"m_SizeDelta.y\",\"keys\":[[0,0,0,0],[0.5,350,0,0]]},{\"path\":\"\",\"attr\":\"m_AnchoredPosition.x\",\"keys\":[[0,0,0,0],[0.5,0,0,0]]},{\"path\":\"DialogueText\",\"attr\":\"m_fontColor.a\",\"keys\":[[0,0,0,0],[0.25,0,0,0],[0.26666668,1,0,0]]},{\"path\":\"SpeakerName\",\"attr\":\"m_fontColor.a\",\"keys\":[[0,0,0,0],[0.25,0,0,0],[0.26666668,1,0,0]]},{\"path\":\"SpeakerPortrait\",\"attr\":\"m_Color.a\",\"keys\":[[0,0,0,0],[0.25,0,0,0],[0.26666668,1,0,0]]}]},\"transitions\":[{\"to\":\"DialoguePanelClose\",\"conds\":[\"DialoguePanelClosed\"],\"exit\":false,\"exitTime\":0.5,\"duration\":0}]}},\"any\":[],\"params\":[\"DialoguePanelOpened\",\"DialoguePanelClosed\"]}}"
+
+[node name="C_UIThemeApplier" type="Node" parent="DialoguePanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":13,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="SpeakerName" type="Control" parent="DialoguePanel"]
+script = ExtResource("4")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -250.0
+offset_top = 12.5
+offset_right = 250.0
+offset_bottom = 87.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Serena\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":38,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"SpeakerName\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DialogueText" type="Control" parent="DialoguePanel"]
+script = ExtResource("4")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -500.0
+offset_top = -237.5
+offset_right = 500.0
+offset_bottom = -37.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Hi, Aria! You came in after dark — most travelers never find Ashenveil at night.\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":38,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"DialogueText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="DialoguePanel/DialogueText"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="SpeakerPortrait" type="Control" parent="DialoguePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.5
+anchor_right = 0
+anchor_bottom = 0.5
+offset_left = 62.5
+offset_top = -87.5
+offset_right = 237.5
+offset_bottom = 87.5
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"SpeakerPortrait\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="StartDialogue" type="Control" parent="DialoguePanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -200.0
+offset_top = -112.5
+offset_right = 200.0
+offset_bottom = -37.5
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"StartDialogue\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="DialoguePanel/StartDialogue"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"DialoguePanel/StartDialogue\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="DialoguePanel/StartDialogue"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="DialoguePanel/StartDialogue"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="DialoguePanel/StartDialogue"]
+script = ExtResource("4")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Start Dialogue\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":42,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="GoldRim" type="Control" parent="DialoguePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="DialoguePanel/GoldRim"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="DialoguePanel/GoldRim"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"
+
+[node name="ChoicesPanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.5
+offset_top = -150.0
+offset_right = 462.5
+offset_bottom = 50.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ChoicesPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ChoicesContainer" type="Control" parent="ChoicesPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.5
+offset_top = -100.0
+offset_right = 462.5
+offset_bottom = 100.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ChoicesContainer\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_VerticalLayoutGroup" type="Node" parent="ChoicesPanel/ChoicesContainer"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":0,\"m_ChildForceExpandWidth\":1,\"m_ChildForceExpandHeight\":1,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"VerticalLayoutGroup\"}"

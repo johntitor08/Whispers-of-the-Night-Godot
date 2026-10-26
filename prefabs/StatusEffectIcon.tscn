@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/StatusEffectIcon.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="4"]
+
+[node name="StatusEffectIcon" type="Control"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = -26.0
+offset_top = -32.0
+offset_right = 26.0
+offset_bottom = 32.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"StatusEffectIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_StatusEffectIcon" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"iconImage\":{\"$n\":\"Icon\"},\"backgroundImage\":{\"$n\":\"Bg\"},\"durationText\":{\"$n\":\"DurationText\"},\"stackText\":{\"$n\":\"StackText\"},\"fillImage\":null,\"effectType\":0,\"$type\":\"StatusEffectIcon\"}"
+
+[node name="C_LayoutElement" type="Node" parent="."]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":0,\"m_MinWidth\":52,\"m_MinHeight\":64,\"m_PreferredWidth\":52,\"m_PreferredHeight\":64,\"m_FlexibleWidth\":0,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="Bg" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[0,0,0,0.39215687],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Bg\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Icon" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -20.0
+offset_top = 4
+offset_right = 20.0
+offset_bottom = 44
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Icon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DurationText" type="Control" parent="."]
+script = ExtResource("4")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -20
+offset_right = 0.0
+offset_bottom = -2
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"New Text\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":16,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"DurationText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="StackText" type="Control" parent="."]
+script = ExtResource("4")
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = -30
+offset_top = 0
+offset_right = 0
+offset_bottom = 16
+visible = true
+mouse_filter = 2
+metadata/pivot = [1, 1]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"New Text\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":14,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":4,\"valign\":256,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"StackText\",\"tag\":\"Untagged\",\"layer\":5}"

@@ -1,0 +1,784 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/UIRoundedImage.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/ClickableIcon.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutGroup.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/u/UAnimator.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/u/UContentSizeFitter.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/game/LocalizedText.gd" id="12"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="13"]
+
+[node name="IconCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":1,\"override\":false,\"mode\":0},\"name\":\"IconCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="SettingsIconPanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 7.5
+offset_top = 7.5
+offset_right = 92.5
+offset_bottom = 92.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"SettingsIconPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="SettingsIconPanel"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":0,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="SettingsIconPanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"radius\":42,\"$type\":\"UIRoundedImage\"}"
+
+[node name="SettingsIcon" type="Control" parent="SettingsIconPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_cog.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"SettingsIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="SettingsIconPanel/SettingsIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,0.88,0.62,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="SettingsIconPanel/SettingsIcon"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"SettingsIconPanel/SettingsIcon\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="SettingsIconPanel/SettingsIcon"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="SettingsIconPanel/SettingsIcon"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="IconPanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = 100.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"IconPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="IconPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":25,\"m_Right\":25,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":3,\"m_Spacing\":8,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":1,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_Animator" type="Node" parent="IconPanel"]
+script = ExtResource("8")
+metadata/u = "{\"serializedVersion\":7,\"m_Enabled\":1,\"m_Avatar\":null,\"m_Controller\":null,\"m_CullingMode\":0,\"m_UpdateMode\":0,\"m_ApplyRootMotion\":0,\"m_LinearVelocityBlending\":0,\"m_StabilizeFeet\":0,\"m_AnimatePhysics\":0,\"m_WarningMessage\":null,\"m_HasTransformHierarchy\":1,\"m_AllowConstantClipSamplingOptimization\":1,\"m_KeepAnimatorStateOnDisable\":0,\"m_WriteDefaultValuesOnDisable\":0,\"$type\":\"Animator\",\"$anim\":{\"default\":\"IconPanelIdle\",\"states\":{\"IconPanelOpen\":{\"clip\":{\"length\":0.5,\"loop\":false,\"curves\":[{\"path\":\"\",\"attr\":\"m_AnchoredPosition.y\",\"keys\":[[0,62.5,0,0],[0.5,-62.5,0,0]]}]},\"transitions\":[{\"to\":\"IconPanelClose\",\"conds\":[\"IconPanelClosed\"],\"exit\":false,\"exitTime\":0.5,\"duration\":0}]},\"IconPanelIdle\":{\"clip\":{\"length\":1,\"loop\":true,\"curves\":[]},\"transitions\":[{\"to\":\"IconPanelOpen\",\"conds\":[\"IconPanelOpened\"],\"exit\":false,\"exitTime\":0.75,\"duration\":0},{\"to\":\"IconPanelClose\",\"conds\":[\"IconPanelClosed\"],\"exit\":false,\"exitTime\":0.75,\"duration\":0}]},\"IconPanelClose\":{\"clip\":{\"length\":0.5,\"loop\":false,\"curves\":[{\"path\":\"\",\"attr\":\"m_AnchoredPosition.y\",\"keys\":[[0,-62.5,0,0],[0.5,62.5,0,0]]}]},\"transitions\":[{\"to\":\"IconPanelOpen\",\"conds\":[\"IconPanelOpened\"],\"exit\":false,\"exitTime\":0.5,\"duration\":0}]}},\"any\":[],\"params\":[\"IconPanelOpened\",\"IconPanelClosed\"]}}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":0,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="IconPanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"radius\":48,\"$type\":\"UIRoundedImage\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="IconPanel"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="ProfilePanel" type="Control" parent="IconPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 25.000001
+offset_top = 12.5
+offset_right = 174.959991
+offset_bottom = 87.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ProfilePanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="IconPanel/ProfilePanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":16,\"m_Right\":20,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":10,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":1,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/ProfilePanel"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="IconPanel/ProfilePanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"radius\":37,\"$type\":\"UIRoundedImage\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="IconPanel/ProfilePanel"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="ProfileIcon" type="Control" parent="IconPanel/ProfilePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_cowled.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ProfileIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="IconPanel/ProfilePanel/ProfileIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,0.88,0.62,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="IconPanel/ProfilePanel/ProfileIcon"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"IconPanel/ProfilePanel/ProfileIcon\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="IconPanel/ProfilePanel/ProfileIcon"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/ProfilePanel/ProfileIcon"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_LayoutElement" type="Node" parent="IconPanel/ProfilePanel/ProfileIcon"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":0,\"m_MinWidth\":50,\"m_MinHeight\":-1,\"m_PreferredWidth\":50,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="ProfileText" type="Control" parent="IconPanel/ProfilePanel"]
+script = ExtResource("11")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Profil\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":12,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"ProfileText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="IconPanel/ProfilePanel/ProfileText"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Profile\",\"tr\":\"Profil\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/ProfilePanel/ProfileText"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="InventoryPanel" type="Control" parent="IconPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 182.960005
+offset_top = 12.5
+offset_right = 368.169995
+offset_bottom = 87.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"InventoryPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="IconPanel/InventoryPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":16,\"m_Right\":20,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":10,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":1,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/InventoryPanel"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="IconPanel/InventoryPanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"radius\":37,\"$type\":\"UIRoundedImage\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="IconPanel/InventoryPanel"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="InventoryIcon" type="Control" parent="IconPanel/InventoryPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_backpack.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"InventoryIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="IconPanel/InventoryPanel/InventoryIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,0.88,0.62,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="IconPanel/InventoryPanel/InventoryIcon"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"IconPanel/InventoryPanel/InventoryIcon\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="IconPanel/InventoryPanel/InventoryIcon"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/InventoryPanel/InventoryIcon"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_LayoutElement" type="Node" parent="IconPanel/InventoryPanel/InventoryIcon"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":0,\"m_MinWidth\":50,\"m_MinHeight\":-1,\"m_PreferredWidth\":50,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="InventoryText" type="Control" parent="IconPanel/InventoryPanel"]
+script = ExtResource("11")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Envanter\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":12,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"InventoryText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="IconPanel/InventoryPanel/InventoryText"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Inventory\",\"tr\":\"Envanter\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/InventoryPanel/InventoryText"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="MapPanel" type="Control" parent="IconPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 376.16998
+offset_top = 12.5
+offset_right = 535.27998
+offset_bottom = 87.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"MapPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="IconPanel/MapPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":16,\"m_Right\":20,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":10,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":1,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/MapPanel"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="IconPanel/MapPanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"radius\":37,\"$type\":\"UIRoundedImage\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="IconPanel/MapPanel"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="MapIcon" type="Control" parent="IconPanel/MapPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_treasure-map.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"MapIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="IconPanel/MapPanel/MapIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,0.88,0.62,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="IconPanel/MapPanel/MapIcon"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"IconPanel/MapPanel/MapIcon\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="IconPanel/MapPanel/MapIcon"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/MapPanel/MapIcon"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_LayoutElement" type="Node" parent="IconPanel/MapPanel/MapIcon"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":0,\"m_MinWidth\":50,\"m_MinHeight\":-1,\"m_PreferredWidth\":50,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="MapText" type="Control" parent="IconPanel/MapPanel"]
+script = ExtResource("11")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Harita\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":12,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"MapText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="IconPanel/MapPanel/MapText"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Map\",\"tr\":\"Harita\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/MapPanel/MapText"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CoinPanel" type="Control" parent="IconPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 543.28
+offset_top = 12.5
+offset_right = 682.96
+offset_bottom = 87.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CoinPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="IconPanel/CoinPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":16,\"m_Right\":20,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":10,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":1,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/CoinPanel"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="IconPanel/CoinPanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"radius\":37,\"$type\":\"UIRoundedImage\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="IconPanel/CoinPanel"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="CoinIcon" type="Control" parent="IconPanel/CoinPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_two-coins.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CoinIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="IconPanel/CoinPanel/CoinIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,0.88,0.62,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="IconPanel/CoinPanel/CoinIcon"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"IconPanel/CoinPanel/CoinIcon\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="IconPanel/CoinPanel/CoinIcon"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/CoinPanel/CoinIcon"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_LayoutElement" type="Node" parent="IconPanel/CoinPanel/CoinIcon"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":0,\"m_MinWidth\":50,\"m_MinHeight\":-1,\"m_PreferredWidth\":50,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="CoinText" type="Control" parent="IconPanel/CoinPanel"]
+script = ExtResource("11")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Para\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":12,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"CoinText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="IconPanel/CoinPanel/CoinText"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Coin\",\"tr\":\"Para\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/CoinPanel/CoinText"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="QuestPanel" type="Control" parent="IconPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 690.95996
+offset_top = 12.5
+offset_right = 846.94996
+offset_bottom = 87.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"QuestPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="IconPanel/QuestPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":16,\"m_Right\":20,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":10,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":1,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/QuestPanel"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="IconPanel/QuestPanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"radius\":37,\"$type\":\"UIRoundedImage\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="IconPanel/QuestPanel"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="QuestIcon" type="Control" parent="IconPanel/QuestPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_scroll-unfurled.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"QuestIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="IconPanel/QuestPanel/QuestIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,0.88,0.62,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="IconPanel/QuestPanel/QuestIcon"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"IconPanel/QuestPanel/QuestIcon\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="IconPanel/QuestPanel/QuestIcon"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/QuestPanel/QuestIcon"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_LayoutElement" type="Node" parent="IconPanel/QuestPanel/QuestIcon"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":0,\"m_MinWidth\":50,\"m_MinHeight\":-1,\"m_PreferredWidth\":50,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="QuestText" type="Control" parent="IconPanel/QuestPanel"]
+script = ExtResource("11")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Görev\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":12,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"QuestText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="IconPanel/QuestPanel/QuestText"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Quest\",\"tr\":\"Görev\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/QuestPanel/QuestText"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="GuidePanel" type="Control" parent="IconPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 854.94997
+offset_top = 12.5
+offset_right = 1022.97997
+offset_bottom = 87.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GuidePanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="IconPanel/GuidePanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":16,\"m_Right\":20,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":10,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":1,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/GuidePanel"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="IconPanel/GuidePanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"radius\":37,\"$type\":\"UIRoundedImage\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="IconPanel/GuidePanel"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="QuideIcon" type="Control" parent="IconPanel/GuidePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_open-book.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"QuideIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="IconPanel/GuidePanel/QuideIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,0.88,0.62,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="IconPanel/GuidePanel/QuideIcon"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"IconPanel/GuidePanel/QuideIcon\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="IconPanel/GuidePanel/QuideIcon"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/GuidePanel/QuideIcon"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_LayoutElement" type="Node" parent="IconPanel/GuidePanel/QuideIcon"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":0,\"m_MinWidth\":50,\"m_MinHeight\":-1,\"m_PreferredWidth\":50,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="QuideText" type="Control" parent="IconPanel/GuidePanel"]
+script = ExtResource("11")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Rehber\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":12,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"QuideText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="IconPanel/GuidePanel/QuideText"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Guide\",\"tr\":\"Rehber\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="IconPanel/GuidePanel/QuideText"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="GoldRim" type="Control" parent="IconPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="IconPanel/GoldRim"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="IconPanel/GoldRim"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":48,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"
+
+[node name="DiversionsIconPanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0
+offset_top = -116
+offset_right = 225
+offset_bottom = -16
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DiversionsIconPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="DiversionsIconPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":20,\"m_Right\":20,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":0,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_Animator" type="Node" parent="DiversionsIconPanel"]
+script = ExtResource("8")
+metadata/u = "{\"serializedVersion\":7,\"m_Enabled\":1,\"m_Avatar\":null,\"m_Controller\":null,\"m_CullingMode\":0,\"m_UpdateMode\":0,\"m_ApplyRootMotion\":0,\"m_LinearVelocityBlending\":0,\"m_StabilizeFeet\":0,\"m_AnimatePhysics\":0,\"m_WarningMessage\":null,\"m_HasTransformHierarchy\":1,\"m_AllowConstantClipSamplingOptimization\":1,\"m_KeepAnimatorStateOnDisable\":0,\"m_WriteDefaultValuesOnDisable\":0,\"$type\":\"Animator\",\"$anim\":{\"default\":\"MinigameLauncherPanelIdle\",\"states\":{\"MinigameLauncherPanelClose\":{\"clip\":{\"length\":0.5,\"loop\":false,\"curves\":[{\"path\":\"\",\"attr\":\"m_AnchoredPosition.x\",\"keys\":[[0,15,0,0],[0.5,-245,0,0]]}]},\"transitions\":[{\"to\":\"MinigameLauncherPanelOpen\",\"conds\":[\"MinigameLauncherPanelOpened\"],\"exit\":false,\"exitTime\":0.5,\"duration\":0}]},\"MinigameLauncherPanelIdle\":{\"clip\":{\"length\":1,\"loop\":true,\"curves\":[]},\"transitions\":[{\"to\":\"MinigameLauncherPanelOpen\",\"conds\":[\"MinigameLauncherPanelOpened\"],\"exit\":false,\"exitTime\":0.75,\"duration\":0},{\"to\":\"MinigameLauncherPanelClose\",\"conds\":[\"MinigameLauncherPanelClosed\"],\"exit\":false,\"exitTime\":0.75,\"duration\":0}]},\"MinigameLauncherPanelOpen\":{\"clip\":{\"length\":0.5,\"loop\":false,\"curves\":[{\"path\":\"\",\"attr\":\"m_AnchoredPosition.x\",\"keys\":[[0,-245,0,0],[0.5,15,0,0]]}]},\"transitions\":[{\"to\":\"MinigameLauncherPanelClose\",\"conds\":[\"MinigameLauncherPanelClosed\"],\"exit\":false,\"exitTime\":0.5,\"duration\":0}]}},\"any\":[],\"params\":[\"MinigameLauncherPanelOpened\",\"MinigameLauncherPanelClosed\"]}}"
+
+[node name="C_UIThemeApplier" type="Node" parent="DiversionsIconPanel"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":0,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="DiversionsIconPanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"radius\":48,\"$type\":\"UIRoundedImage\"}"
+
+[node name="DiversionsIcon" type="Control" parent="DiversionsIconPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_jigsaw-piece.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DiversionsIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="DiversionsIconPanel/DiversionsIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,0.88,0.62,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="DiversionsIconPanel/DiversionsIcon"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"DiversionsIconPanel/DiversionsIcon\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="DiversionsIconPanel/DiversionsIcon"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="DiversionsIconPanel/DiversionsIcon"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="MinigameText" type="Control" parent="DiversionsIconPanel"]
+script = ExtResource("11")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = -75.0
+offset_top = -25.0
+offset_right = 75.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Mini Oyun\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":12,\"maxSize\":20,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":3,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"MinigameText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="DiversionsIconPanel/MinigameText"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Minigame\",\"tr\":\"Mini Oyun\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="DiversionsIconPanel/MinigameText"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="GoldRim" type="Control" parent="DiversionsIconPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="DiversionsIconPanel/GoldRim"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="DiversionsIconPanel/GoldRim"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":48,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"

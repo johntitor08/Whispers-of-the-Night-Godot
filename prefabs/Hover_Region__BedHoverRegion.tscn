@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/UIHoverRegion.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="4"]
+
+[node name="BedHoverRegion" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 175.0
+offset_right = 50.0
+offset_bottom = 275.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"shape\":{\"color\":[0.91764706,0.6039216,0.3647059,0.11764706],\"order\":3,\"poly\":[[755.46173,133.39185],[734.72565,146.60321],[656.2818,159.24779],[575.89703,167.54918],[522.405,171.54185],[474.06152,175.67955],[468.0267,177.77698],[420.11258,179.25093],[300.65402,185.21147],[227.03091,191.5949],[191.10448,194.35847],[154.80956,200.62257],[137.46071,200.46753],[127.54573,206.52908],[77.17802,209.46957],[50.216217,215.3634],[-52.489964,212.01839],[-68.58264,252.92056],[-69.92395,358.86398],[-88.6987,357.52292],[-96.745026,348.13553],[-153.73987,346.79446],[-219.45158,368.25137],[-299.91492,385.01456],[-388.42474,388.36728],[-457.48907,378.30936],[-537.9524,352.15878],[-594.2767,340.0893],[-644.5663,338.0777],[-646.5779,351.48825],[-687.31226,352.57092],[-682.0743,162.62904],[-621.01996,158.01778],[-621.16864,146.86337],[-632.1536,145.19466],[-628.9883,-42.461864],[-99.08742,-179.38652],[277.4877,-281.13785],[277.71793,-314.05164],[343.77585,-314.28186],[345.22397,-280.26135],[732.1471,-83.93518],[731.6044,-140.06238],[761.2936,-141.27689],[774.6272,-133.95284],[773.80365,-2.6754522],[789.11786,14.39998],[779.50977,65.29616],[766.7888,113.51022]]},\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"BedHoverRegion\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIHoverRegion" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"hoverShape\":{\"$n\":\".\",\"type\":\"SpriteShapeRenderer\"},\"spriteShapeController\":{\"$n\":\".\",\"type\":\"MonoBehaviour\"},\"hoverCollider\":{\"$n\":\".\",\"type\":\"PolygonCollider2D\"},\"maxAlpha\":0.4,\"fadeSpeed\":8,\"$type\":\"UIHoverRegion\"}"
+
+[node name="C_Button" type="Node" parent="."]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\".\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="."]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"

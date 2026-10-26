@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/UIHoverRegion.gd" id="2"]
+
+[node name="AshenveilQuestRegions" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"shape\":{\"color\":[1,1,1,1],\"order\":0,\"poly\":[[-1,-1],[-1,1],[1,1],[1,-1]]},\"name\":\"AshenveilQuestRegions\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIHoverRegion" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"hoverShape\":{\"$n\":\".\",\"type\":\"SpriteShapeRenderer\"},\"spriteShapeController\":{\"$n\":\".\",\"type\":\"MonoBehaviour\"},\"hoverCollider\":{\"$n\":\".\",\"type\":\"PolygonCollider2D\"},\"maxAlpha\":0.2,\"fadeSpeed\":6,\"$type\":\"UIHoverRegion\"}"

@@ -1,0 +1,603 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/StorySelectionUI.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/PanelDim.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/LocalizedText.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/game/ClickableIcon.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/game/UIButtonStyle.gd" id="12"]
+
+[node name="StoryCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":3,\"override\":false,\"mode\":0},\"name\":\"StoryCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_StorySelectionUI" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"originButtonTemplate\":{\"$n\":\"StoryPanel/MainStoryPanel/OriginAButton/C_Button\"},\"originButtonContainer\":{\"$n\":\"StoryPanel/MainStoryPanel\"},\"buttonSpacing\":70,\"detailPanel\":{\"$n\":\"StoryPanel/StoryAPanel\"},\"detailTitle\":null,\"detailText\":{\"$n\":\"StoryPanel/StoryAPanel/StoryAText\"},\"continueButton\":{\"$n\":\"StoryPanel/StoryAPanel/ContinueButton/C_Button\"},\"mainStoryPanel\":{\"$n\":\"StoryPanel/MainStoryPanel\"},\"originAButton\":{\"$n\":\"StoryPanel/MainStoryPanel/OriginAButton/C_Button\"},\"mainStoryText\":{\"$n\":\"StoryPanel/MainStoryPanel/MainStoryTextPanel/MainStoryText\"},\"originBButton\":{\"$n\":\"StoryPanel/MainStoryPanel/OriginBButton/C_Button\"},\"originCButton\":{\"$n\":\"StoryPanel/MainStoryPanel/OriginCButton/C_Button\"},\"storyAPanel\":{\"$n\":\"StoryPanel/StoryAPanel\"},\"storyBPanel\":{\"$n\":\"StoryPanel/StoryBPanel\"},\"storyCPanel\":{\"$n\":\"StoryPanel/StoryCPanel\"},\"storyAText\":{\"$n\":\"StoryPanel/StoryAPanel/StoryAText\"},\"storyBText\":{\"$n\":\"StoryPanel/StoryBPanel/StoryBText\"},\"storyCText\":{\"$n\":\"StoryPanel/StoryCPanel/StoryCText\"},\"continueAButton\":{\"$n\":\"StoryPanel/StoryAPanel/ContinueButton/C_Button\"},\"continueBButton\":{\"$n\":\"StoryPanel/StoryBPanel/ContinueButton/C_Button\"},\"continueCButton\":{\"$n\":\"StoryPanel/StoryCPanel/ContinueButton/C_Button\"},\"$type\":\"StorySelectionUI\"}"
+
+[node name="StoryPanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -450.0
+offset_right = 650.0
+offset_bottom = 450.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"StoryPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_PanelDim" type="Node" parent="StoryPanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"darkness\":0.7,\"$type\":\"PanelDim\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="StoryPanel"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="MainStoryPanel" type="Control" parent="StoryPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -450.0
+offset_right = 650.0
+offset_bottom = 450.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ChatGPT Image Apr 27, 2026, 01_27_26 PM 1.png#ChatGPT Image Apr 27, 2026, 01_27_26 PM 1_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"MainStoryPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="MainStoryTitle" type="Control" parent="StoryPanel/MainStoryPanel"]
+script = ExtResource("5")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -250.0
+offset_top = 33.0
+offset_right = 250.0
+offset_bottom = 83.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Story of the Game\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"MainStoryTitle\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/MainStoryPanel/MainStoryTitle"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Story of the Game\",\"tr\":\"Oyunun Hikâyesi\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="StoryPanel/MainStoryPanel/MainStoryTitle"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="MainStoryTextPanel" type="Control" parent="StoryPanel/MainStoryPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -500.0
+offset_top = 110.0
+offset_right = 500.0
+offset_bottom = 490.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.2,0.17,0.146,0.96],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"MainStoryTextPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="StoryPanel/MainStoryPanel/MainStoryTextPanel"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="MainStoryText" type="Control" parent="StoryPanel/MainStoryPanel/MainStoryTextPanel"]
+script = ExtResource("5")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -170.0
+offset_right = 470.0
+offset_bottom = 170.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"The world has no name, but it has rules. Once, the world listened to human words and held them binding. After a long period known as the Great Silence, a mysterious figure named Voss introduced a binding \\\"Contract System\\\" to shape reality. But in this new order, every gain demands a hidden, soul-consuming price paid in Axios energy. In Whispers of the Night, players navigate the foggy paths of Ashenveil. At the start of the game, you must choose your origin, determining how you perceive the whispers and how you will face Voss’s inescapable system.\",\"color\":[0.97,0.94,0.88,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":6,\"charSpacing\":5,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"MainStoryText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/MainStoryPanel/MainStoryTextPanel/MainStoryText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"The world has no name, but it has rules. Once, the world listened to human words and held them binding. After a long period known as the Great Silence, a mysterious figure named Voss introduced a binding \\\"Contract System\\\" to shape reality. But in this new order, every gain demands a hidden, soul-consuming price paid in Axios energy. In Whispers of the Night, players navigate the foggy paths of Ashenveil. At the start of the game, you must choose your origin, determining how you perceive the whispers and how you will face Voss’s inescapable system.\",\"tr\":\"Dünyanın bir adı yok ama kuralları var. Bir zamanlar dünya insan sözlerini dinler ve onları bağlayıcı tutardı. Büyük Sessizlik olarak bilinen uzun bir dönemin ardından, Voss adında gizemli bir figür gerçekliği şekillendirmek için bağlayıcı bir \\\"Sözleşme Sistemi\\\" getirdi. Ama bu yeni düzende her kazanç, Axios enerjisiyle ödenen gizli, ruh tüketen bir bedel ister. Whispers of the Night'ta oyuncular Ashenveil'in sisli yollarında ilerler. Oyunun başında kökenini seçmelisin; bu, fısıltıları nasıl algıladığını ve Voss'un kaçınılmaz sistemiyle nasıl yüzleşeceğini belirler.\",\"$type\":\"LocalizedText\"}"
+
+[node name="GoldRim" type="Control" parent="StoryPanel/MainStoryPanel/MainStoryTextPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.35],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="StoryPanel/MainStoryPanel/MainStoryTextPanel/GoldRim"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="StoryPanel/MainStoryPanel/MainStoryTextPanel/GoldRim"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.35,\"$type\":\"UIRim\"}"
+
+[node name="SelectOriginText" type="Control" parent="StoryPanel/MainStoryPanel"]
+script = ExtResource("5")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 90.0
+offset_right = 250.0
+offset_bottom = 140.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Select your origin\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":26,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"SelectOriginText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/MainStoryPanel/SelectOriginText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Select your origin\",\"tr\":\"Kökenini seç\",\"$type\":\"LocalizedText\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="StoryPanel/MainStoryPanel/SelectOriginText"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="OriginAButton" type="Control" parent="StoryPanel/MainStoryPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -310.0
+offset_top = -279.0
+offset_right = 310.0
+offset_bottom = -221.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"OriginAButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="StoryPanel/MainStoryPanel/OriginAButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"StoryPanel/MainStoryPanel/OriginAButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="StoryPanel/MainStoryPanel/OriginAButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[0.38,0.325,0.27,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIClickSound" type="Node" parent="StoryPanel/MainStoryPanel/OriginAButton"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="StoryPanel/MainStoryPanel/OriginAButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="StoryPanel/MainStoryPanel/OriginAButton"]
+script = ExtResource("5")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Origin A - The Bound Archivist\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":true,\"minSize\":14,\"maxSize\":24,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/MainStoryPanel/OriginAButton/Text (TMP)"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Origin A - The Bound Archivist\",\"tr\":\"Köken A - Bağlı Arşivci\",\"$type\":\"LocalizedText\"}"
+
+[node name="OriginBButton" type="Control" parent="StoryPanel/MainStoryPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -310.0
+offset_top = -191.5
+offset_right = 310.0
+offset_bottom = -133.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"OriginBButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="StoryPanel/MainStoryPanel/OriginBButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"StoryPanel/MainStoryPanel/OriginBButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="StoryPanel/MainStoryPanel/OriginBButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[0.38,0.325,0.27,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIClickSound" type="Node" parent="StoryPanel/MainStoryPanel/OriginBButton"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="StoryPanel/MainStoryPanel/OriginBButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="StoryPanel/MainStoryPanel/OriginBButton"]
+script = ExtResource("5")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Origin B - The Foreign Echo\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":true,\"minSize\":14,\"maxSize\":24,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/MainStoryPanel/OriginBButton/Text (TMP)"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Origin B - The Foreign Echo\",\"tr\":\"Köken B - Yabancı Yankı\",\"$type\":\"LocalizedText\"}"
+
+[node name="OriginCButton" type="Control" parent="StoryPanel/MainStoryPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -310.0
+offset_top = -104.0
+offset_right = 310.0
+offset_bottom = -46.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"OriginCButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="StoryPanel/MainStoryPanel/OriginCButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"StoryPanel/MainStoryPanel/OriginCButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="StoryPanel/MainStoryPanel/OriginCButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[0.38,0.325,0.27,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIClickSound" type="Node" parent="StoryPanel/MainStoryPanel/OriginCButton"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="StoryPanel/MainStoryPanel/OriginCButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="StoryPanel/MainStoryPanel/OriginCButton"]
+script = ExtResource("5")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Origin C - The Sinned Guardian\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":true,\"minSize\":14,\"maxSize\":24,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/MainStoryPanel/OriginCButton/Text (TMP)"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Origin C - The Sinned Guardian\",\"tr\":\"Köken C - Günahkâr Muhafız\",\"$type\":\"LocalizedText\"}"
+
+[node name="StoryAPanel" type="Control" parent="StoryPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -450.0
+offset_right = 650.0
+offset_bottom = 450.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ChatGPT Image Apr 27, 2026, 01_27_26 PM 1.png#ChatGPT Image Apr 27, 2026, 01_27_26 PM 1_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"StoryAPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="StoryAText" type="Control" parent="StoryPanel/StoryAPanel"]
+script = ExtResource("5")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -530.0
+offset_top = -330.0
+offset_right = 530.0
+offset_bottom = 230.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Story A - The Bound Archivist:\\n\\nYou were a keeper of records in Eyes of Wisdom's archive - until a sealed contract file bore your name. Not as author. As subject. Voss signed you into his system before you were born. You carry the archive's knowledge and its deepest secret: the location of Voss's first contract.\\n\\nWhisper: \\\"Every record has a keeper. Every keeper has a price.\\\"\\n\\nStats: MANA 90 · RP 85 · ATK 45 · HP 55\",\"color\":[0.97,0.94,0.88,1],\"vertexColor\":[1,1,1,1],\"fontSize\":26,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":6,\"charSpacing\":0,\"wordSpacing\":5,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"StoryAText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/StoryAPanel/StoryAText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Story A - The Bound Archivist:\\n\\nYou were a keeper of records in Eyes of Wisdom's archive - until a sealed contract file bore your name. Not as author. As subject. Voss signed you into his system before you were born. You carry the archive's knowledge and its deepest secret: the location of Voss's first contract.\\n\\nWhisper: \\\"Every record has a keeper. Every keeper has a price.\\\"\\n\\nStats: MANA 90 · RP 85 · ATK 45 · HP 55\",\"tr\":\"Köken A - Bağlı Arşivci:\\n\\nEyes of Wisdom'ın arşivinde bir kayıt bekçisiydin — ta ki mühürlü bir sözleşme dosyası senin adını taşıyana dek. Yazar olarak değil. Konu olarak. Voss seni doğmadan önce sistemine imzaladı. Arşivin bilgisini ve en derin sırrını taşıyorsun: Voss'un ilk sözleşmesinin yerini.\\n\\nFısıltı: \\\"Her kaydın bir bekçisi vardır. Her bekçinin bir bedeli.\\\"\\n\\nİstatistikler: MANA 90 · RP 85 · ATK 45 · HP 55\",\"$type\":\"LocalizedText\"}"
+
+[node name="ContinueButton" type="Control" parent="StoryPanel/StoryAPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -120.0
+offset_top = -153.0
+offset_right = 120.0
+offset_bottom = -97.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ContinueButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="StoryPanel/StoryAPanel/ContinueButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"StoryPanel/StoryAPanel/ContinueButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="StoryPanel/StoryAPanel/ContinueButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[0.86,0.74,0.52,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIClickSound" type="Node" parent="StoryPanel/StoryAPanel/ContinueButton"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="StoryPanel/StoryAPanel/ContinueButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="StoryPanel/StoryAPanel/ContinueButton"]
+script = ExtResource("5")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Continue\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":18,\"maxSize\":28,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/StoryAPanel/ContinueButton/Text (TMP)"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Continue\",\"tr\":\"Devam Et\",\"$type\":\"LocalizedText\"}"
+
+[node name="StoryBPanel" type="Control" parent="StoryPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -450.0
+offset_right = 650.0
+offset_bottom = 450.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ChatGPT Image Apr 27, 2026, 01_27_26 PM 1.png#ChatGPT Image Apr 27, 2026, 01_27_26 PM 1_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"StoryBPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="StoryBText" type="Control" parent="StoryPanel/StoryBPanel"]
+script = ExtResource("5")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -530.0
+offset_top = -330.0
+offset_right = 530.0
+offset_bottom = 230.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Story B - The Foreign Echo:\\n\\nYou arrived in Ashenveil from a dimension you can no longer name. The crossing left you fractured - you exist between spaces, hearing whispers no one else can. You don't know why Ashenveil pulled you here. But every whisper carries the same name: Voss. A stranger in every world - which makes you the only one who can see the system from outside.\\n\\nWhisper: \\\"You are not from here. That is exactly why you matter.\\\"\\n\\nStats: SPD 90 · MANA 80 · ATK 55 · HP 40\",\"color\":[0.97,0.94,0.88,1],\"vertexColor\":[1,1,1,1],\"fontSize\":26,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":6,\"charSpacing\":0,\"wordSpacing\":5,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"StoryBText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/StoryBPanel/StoryBText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Story B - The Foreign Echo:\\n\\nYou arrived in Ashenveil from a dimension you can no longer name. The crossing left you fractured - you exist between spaces, hearing whispers no one else can. You don't know why Ashenveil pulled you here. But every whisper carries the same name: Voss. A stranger in every world - which makes you the only one who can see the system from outside.\\n\\nWhisper: \\\"You are not from here. That is exactly why you matter.\\\"\\n\\nStats: SPD 90 · MANA 80 · ATK 55 · HP 40\",\"tr\":\"Köken B - Yabancı Yankı:\\n\\nArtık adını koyamadığın bir boyuttan Ashenveil'e geldin. Geçiş seni parçaladı — mekânlar arasında var oluyorsun, başkasının duyamadığı fısıltıları duyuyorsun. Ashenveil'in seni buraya neden çektiğini bilmiyorsun. Ama her fısıltı aynı adı taşıyor: Voss. Her dünyada bir yabancı — bu da seni sistemi dışarıdan görebilen tek kişi yapıyor.\\n\\nFısıltı: \\\"Buralı değilsin. İşte tam da bu yüzden önemlisin.\\\"\\n\\nİstatistikler: SPD 90 · MANA 80 · ATK 55 · HP 40\",\"$type\":\"LocalizedText\"}"
+
+[node name="ContinueButton" type="Control" parent="StoryPanel/StoryBPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -120.0
+offset_top = -153.0
+offset_right = 120.0
+offset_bottom = -97.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ContinueButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="StoryPanel/StoryBPanel/ContinueButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"StoryPanel/StoryBPanel/ContinueButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="StoryPanel/StoryBPanel/ContinueButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[0.86,0.74,0.52,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIClickSound" type="Node" parent="StoryPanel/StoryBPanel/ContinueButton"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="StoryPanel/StoryBPanel/ContinueButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="StoryPanel/StoryBPanel/ContinueButton"]
+script = ExtResource("5")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Continue\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":18,\"maxSize\":28,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/StoryBPanel/ContinueButton/Text (TMP)"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Continue\",\"tr\":\"Devam Et\",\"$type\":\"LocalizedText\"}"
+
+[node name="StoryCPanel" type="Control" parent="StoryPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -450.0
+offset_right = 650.0
+offset_bottom = 450.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ChatGPT Image Apr 27, 2026, 01_27_26 PM 1.png#ChatGPT Image Apr 27, 2026, 01_27_26 PM 1_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"StoryCPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="StoryCText" type="Control" parent="StoryPanel/StoryCPanel"]
+script = ExtResource("5")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -530.0
+offset_top = -330.0
+offset_right = 530.0
+offset_bottom = 230.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Story C - The Sinned Guardian:\\n\\nYou were Ashenveil's protector - until you made a deal with Voss to save the village from plague. The village survived. Three families did not. You chose them. Shadow Garden recruited you not for your strength - but for your guilt.\\n\\nWhisper: \\\"The ones you gave away - they are still out there. Voss does not destroy. He collects.\\\" - Maren\\n\\nStats: HP 85 · ATK 80 · DEF 65 · MANA 35\",\"color\":[0.97,0.94,0.88,1],\"vertexColor\":[1,1,1,1],\"fontSize\":26,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":6,\"charSpacing\":0,\"wordSpacing\":5,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"StoryCText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/StoryCPanel/StoryCText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Story C - The Sinned Guardian:\\n\\nYou were Ashenveil's protector - until you made a deal with Voss to save the village from plague. The village survived. Three families did not. You chose them. Shadow Garden recruited you not for your strength - but for your guilt.\\n\\nWhisper: \\\"The ones you gave away - they are still out there. Voss does not destroy. He collects.\\\" - Maren\\n\\nStats: HP 85 · ATK 80 · DEF 65 · MANA 35\",\"tr\":\"Köken C - Günahkâr Muhafız:\\n\\nAshenveil'in koruyucusuydun — ta ki köyü vebadan kurtarmak için Voss'la bir anlaşma yapana dek. Köy hayatta kaldı. Üç aile kalmadı. Onları sen seçtin. Shadow Garden seni gücün için değil — suçluluğun için topladı.\\n\\nFısıltı: \\\"Verdiğin kişiler — hâlâ dışarıdalar. Voss yok etmez. Toplar.\\\" - Maren\\n\\nİstatistikler: HP 85 · ATK 80 · DEF 65 · MANA 35\",\"$type\":\"LocalizedText\"}"
+
+[node name="ContinueButton" type="Control" parent="StoryPanel/StoryCPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -120.0
+offset_top = -153.0
+offset_right = 120.0
+offset_bottom = -97.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ContinueButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="StoryPanel/StoryCPanel/ContinueButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"StoryPanel/StoryCPanel/ContinueButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="StoryPanel/StoryCPanel/ContinueButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[0.86,0.74,0.52,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIClickSound" type="Node" parent="StoryPanel/StoryCPanel/ContinueButton"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="StoryPanel/StoryCPanel/ContinueButton"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="StoryPanel/StoryCPanel/ContinueButton"]
+script = ExtResource("5")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Continue\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":18,\"maxSize\":28,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="StoryPanel/StoryCPanel/ContinueButton/Text (TMP)"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Continue\",\"tr\":\"Devam Et\",\"$type\":\"LocalizedText\"}"
+
+[node name="GoldRim" type="Control" parent="StoryPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="StoryPanel/GoldRim"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="StoryPanel/GoldRim"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"

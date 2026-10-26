@@ -1,0 +1,170 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/TimeUI.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/USlider.gd" id="5"]
+
+[node name="ModernTimeCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":2,\"override\":false,\"mode\":0},\"name\":\"ModernTimeCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_TimeUI" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"phaseText\":{\"$n\":\"TimePanel/TimePhaseText\"},\"dayCounterText\":{\"$n\":\"TimePanel/DayCounter\"},\"phaseIcon\":{\"$n\":\"TimePanel/TimePhaseIcon\"},\"progressBar\":{\"$n\":\"TimePanel/TimeBar/C_Slider\"},\"morningIcon\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_sunrise.png\"},\"noonIcon\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_sun.png\"},\"eveningIcon\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_sun-cloud.png\"},\"nightIcon\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_moon.png\"},\"showDayCounter\":1,\"showProgressBar\":1,\"animateTransitions\":1,\"$type\":\"TimeUI\"}"
+
+[node name="TimePanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -395.0
+offset_top = -75.0
+offset_right = 55.0
+offset_bottom = 275.0
+scale = Vector2(0.0, 0.0)
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Asset Store/Gentleland/SteampunkUI/Art/Steampunk_UI_Alternative_Colors_1.png#Steampunk_UI_Alternative_Colors_1_6\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"TimePanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ForeGround" type="Control" parent="TimePanel"]
+script = ExtResource("1")
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -450.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = 350.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Asset Store/Gentleland/SteampunkUI/Art/Steampunk_UI_Alternative_Colors_1.png#Steampunk_UI_Alternative_Colors_1_5\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ForeGround\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="TimePhaseIcon" type="Control" parent="TimePanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = -42.5
+offset_right = -47.5
+offset_bottom = 32.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_sunrise.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"TimePhaseIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="TimePanel/TimePhaseIcon"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="DayCounter" type="Control" parent="TimePanel"]
+script = ExtResource("4")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -100.0
+offset_top = -145.0
+offset_right = 100.0
+offset_bottom = -95.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Day 1\",\"color\":[1,1,1,1],\"vertexColor\":[1,1,1,1],\"fontSize\":42,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"DayCounter\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="TimePhaseText" type="Control" parent="TimePanel"]
+script = ExtResource("4")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -47.5
+offset_right = 95.0
+offset_bottom = 27.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Morning\",\"color\":[1,1,1,1],\"vertexColor\":[1,1,1,1],\"fontSize\":52,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"TimePhaseText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="TimeBar" type="Control" parent="TimePanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -212.5
+offset_top = -75.0
+offset_right = 212.5
+offset_bottom = -45.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"TimeBar\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Slider" type="Node" parent="TimePanel/TimeBar"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":0,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":0,\"m_TargetGraphic\":null,\"m_FillRect\":{\"$n\":\"TimePanel/TimeBar/Fill\"},\"m_HandleRect\":null,\"m_Direction\":0,\"m_MinValue\":0,\"m_MaxValue\":1,\"m_WholeNumbers\":0,\"m_Value\":0.121,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"Slider\"}"
+
+[node name="BackGround" type="Control" parent="TimePanel/TimeBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Asset Store/Gentleland/SteampunkUI/Art/Steampunk_UI_Alternative_Colors_5.png#Steampunk_UI_Alternative_Colors_5_1\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"BackGround\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Fill" type="Control" parent="TimePanel/TimeBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Asset Store/Gentleland/SteampunkUI/Art/Steampunk_UI_Loading_Bars.png#Steampunk_UI_Loading_Bars_1\"},\"color\":[1,1,1,1],\"type\":3,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":0,\"fillAmount\":0.121,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Fill\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ForeGround" type="Control" parent="TimePanel/TimeBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Asset Store/Gentleland/SteampunkUI/Art/Steampunk_UI_Alternative_Colors_1.png#Steampunk_UI_Alternative_Colors_1_1\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ForeGround\",\"tag\":\"Untagged\",\"layer\":5}"

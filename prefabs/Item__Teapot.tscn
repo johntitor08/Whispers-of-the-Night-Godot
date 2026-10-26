@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/UIHoverRegion.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="4"]
+
+[node name="Teapot" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 40.0
+offset_right = 25.0
+offset_bottom = 140.0
+scale = Vector2(1.5, 1.5)
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/item_teapot_00001_.png\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Teapot\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="TeapotHoverRegion" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"shape\":{\"color\":[0.6862745,0.054901965,0.07450981,0],\"order\":3,\"poly\":[[-2.543668,31.817802],[-6.354686,31.255432],[-11.50518,29.141987],[-15.4476795,27.133545],[-19.092632,24.604393],[-19.01822,22.29841],[-16.861004,20.141193],[-16.563457,17.68643],[-18.845695,17.228666],[-22.440012,15.008506],[-26.159346,12.404972],[-29.134817,9.057565],[-31.58958,5.6357775],[-33.151707,2.3627567],[-33.077316,0.5030898],[-34.19312,0.27992904],[-35.680855,1.7676643],[-38.879486,6.751577],[-39.28362,8.3298435],[-43.113182,8.282349],[-46.754192,7.0366154],[-48.15153,4.980674],[-44.858482,3.37507],[-43.169827,1.6906571],[-41.642338,-1.5011216],[-40.794895,-6.4770746],[-39.512016,-10.147682],[-38.073406,-12.681654],[-34.039307,-16.329914],[-28.441998,-18.014942],[-24.844358,-21.491793],[-15.81066,-26.575974],[-17.377811,-28.438158],[-16.278648,-32.145752],[-11.996933,-35.67939],[-5.3177342,-37.80692],[2.731923,-38.567783],[10.03085,-37.687847],[15.780867,-36.111233],[20.0348,-32.947147],[21.94069,-30.220184],[21.741058,-27.597597],[19.914124,-25.83604],[25.139977,-22.47812],[30.582306,-17.562674],[32.99064,-13.779312],[34.20505,-11.208962],[36.1343,-10.516619],[37.27116,-8.486817],[36.733532,-6.973333],[35.36229,-6.6106863],[35.90592,-3.8833106],[39.940205,3.582432],[40.913994,7.0602536],[41.006737,11.140907],[40.311172,14.989708],[38.966408,18.235683],[36.780674,20.38565],[33.362873,22.10134],[29.388775,22.33342],[26.762144,20.85935],[24.948729,18.561005],[23.298618,18.106699],[21.87911,16.685427],[19.777143,17.492567],[16.97975,17.851755],[16.794613,18.900627],[17.53516,20.558802],[19.218355,22.348469],[19.353613,24.24694],[17.189299,26.085598],[11.201682,29.174395],[5.997671,31.384993],[2.3856783,31.94619],[2.5072272,32.866577],[3.4668357,34.22995],[2.2577403,35.21253],[3.4048507,38.303143],[-0.25112393,43.33569],[-3.8246744,37.621227],[-2.4356685,35.43628],[-3.4507794,34.11868]]},\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"TeapotHoverRegion\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIHoverRegion" type="Node" parent="TeapotHoverRegion"]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"hoverShape\":{\"$n\":\"TeapotHoverRegion\",\"type\":\"SpriteShapeRenderer\"},\"spriteShapeController\":{\"$n\":\"TeapotHoverRegion\",\"type\":\"MonoBehaviour\"},\"hoverCollider\":{\"$n\":\"TeapotHoverRegion\",\"type\":\"PolygonCollider2D\"},\"maxAlpha\":0.4,\"fadeSpeed\":8,\"$type\":\"UIHoverRegion\"}"
+
+[node name="C_Button" type="Node" parent="TeapotHoverRegion"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"TeapotHoverRegion\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="TeapotHoverRegion"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"

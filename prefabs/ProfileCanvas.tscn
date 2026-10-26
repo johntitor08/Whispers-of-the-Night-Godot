@@ -1,0 +1,1715 @@
+[gd_scene load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/ProfileUI.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/u/UCanvasGroup.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/UIPanelAnimator.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/game/PanelDim.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/game/PanelHeader.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/game/UIButtonStyle.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="12"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="13"]
+[ext_resource type="Script" path="res://scripts/game/UIRoundedImage.gd" id="14"]
+[ext_resource type="Script" path="res://scripts/u/USlider.gd" id="15"]
+
+[node name="ProfileCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":4,\"override\":false,\"mode\":0},\"name\":\"ProfileCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ProfileUI" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"profilePanel\":{\"$n\":\"ProfilePanel\"},\"playerNameText\":{\"$n\":\"ProfilePanel/Header/PlayerNameText\"},\"levelText\":{\"$n\":\"ProfilePanel/Header/LevelText\"},\"currencyText\":{\"$n\":\"ProfilePanel/Footer/CurrencyText\"},\"expText\":{\"$n\":\"ProfilePanel/Footer/ExpBar/ExpText\"},\"expBar\":{\"$n\":\"ProfilePanel/Footer/ExpBar/C_Slider\"},\"statPointsText\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/StatPointText\"},\"profileIcon\":{\"$n\":\"ProfilePanel/EquipmentPanel/CharacterImage\"},\"healthBar\":{\"$n\":\"ProfilePanel/Footer/HealthBar/C_Slider\"},\"healthText\":{\"$n\":\"ProfilePanel/Footer/HealthBar/HealthText\"},\"healthFillImage\":{\"$n\":\"ProfilePanel/Footer/HealthBar/Fill Area/Fill\"},\"healthHighColor\":{\"$c\":[0.45,0.7,0.42,1]},\"healthMediumColor\":{\"$c\":[0.784,0.659,0.431,1]},\"healthLowColor\":{\"$c\":[0.78,0.34,0.3,1]},\"energyBar\":{\"$n\":\"ProfilePanel/Footer/EnergyBar/C_Slider\"},\"energyText\":{\"$n\":\"ProfilePanel/Footer/EnergyBar/EnergyText\"},\"energyFillImage\":{\"$n\":\"ProfilePanel/Footer/EnergyBar/Fill Area/Fill\"},\"energyColor\":{\"$c\":[0.42,0.6,0.86,1]},\"strengthText\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/StrengthPanel/StrengthText\"},\"intelligenceText\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/IntelligencePanel/IntelligenceText\"},\"charismaText\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/CharismaPanel/CharismaText\"},\"defenseText\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/DefensePanel/DefenseText\"},\"speedText\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/SpeedPanel/SpeedText\"},\"luckText\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/LuckPanel/LuckText\"},\"powerScoreText\":{\"$n\":\"ProfilePanel/Header/PowerScoreText\"},\"strengthIncrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/StrengthPanel/IncrementButton/C_Button\"},\"intelligenceIncrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/IntelligencePanel/IncrementButton/C_Button\"},\"charismaIncrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/CharismaPanel/IncrementButton/C_Button\"},\"defenseIncrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/DefensePanel/IncrementButton/C_Button\"},\"speedIncrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/SpeedPanel/IncrementButton/C_Button\"},\"luckIncrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/LuckPanel/IncrementButton/C_Button\"},\"strengthDecrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/StrengthPanel/DecrementButton/C_Button\"},\"intelligenceDecrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/IntelligencePanel/DecrementButton/C_Button\"},\"charismaDecrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/CharismaPanel/DecrementButton/C_Button\"},\"defenseDecrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/DefensePanel/DecrementButton/C_Button\"},\"speedDecrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/SpeedPanel/DecrementButton/C_Button\"},\"luckDecrementButton\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/LuckPanel/DecrementButton/C_Button\"},\"incrementButtonDefault\":null,\"incrementButtonAvailable\":null,\"slot1\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot1/C_Button\"},\"slot1Icon\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot1/EqıipmentItem1\"},\"slot2\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot2/C_Button\"},\"slot2Icon\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot2/EqıipmentItem2\"},\"slot3\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot3/C_Button\"},\"slot3Icon\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot3/EqıipmentItem3\"},\"slot4\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot4/C_Button\"},\"slot4Icon\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot4/EqıipmentItem4\"},\"slot5\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot5/C_Button\"},\"slot5Icon\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot5/EqıipmentItem5\"},\"slot6\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot6/C_Button\"},\"slot6Icon\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot6/EqıipmentItem6\"},\"commonBorder\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ProfileBackground.png#ProfileBackground_0\"},\"rareBorder\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/RareItemBG.png#RareItemBG_0\"},\"epicBorder\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/EpicItemBG.png#EpicItemBG_0\"},\"legendaryBorder\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/LegendaryItemBG.png#LegendaryItemBG_0\"},\"godlyBorder\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/GodItemBG.png#GodItemBG_0\"},\"emptyBorder\":null,\"emptySlotColor\":{\"$c\":[0.16,0.138,0.12,1]},\"toggleKey\":112,\"iconDatabase\":{\"$so\":\"27f200bf27b72db4e8136c9f273853e0\"},\"$type\":\"ProfileUI\"}"
+
+[node name="ProfilePanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -457.0
+offset_right = 375.0
+offset_bottom = 457.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ProfilePanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CanvasGroup" type="Node" parent="ProfilePanel"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"m_Alpha\":1,\"m_Interactable\":1,\"m_BlocksRaycasts\":1,\"m_IgnoreParentGroups\":0,\"$type\":\"CanvasGroup\"}"
+
+[node name="C_UIPanelAnimator" type="Node" parent="ProfilePanel"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"duration\":0.15,\"animateScale\":1,\"startScale\":0.95,\"$type\":\"UIPanelAnimator\"}"
+
+[node name="C_PanelDim" type="Node" parent="ProfilePanel"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":0,\"darkness\":0.7,\"$type\":\"PanelDim\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="PanelHeader" type="Control" parent="ProfilePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0.0
+offset_top = 0
+offset_right = 0.0
+offset_bottom = 64
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.2,0.17,0.146,0.96],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"PanelHeader\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/PanelHeader"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_PanelHeader" type="Node" parent="ProfilePanel/PanelHeader"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"titleEn\":\"Profile\",\"titleTr\":\"Profil\",\"titleLabel\":{\"$n\":\"ProfilePanel/PanelHeader/Title\"},\"closeButton\":{\"$n\":\"ProfilePanel/PanelHeader/CloseButton/C_Button\"},\"closeTarget\":{\"$n\":\"ProfilePanel\"},\"onClose\":{\"$event\":[]},\"$type\":\"PanelHeader\"}"
+
+[node name="Title" type="Control" parent="ProfilePanel/PanelHeader"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 34.0
+offset_top = -0.0
+offset_right = -68.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Panel\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":false,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Title\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="CloseButton" type="Control" parent="ProfilePanel/PanelHeader"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -54
+offset_top = -22.0
+offset_right = -10
+offset_bottom = 22.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [1, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CloseButton\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/PanelHeader/CloseButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/PanelHeader/CloseButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/PanelHeader/CloseButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":1,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/PanelHeader/CloseButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"X\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":14,\"maxSize\":30,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":false,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="Hairline" type="Control" parent="ProfilePanel/PanelHeader"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 16.0
+offset_top = -2
+offset_right = -16.0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.2],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Hairline\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/PanelHeader/Hairline"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":11,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="GoldRim" type="Control" parent="ProfilePanel/PanelHeader"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.35],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_LayoutElement" type="Node" parent="ProfilePanel/PanelHeader/GoldRim"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="ProfilePanel/PanelHeader/GoldRim"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.35,\"$type\":\"UIRim\"}"
+
+[node name="Header" type="Control" parent="ProfilePanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -375.0
+offset_top = 64.0
+offset_right = 375.0
+offset_bottom = 239.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ChatGPT Image Apr 27, 2026, 01_27_26 PM 1.png#ChatGPT Image Apr 27, 2026, 01_27_26 PM 1_0\"},\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Header\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerNameText" type="Control" parent="ProfilePanel/Header"]
+script = ExtResource("8")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -250.0
+offset_top = 25.0
+offset_right = 250.0
+offset_bottom = 75.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Player\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"PlayerNameText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Header/PlayerNameText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="LevelText" type="Control" parent="ProfilePanel/Header"]
+script = ExtResource("8")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -0.0
+offset_right = 100.0
+offset_bottom = 30.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Level: 1\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"LevelText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Header/LevelText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="PowerScoreText" type="Control" parent="ProfilePanel/Header"]
+script = ExtResource("8")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = -20.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Power Score: 0\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"PowerScoreText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Header/PowerScoreText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="EquipmentPanel" type="Control" parent="ProfilePanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -218.0
+offset_right = 300.0
+offset_bottom = 182.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.2,0.17,0.146,0.96],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EquipmentPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/EquipmentPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CharacterImage" type="Control" parent="ProfilePanel/EquipmentPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -112.5
+offset_top = -0.0
+offset_right = 112.5
+offset_bottom = 400.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Characters/MainCharacter.png#MainCharacter_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CharacterImage\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EquipmentSlot1" type="Control" parent="ProfilePanel/EquipmentPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 50.0
+offset_top = 25.0
+offset_right = 150.0
+offset_bottom = 125.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EquipmentSlot1\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot1"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot1\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot1"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot1"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":12,\"$type\":\"UIRoundedImage\"}"
+
+[node name="EqıipmentItem1" type="Control" parent="ProfilePanel/EquipmentPanel/EquipmentSlot1"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EqıipmentItem1\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EquipmentSlot2" type="Control" parent="ProfilePanel/EquipmentPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.5
+anchor_right = 0
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EquipmentSlot2\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot2"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot2\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot2"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot2"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":12,\"$type\":\"UIRoundedImage\"}"
+
+[node name="EqıipmentItem2" type="Control" parent="ProfilePanel/EquipmentPanel/EquipmentSlot2"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EqıipmentItem2\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EquipmentSlot3" type="Control" parent="ProfilePanel/EquipmentPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 50.0
+offset_top = -125.0
+offset_right = 150.0
+offset_bottom = -25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EquipmentSlot3\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot3"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot3\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot3"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot3"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":12,\"$type\":\"UIRoundedImage\"}"
+
+[node name="EqıipmentItem3" type="Control" parent="ProfilePanel/EquipmentPanel/EquipmentSlot3"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EqıipmentItem3\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EquipmentSlot4" type="Control" parent="ProfilePanel/EquipmentPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = -150.0
+offset_top = 25.0
+offset_right = -50.0
+offset_bottom = 125.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EquipmentSlot4\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot4"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot4\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot4"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot4"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":12,\"$type\":\"UIRoundedImage\"}"
+
+[node name="EqıipmentItem4" type="Control" parent="ProfilePanel/EquipmentPanel/EquipmentSlot4"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EqıipmentItem4\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EquipmentSlot5" type="Control" parent="ProfilePanel/EquipmentPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = -50.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EquipmentSlot5\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot5"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot5\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot5"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot5"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":12,\"$type\":\"UIRoundedImage\"}"
+
+[node name="EqıipmentItem5" type="Control" parent="ProfilePanel/EquipmentPanel/EquipmentSlot5"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EqıipmentItem5\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EquipmentSlot6" type="Control" parent="ProfilePanel/EquipmentPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -150.0
+offset_top = -125.0
+offset_right = -50.0
+offset_bottom = -25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EquipmentSlot6\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot6"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/EquipmentPanel/EquipmentSlot6\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot6"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/EquipmentPanel/EquipmentSlot6"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":12,\"$type\":\"UIRoundedImage\"}"
+
+[node name="EqıipmentItem6" type="Control" parent="ProfilePanel/EquipmentPanel/EquipmentSlot6"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EqıipmentItem6\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="GoldRim" type="Control" parent="ProfilePanel/EquipmentPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.35],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="ProfilePanel/EquipmentPanel/GoldRim"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="ProfilePanel/EquipmentPanel/GoldRim"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.35,\"$type\":\"UIRim\"}"
+
+[node name="Footer" type="Control" parent="ProfilePanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -375.0
+offset_top = -275.0
+offset_right = 375.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ChatGPT Image Apr 27, 2026, 01_27_26 PM 1.png#ChatGPT Image Apr 27, 2026, 01_27_26 PM 1_0\"},\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Footer\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="StatsPanel" type="Control" parent="ProfilePanel/Footer"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -500.0
+offset_top = -275.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ChatGPT Image Apr 27, 2026, 01_27_26 PM 1.png#ChatGPT Image Apr 27, 2026, 01_27_26 PM 1_0\"},\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"StatsPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="StrengthPanel" type="Control" parent="ProfilePanel/Footer/StatsPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 30.5
+offset_top = 30.0
+offset_right = 244.5
+offset_bottom = 70.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"StrengthPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="StrengthText" type="Control" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 12
+offset_top = -0.0
+offset_right = -72
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Güç: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":15,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"StrengthText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel/StrengthText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="IncrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -14.0
+offset_right = -4.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"IncrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel/IncrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/StrengthPanel/IncrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel/IncrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel/IncrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel/IncrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"+\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DecrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -14.0
+offset_right = -36.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DecrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel/DecrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/StrengthPanel/DecrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel/DecrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel/DecrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/StrengthPanel/DecrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"-\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="IntelligencePanel" type="Control" parent="ProfilePanel/Footer/StatsPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = -244.5
+offset_top = 30.0
+offset_right = -30.5
+offset_bottom = 70.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"IntelligencePanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="IntelligenceText" type="Control" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 12
+offset_top = -0.0
+offset_right = -72
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Zekâ: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":15,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"IntelligenceText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel/IntelligenceText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="IncrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -14.0
+offset_right = -4.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"IncrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel/IncrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/IntelligencePanel/IncrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel/IncrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel/IncrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel/IncrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"+\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DecrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -14.0
+offset_right = -36.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DecrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel/DecrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/IntelligencePanel/DecrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel/DecrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel/DecrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/IntelligencePanel/DecrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"-\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="CharismaPanel" type="Control" parent="ProfilePanel/Footer/StatsPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.5
+anchor_right = 0
+anchor_bottom = 0.5
+offset_left = 30.5
+offset_top = -45.0
+offset_right = 244.5
+offset_bottom = -5.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CharismaPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CharismaText" type="Control" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 12
+offset_top = -0.0
+offset_right = -72
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Karizma: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":15,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CharismaText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel/CharismaText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="IncrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -14.0
+offset_right = -4.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"IncrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel/IncrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/CharismaPanel/IncrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel/IncrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel/IncrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"+\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DecrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -14.0
+offset_right = -36.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DecrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel/DecrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/CharismaPanel/DecrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel/DecrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel/DecrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/CharismaPanel/DecrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"-\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DefensePanel" type="Control" parent="ProfilePanel/Footer/StatsPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -244.5
+offset_top = -45.0
+offset_right = -30.5
+offset_bottom = -5.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DefensePanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/DefensePanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="DefenseText" type="Control" parent="ProfilePanel/Footer/StatsPanel/DefensePanel"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 12
+offset_top = -0.0
+offset_right = -72
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Savunma: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":15,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"DefenseText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/DefensePanel/DefenseText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="IncrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/DefensePanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -14.0
+offset_right = -4.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"IncrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/DefensePanel/IncrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/DefensePanel/IncrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/DefensePanel/IncrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/DefensePanel/IncrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/DefensePanel/IncrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"+\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DecrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/DefensePanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -14.0
+offset_right = -36.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DecrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/DefensePanel/DecrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/DefensePanel/DecrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/DefensePanel/DecrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/DefensePanel/DecrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/DefensePanel/DecrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"-\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="SpeedPanel" type="Control" parent="ProfilePanel/Footer/StatsPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 30.5
+offset_top = -120.0
+offset_right = 244.5
+offset_bottom = -80.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"SpeedPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="SpeedText" type="Control" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 12
+offset_top = -0.0
+offset_right = -72
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Hız: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":15,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"SpeedText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel/SpeedText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="IncrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -14.0
+offset_right = -4.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"IncrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel/IncrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/SpeedPanel/IncrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel/IncrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel/IncrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel/IncrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"+\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DecrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -14.0
+offset_right = -36.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DecrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel/DecrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/SpeedPanel/DecrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel/DecrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel/DecrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/SpeedPanel/DecrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"-\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="LuckPanel" type="Control" parent="ProfilePanel/Footer/StatsPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -244.5
+offset_top = -120.0
+offset_right = -30.5
+offset_bottom = -80.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"LuckPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/LuckPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="LuckText" type="Control" parent="ProfilePanel/Footer/StatsPanel/LuckPanel"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 12
+offset_top = -0.0
+offset_right = -72
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Şans: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":15,\"maxSize\":20,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"LuckText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/LuckPanel/LuckText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="IncrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/LuckPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -14.0
+offset_right = -4.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"IncrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/LuckPanel/IncrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/LuckPanel/IncrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/LuckPanel/IncrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/LuckPanel/IncrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/LuckPanel/IncrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"+\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="DecrementButton" type="Control" parent="ProfilePanel/Footer/StatsPanel/LuckPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -14.0
+offset_right = -36.0
+offset_bottom = 14.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"DecrementButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="ProfilePanel/Footer/StatsPanel/LuckPanel/DecrementButton"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"ProfilePanel/Footer/StatsPanel/LuckPanel/DecrementButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="ProfilePanel/Footer/StatsPanel/LuckPanel/DecrementButton"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="ProfilePanel/Footer/StatsPanel/LuckPanel/DecrementButton"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":0,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="ProfilePanel/Footer/StatsPanel/LuckPanel/DecrementButton"]
+script = ExtResource("8")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"-\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":22,\"autoSize\":true,\"minSize\":14,\"maxSize\":22,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="StatPointText" type="Control" parent="ProfilePanel/Footer/StatsPanel"]
+script = ExtResource("8")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -350.0
+offset_top = -55.0
+offset_right = -150.0
+offset_bottom = -25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Stat Points: 0\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"StatPointText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/StatsPanel/StatPointText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="HealthBar" type="Control" parent="ProfilePanel/Footer"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 25.0
+offset_top = 62.5
+offset_right = 225.0
+offset_bottom = 87.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"HealthBar\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Slider" type="Node" parent="ProfilePanel/Footer/HealthBar"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":0,\"m_TargetGraphic\":null,\"m_FillRect\":{\"$n\":\"ProfilePanel/Footer/HealthBar/Fill Area/Fill\"},\"m_HandleRect\":null,\"m_Direction\":0,\"m_MinValue\":0,\"m_MaxValue\":1,\"m_WholeNumbers\":0,\"m_Value\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"Slider\"}"
+
+[node name="Background" type="Control" parent="ProfilePanel/Footer/HealthBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Background\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/HealthBar/Background"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/Footer/HealthBar/Background"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Fill Area" type="Control" parent="ProfilePanel/Footer/HealthBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = -8e-06
+offset_top = -0.0
+offset_right = 8e-06
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Fill Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Fill" type="Control" parent="ProfilePanel/Footer/HealthBar/Fill Area"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 10.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.45,0.7,0.42,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Fill\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/Footer/HealthBar/Fill Area/Fill"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Handle Slide Area" type="Control" parent="ProfilePanel/Footer/HealthBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Handle Slide Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="HealthText" type="Control" parent="ProfilePanel/Footer/HealthBar"]
+script = ExtResource("8")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -100.0
+offset_top = -55.0
+offset_right = 100.0
+offset_bottom = -25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Health: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"HealthText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/HealthBar/HealthText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="EnergyBar" type="Control" parent="ProfilePanel/Footer"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.5
+anchor_right = 0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -0.0
+offset_right = 225.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"EnergyBar\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Slider" type="Node" parent="ProfilePanel/Footer/EnergyBar"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":0,\"m_TargetGraphic\":null,\"m_FillRect\":{\"$n\":\"ProfilePanel/Footer/EnergyBar/Fill Area/Fill\"},\"m_HandleRect\":null,\"m_Direction\":0,\"m_MinValue\":0,\"m_MaxValue\":1,\"m_WholeNumbers\":0,\"m_Value\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"Slider\"}"
+
+[node name="Background" type="Control" parent="ProfilePanel/Footer/EnergyBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Background\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/EnergyBar/Background"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/Footer/EnergyBar/Background"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Fill Area" type="Control" parent="ProfilePanel/Footer/EnergyBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = -8e-06
+offset_top = -0.0
+offset_right = 8e-06
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Fill Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Fill" type="Control" parent="ProfilePanel/Footer/EnergyBar/Fill Area"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 10.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.42,0.6,0.86,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Fill\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/Footer/EnergyBar/Fill Area/Fill"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Handle Slide Area" type="Control" parent="ProfilePanel/Footer/EnergyBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Handle Slide Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EnergyText" type="Control" parent="ProfilePanel/Footer/EnergyBar"]
+script = ExtResource("8")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -100.0
+offset_top = -55.0
+offset_right = 100.0
+offset_bottom = -25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Energy: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"EnergyText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/EnergyBar/EnergyText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ExpBar" type="Control" parent="ProfilePanel/Footer"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 25.0
+offset_top = -62.5
+offset_right = 225.0
+offset_bottom = -37.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"ExpBar\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Slider" type="Node" parent="ProfilePanel/Footer/ExpBar"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":0,\"m_TargetGraphic\":null,\"m_FillRect\":{\"$n\":\"ProfilePanel/Footer/ExpBar/Fill Area/Fill\"},\"m_HandleRect\":null,\"m_Direction\":0,\"m_MinValue\":0,\"m_MaxValue\":1,\"m_WholeNumbers\":0,\"m_Value\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"Slider\"}"
+
+[node name="Background" type="Control" parent="ProfilePanel/Footer/ExpBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Background\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/ExpBar/Background"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/Footer/ExpBar/Background"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Fill Area" type="Control" parent="ProfilePanel/Footer/ExpBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 8e-06
+offset_top = -0.0
+offset_right = -8e-06
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Fill Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Fill" type="Control" parent="ProfilePanel/Footer/ExpBar/Fill Area"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 10.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Fill\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRoundedImage" type="Node" parent="ProfilePanel/Footer/ExpBar/Fill Area/Fill"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Handle Slide Area" type="Control" parent="ProfilePanel/Footer/ExpBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Handle Slide Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ExpText" type="Control" parent="ProfilePanel/Footer/ExpBar"]
+script = ExtResource("8")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -100.0
+offset_top = -55.0
+offset_right = 100.0
+offset_bottom = -25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"0/100 EXP\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"ExpText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/ExpBar/ExpText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CurrencyText" type="Control" parent="ProfilePanel/Footer"]
+script = ExtResource("8")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -100.0
+offset_top = -55.0
+offset_right = 100.0
+offset_bottom = -25.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Currency: 0\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"CurrencyText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="ProfilePanel/Footer/CurrencyText"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="GoldRim" type="Control" parent="ProfilePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="ProfilePanel/GoldRim"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="ProfilePanel/GoldRim"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"

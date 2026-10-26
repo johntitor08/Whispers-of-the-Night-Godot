@@ -1,0 +1,1331 @@
+[gd_scene load_steps=21 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/QuestUI.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/QuestTrackerUI.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/QuestRewardUI.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/u/UCanvasGroup.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/UIPanelAnimator.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/game/PanelDim.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/u/UScrollRect.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/u/UMask.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutGroup.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/u/UContentSizeFitter.gd" id="12"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="13"]
+[ext_resource type="Script" path="res://scripts/game/LocalizedText.gd" id="14"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="15"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="16"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="17"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="18"]
+[ext_resource type="Script" path="res://scripts/game/UIButtonStyle.gd" id="19"]
+[ext_resource type="Script" path="res://scripts/game/PanelHeader.gd" id="20"]
+
+[node name="QuestCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":3,\"override\":false,\"mode\":0},\"name\":\"QuestCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_QuestUI" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"questPanel\":{\"$n\":\"QuestPanel\"},\"questLogPanel\":{\"$n\":\"QuestPanel/QuestLogPanel\"},\"questDetailsPanel\":{\"$n\":\"QuestPanel/QuestDetailsPanel\"},\"activeQuestsContainer\":{\"$n\":\"QuestPanel/QuestLogPanel/ActiveQuestsParent/Viewport/Content\"},\"availableQuestsContainer\":{\"$n\":\"QuestPanel/QuestLogPanel/AvailableQuestsParent/Viewport/Content\"},\"completedQuestsContainer\":{\"$n\":\"QuestPanel/QuestLogPanel/CompletedQuestsParent/Viewport/Content\"},\"questSlotPrefab\":{\"$prefab\":\"res://prefabs/QuestSlot.tscn\",\"node\":\"C_QuestSlotUI\"},\"activeQuestsScrollRect\":{\"$n\":\"QuestPanel/QuestLogPanel/ActiveQuestsParent/C_ScrollRect\"},\"availableQuestsScrollRect\":{\"$n\":\"QuestPanel/QuestLogPanel/AvailableQuestsParent/C_ScrollRect\"},\"completedQuestsScrollRect\":{\"$n\":\"QuestPanel/QuestLogPanel/CompletedQuestsParent/C_ScrollRect\"},\"maxLogPanelWidth\":730,\"questTitleText\":{\"$n\":\"QuestPanel/QuestDetailsPanel/QuestTitleText\"},\"questDescriptionText\":{\"$n\":\"QuestPanel/QuestDetailsPanel/QuestDescText\"},\"questTypeText\":{\"$n\":\"QuestPanel/QuestDetailsPanel/QuestTypeText\"},\"questIcon\":{\"$n\":\"QuestPanel/QuestDetailsPanel/QuestIcon\"},\"objectivesContainer\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ObjectivesParent/Viewport/Content\"},\"objectivePrefab\":{\"$prefab\":\"res://prefabs/QuestObjective.tscn\",\"node\":\"C_QuestObjectiveUI\"},\"rewardsContainer\":{\"$n\":\"QuestPanel/QuestDetailsPanel/RewardsParent/Viewport/Content\"},\"rewardItemPrefab\":{\"$prefab\":\"res://prefabs/RewardItem.tscn\",\"node\":\"C_RewardItemUI\"},\"acceptButton\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ButtonRow/AcceptButton/C_Button\"},\"abandonButton\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ButtonRow/AbandonButton/C_Button\"},\"trackButton\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ButtonRow/TrackButton/C_Button\"},\"objectivesScrollRect\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ObjectivesParent/C_ScrollRect\"},\"rewardsScrollRect\":{\"$n\":\"QuestPanel/QuestDetailsPanel/RewardsParent/C_ScrollRect\"},\"experienceIcon\":{\"$spr\":\"Assets/Sprite/Icon/QuestGlyphs/qg_reward_experience.png\"},\"maxDetailsHeight\":300,\"toggleKey\":113,\"$type\":\"QuestUI\"}"
+
+[node name="C_QuestTrackerUI" type="Node" parent="."]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"trackerPanel\":{\"$n\":\"QuestPanel/QuestTrackerPanel\"},\"trackedQuestsContainer\":{\"$n\":\"QuestPanel/QuestTrackerPanel/TrackedQuestsParent/Viewport/Content\"},\"trackerEntryPrefab\":{\"$prefab\":\"res://prefabs/QuestTrackerEntry.tscn\",\"node\":\"C_QuestTrackerEntry\"},\"maxTrackedQuests\":3,\"closeButton\":{\"$n\":\"QuestPanel/QuestTrackerPanel/CloseButton/C_Button\"},\"autoTrackNewQuests\":1,\"persistAcrossScenes\":0,\"isPanelHiddenByUser\":0,\"parentScrollRect\":{\"$n\":\"QuestPanel/QuestTrackerPanel/TrackedQuestsParent/C_ScrollRect\"},\"maxParentHeight\":700,\"$type\":\"QuestTrackerUI\"}"
+
+[node name="C_QuestRewardUI" type="Node" parent="."]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"rewardPanel\":{\"$n\":\"QuestPanel/QuestRewardPanel\"},\"titleText\":{\"$n\":\"QuestPanel/QuestRewardPanel/TitleText\"},\"questNameText\":{\"$n\":\"QuestPanel/QuestRewardPanel/QuestNameText\"},\"rewardsContainer\":{\"$n\":\"QuestPanel/QuestRewardPanel/RewardsContainer/Viewport/Content\"},\"rewardItemPrefab\":{\"$prefab\":\"res://prefabs/RewardItem.tscn\",\"node\":\"C_RewardItemUI\"},\"closeButton\":{\"$n\":\"QuestPanel/QuestRewardPanel/CloseButton/C_Button\"},\"optionalRewardsContainer\":null,\"optionalRewardsLabel\":null,\"rewardsScrollRect\":{\"$n\":\"QuestPanel/QuestRewardPanel/RewardsContainer/C_ScrollRect\"},\"optionalRewardsScrollRect\":null,\"maxRewardsHeight\":300,\"displayDuration\":5,\"completionTitle\":\"Quest Complete!\",\"$type\":\"QuestRewardUI\"}"
+
+[node name="QuestPanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -432.0
+offset_right = 800.0
+offset_bottom = 432.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"QuestPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CanvasGroup" type="Node" parent="QuestPanel"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Alpha\":1,\"m_Interactable\":1,\"m_BlocksRaycasts\":1,\"m_IgnoreParentGroups\":0,\"$type\":\"CanvasGroup\"}"
+
+[node name="C_UIPanelAnimator" type="Node" parent="QuestPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"duration\":0.15,\"animateScale\":1,\"startScale\":0.95,\"$type\":\"UIPanelAnimator\"}"
+
+[node name="C_PanelDim" type="Node" parent="QuestPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":0,\"darkness\":0.7,\"$type\":\"PanelDim\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="QuestLogPanel" type="Control" parent="QuestPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 20.0
+offset_top = 76.0
+offset_right = 750.0
+offset_bottom = 848.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"QuestLogPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CanvasGroup" type="Node" parent="QuestPanel/QuestLogPanel"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Alpha\":1,\"m_Interactable\":1,\"m_BlocksRaycasts\":1,\"m_IgnoreParentGroups\":0,\"$type\":\"CanvasGroup\"}"
+
+[node name="C_UIPanelAnimator" type="Node" parent="QuestPanel/QuestLogPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"duration\":0.15,\"animateScale\":1,\"startScale\":0.95,\"$type\":\"UIPanelAnimator\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/QuestLogPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ActiveQuestsParent" type="Control" parent="QuestPanel/QuestLogPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 730.0
+offset_bottom = 250.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ActiveQuestsParent\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"QuestPanel/QuestLogPanel/ActiveQuestsParent/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"QuestPanel/QuestLogPanel/ActiveQuestsParent/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="Viewport" type="Control" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 38
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent/Viewport"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 250
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent/Viewport/Content"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":0,\"m_Spacing\":0,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent/Viewport/Content"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="SectionCaption" type="Control" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 24.0
+offset_top = 6
+offset_right = -16.0
+offset_bottom = 36
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Active\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":false,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"SectionCaption\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_LocalizedText" type="Node" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent/SectionCaption"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Active\",\"tr\":\"Aktif\",\"$type\":\"LocalizedText\"}"
+
+[node name="CaptionHairline" type="Control" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 16.0
+offset_top = 36
+offset_right = -16.0
+offset_bottom = 38
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.2],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CaptionHairline\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/QuestLogPanel/ActiveQuestsParent/CaptionHairline"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":11,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="AvailableQuestsParent" type="Control" parent="QuestPanel/QuestLogPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.5
+anchor_right = 0
+anchor_bottom = 0.5
+offset_left = 0.0
+offset_top = -125.0
+offset_right = 730.0
+offset_bottom = 125.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"AvailableQuestsParent\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"QuestPanel/QuestLogPanel/AvailableQuestsParent/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"QuestPanel/QuestLogPanel/AvailableQuestsParent/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="Viewport" type="Control" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 38
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent/Viewport"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 250
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent/Viewport/Content"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":0,\"m_Spacing\":0,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent/Viewport/Content"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="SectionCaption" type="Control" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 24.0
+offset_top = 6
+offset_right = -16.0
+offset_bottom = 36
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Available\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":false,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"SectionCaption\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_LocalizedText" type="Node" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent/SectionCaption"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Available\",\"tr\":\"Mevcut\",\"$type\":\"LocalizedText\"}"
+
+[node name="CaptionHairline" type="Control" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 16.0
+offset_top = 36
+offset_right = -16.0
+offset_bottom = 38
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.2],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CaptionHairline\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/QuestLogPanel/AvailableQuestsParent/CaptionHairline"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":11,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CompletedQuestsParent" type="Control" parent="QuestPanel/QuestLogPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -250.0
+offset_right = 730.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CompletedQuestsParent\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"QuestPanel/QuestLogPanel/CompletedQuestsParent/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"QuestPanel/QuestLogPanel/CompletedQuestsParent/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="Viewport" type="Control" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 38
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent/Viewport"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 250
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent/Viewport/Content"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":0,\"m_Spacing\":0,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent/Viewport/Content"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="SectionCaption" type="Control" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 24.0
+offset_top = 6
+offset_right = -16.0
+offset_bottom = 36
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Completed\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":false,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"SectionCaption\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_LocalizedText" type="Node" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent/SectionCaption"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Completed\",\"tr\":\"Tamamlanan\",\"$type\":\"LocalizedText\"}"
+
+[node name="CaptionHairline" type="Control" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 16.0
+offset_top = 36
+offset_right = -16.0
+offset_bottom = 38
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.2],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CaptionHairline\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/QuestLogPanel/CompletedQuestsParent/CaptionHairline"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":11,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="GoldRim" type="Control" parent="QuestPanel/QuestLogPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="QuestPanel/QuestLogPanel/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="QuestPanel/QuestLogPanel/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"
+
+[node name="QuestDetailsPanel" type="Control" parent="QuestPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -38.0
+offset_top = 76.0
+offset_right = 452.0
+offset_bottom = 848.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.2,0.17,0.146,0.96],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"QuestDetailsPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CanvasGroup" type="Node" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"m_Alpha\":1,\"m_Interactable\":1,\"m_BlocksRaycasts\":1,\"m_IgnoreParentGroups\":0,\"$type\":\"CanvasGroup\"}"
+
+[node name="C_UIPanelAnimator" type="Node" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"duration\":0.15,\"animateScale\":1,\"startScale\":0.95,\"$type\":\"UIPanelAnimator\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="InfoFrame" type="Control" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -310.0
+offset_right = 225.0
+offset_bottom = 6.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"InfoFrame\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/QuestDetailsPanel/InfoFrame"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="GoldRim" type="Control" parent="QuestPanel/QuestDetailsPanel/InfoFrame"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="QuestPanel/QuestDetailsPanel/InfoFrame/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="QuestPanel/QuestDetailsPanel/InfoFrame/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"
+
+[node name="QuestTitleText" type="Control" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("13")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -200.0
+offset_top = 17.0
+offset_right = 200.0
+offset_bottom = 67.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Title\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"QuestTitleText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="QuestDescText" type="Control" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("13")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -220.0
+offset_right = 205.0
+offset_bottom = -136.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Lorem ipsum.\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":15,\"maxSize\":20,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"QuestDescText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="QuestTypeText" type="Control" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("13")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -114.0
+offset_right = 205.0
+offset_bottom = -10.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Type\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":17,\"autoSize\":true,\"minSize\":13,\"maxSize\":17,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":18,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"QuestTypeText \",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="QuestIcon" type="Control" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -298.0
+offset_right = 36.0
+offset_bottom = -226.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"QuestIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ObjectivesParent" type="Control" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.5
+anchor_right = 0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = 75.0
+offset_right = 225.0
+offset_bottom = 275.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ObjectivesParent\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="QuestPanel/QuestDetailsPanel/ObjectivesParent"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ObjectivesParent/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ObjectivesParent/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="Viewport" type="Control" parent="QuestPanel/QuestDetailsPanel/ObjectivesParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="QuestPanel/QuestDetailsPanel/ObjectivesParent/Viewport"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="QuestPanel/QuestDetailsPanel/ObjectivesParent/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_VerticalLayoutGroup" type="Node" parent="QuestPanel/QuestDetailsPanel/ObjectivesParent/Viewport/Content"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":0,\"m_Spacing\":0,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"VerticalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="QuestPanel/QuestDetailsPanel/ObjectivesParent/Viewport/Content"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":0,\"m_VerticalFit\":2,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="RewardsParent" type="Control" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = 75.0
+offset_right = -25.0
+offset_bottom = 275.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0,0,0,0],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"RewardsParent\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="QuestPanel/QuestDetailsPanel/RewardsParent"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"QuestPanel/QuestDetailsPanel/RewardsParent/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"QuestPanel/QuestDetailsPanel/RewardsParent/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="Viewport" type="Control" parent="QuestPanel/QuestDetailsPanel/RewardsParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="QuestPanel/QuestDetailsPanel/RewardsParent/Viewport"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="QuestPanel/QuestDetailsPanel/RewardsParent/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_VerticalLayoutGroup" type="Node" parent="QuestPanel/QuestDetailsPanel/RewardsParent/Viewport/Content"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":0,\"m_Spacing\":0,\"m_ChildForceExpandWidth\":1,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"VerticalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="QuestPanel/QuestDetailsPanel/RewardsParent/Viewport/Content"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":0,\"m_VerticalFit\":2,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="ButtonRow" type="Control" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 20.0
+offset_top = -71.0
+offset_right = -20.0
+offset_bottom = -29.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"ButtonRow\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":14,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="AcceptButton" type="Control" parent="QuestPanel/QuestDetailsPanel/ButtonRow"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 4.0
+offset_top = -71.0
+offset_right = 164.0
+offset_bottom = -29.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"AcceptButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AcceptButton"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ButtonRow/AcceptButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AcceptButton"]
+script = ExtResource("18")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AcceptButton"]
+script = ExtResource("19")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":1,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":20,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AcceptButton"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Accept\",\"color\":[0.934,0.897,0.824,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":14,\"maxSize\":20,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AcceptButton/Text (TMP)"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Accept\",\"tr\":\"Kabul Et\",\"$type\":\"LocalizedText\"}"
+
+[node name="AbandonButton" type="Control" parent="QuestPanel/QuestDetailsPanel/ButtonRow"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -80.0
+offset_top = -71.0
+offset_right = 80.0
+offset_bottom = -29.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"AbandonButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AbandonButton"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ButtonRow/AbandonButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AbandonButton"]
+script = ExtResource("18")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AbandonButton"]
+script = ExtResource("19")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":20,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AbandonButton"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Abandon\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":14,\"maxSize\":20,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/AbandonButton/Text (TMP)"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Abandon\",\"tr\":\"Vazgeç\",\"$type\":\"LocalizedText\"}"
+
+[node name="TrackButton" type="Control" parent="QuestPanel/QuestDetailsPanel/ButtonRow"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -164.0
+offset_top = -71.0
+offset_right = -4.0
+offset_bottom = -29.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"TrackButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/TrackButton"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"QuestPanel/QuestDetailsPanel/ButtonRow/TrackButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/TrackButton"]
+script = ExtResource("18")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/TrackButton"]
+script = ExtResource("19")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":0,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":20,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="QuestPanel/QuestDetailsPanel/ButtonRow/TrackButton"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Track\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":14,\"maxSize\":20,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="QuestPanel/QuestDetailsPanel/ButtonRow/TrackButton/Text (TMP)"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Track\",\"tr\":\"Takip Et\",\"$type\":\"LocalizedText\"}"
+
+[node name="GoldRim" type="Control" parent="QuestPanel/QuestDetailsPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.35],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="QuestPanel/QuestDetailsPanel/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="QuestPanel/QuestDetailsPanel/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.35,\"$type\":\"UIRim\"}"
+
+[node name="QuestTrackerPanel" type="Control" parent="QuestPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = -336.0
+offset_top = 76.0
+offset_right = -20.0
+offset_bottom = 848.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.2,0.17,0.146,0.96],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"QuestTrackerPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/QuestTrackerPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="TrackedQuestsParent" type="Control" parent="QuestPanel/QuestTrackerPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -150.0
+offset_top = 3e-05
+offset_right = 150.0
+offset_bottom = 700.00003
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Figma/Backgrounds/ChatGPT Image Apr 27, 2026, 01_27_26 PM 1.png#ChatGPT Image Apr 27, 2026, 01_27_26 PM 1_0\"},\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"TrackedQuestsParent\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="QuestPanel/QuestTrackerPanel/TrackedQuestsParent"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"QuestPanel/QuestTrackerPanel/TrackedQuestsParent/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"QuestPanel/QuestTrackerPanel/TrackedQuestsParent/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="Viewport" type="Control" parent="QuestPanel/QuestTrackerPanel/TrackedQuestsParent"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="QuestPanel/QuestTrackerPanel/TrackedQuestsParent/Viewport"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="QuestPanel/QuestTrackerPanel/TrackedQuestsParent/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = -50
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_VerticalLayoutGroup" type="Node" parent="QuestPanel/QuestTrackerPanel/TrackedQuestsParent/Viewport/Content"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":0,\"m_Spacing\":0,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"VerticalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="QuestPanel/QuestTrackerPanel/TrackedQuestsParent/Viewport/Content"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":0,\"m_VerticalFit\":2,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="CloseButton" type="Control" parent="QuestPanel/QuestTrackerPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -80.0
+offset_top = -71.0
+offset_right = 80.0
+offset_bottom = -29.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CloseButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="QuestPanel/QuestTrackerPanel/CloseButton"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"QuestPanel/QuestTrackerPanel/CloseButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="QuestPanel/QuestTrackerPanel/CloseButton"]
+script = ExtResource("18")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="QuestPanel/QuestTrackerPanel/CloseButton"]
+script = ExtResource("19")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":1,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":20,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="QuestPanel/QuestTrackerPanel/CloseButton"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Close\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":14,\"maxSize\":20,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="QuestPanel/QuestTrackerPanel/CloseButton/Text (TMP)"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Close\",\"tr\":\"Kapat\",\"$type\":\"LocalizedText\"}"
+
+[node name="GoldRim" type="Control" parent="QuestPanel/QuestTrackerPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.35],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="QuestPanel/QuestTrackerPanel/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="QuestPanel/QuestTrackerPanel/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.35,\"$type\":\"UIRim\"}"
+
+[node name="QuestRewardPanel" type="Control" parent="QuestPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = -336.0
+offset_top = 76.0
+offset_right = -20.0
+offset_bottom = 848.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.2,0.17,0.146,0.96],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"QuestRewardPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/QuestRewardPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="TitleText" type="Control" parent="QuestPanel/QuestRewardPanel"]
+script = ExtResource("13")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -125.0
+offset_top = 25.0
+offset_right = 125.0
+offset_bottom = 75.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Title\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"TitleText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="QuestNameText" type="Control" parent="QuestPanel/QuestRewardPanel"]
+script = ExtResource("13")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -125.0
+offset_top = 100.0
+offset_right = 125.0
+offset_bottom = 150.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Name\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"QuestNameText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="RewardsContainer" type="Control" parent="QuestPanel/QuestRewardPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 300.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"RewardsContainer\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ScrollRect" type="Node" parent="QuestPanel/QuestRewardPanel/RewardsContainer"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"QuestPanel/QuestRewardPanel/RewardsContainer/Viewport/Content\"},\"m_Horizontal\":1,\"m_Vertical\":1,\"m_MovementType\":1,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":1,\"m_Viewport\":{\"$n\":\"QuestPanel/QuestRewardPanel/RewardsContainer/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":2,\"m_VerticalScrollbarVisibility\":2,\"m_HorizontalScrollbarSpacing\":-3,\"m_VerticalScrollbarSpacing\":-3,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/QuestRewardPanel/RewardsContainer"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":10,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Viewport" type="Control" parent="QuestPanel/QuestRewardPanel/RewardsContainer"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Mask" type="Node" parent="QuestPanel/QuestRewardPanel/RewardsContainer/Viewport"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_ShowMaskGraphic\":0,\"$type\":\"Mask\"}"
+
+[node name="Content" type="Control" parent="QuestPanel/QuestRewardPanel/RewardsContainer/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 1]
+metadata/u = "{\"name\":\"Content\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_VerticalLayoutGroup" type="Node" parent="QuestPanel/QuestRewardPanel/RewardsContainer/Viewport/Content"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":0,\"m_Spacing\":0,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"VerticalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="QuestPanel/QuestRewardPanel/RewardsContainer/Viewport/Content"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":0,\"m_VerticalFit\":2,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="CloseButton" type="Control" parent="QuestPanel/QuestRewardPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -80.0
+offset_top = -71.0
+offset_right = 80.0
+offset_bottom = -29.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CloseButton\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="QuestPanel/QuestRewardPanel/CloseButton"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"QuestPanel/QuestRewardPanel/CloseButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="QuestPanel/QuestRewardPanel/CloseButton"]
+script = ExtResource("18")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="QuestPanel/QuestRewardPanel/CloseButton"]
+script = ExtResource("19")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":1,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":0,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":20,\"overrideButtonColor\":0,\"buttonColor\":{\"$c\":[1,1,1,1]},\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="QuestPanel/QuestRewardPanel/CloseButton"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Close\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":14,\"maxSize\":20,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[12,2,12,2],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="QuestPanel/QuestRewardPanel/CloseButton/Text (TMP)"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Close\",\"tr\":\"Kapat\",\"$type\":\"LocalizedText\"}"
+
+[node name="GoldRim" type="Control" parent="QuestPanel/QuestRewardPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":false,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.35],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="QuestPanel/QuestRewardPanel/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="QuestPanel/QuestRewardPanel/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.35,\"$type\":\"UIRim\"}"
+
+[node name="PanelHeader" type="Control" parent="QuestPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 0.0
+offset_top = 0
+offset_right = 0.0
+offset_bottom = 64
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.2,0.17,0.146,0.96],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"PanelHeader\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/PanelHeader"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_PanelHeader" type="Node" parent="QuestPanel/PanelHeader"]
+script = ExtResource("20")
+metadata/u = "{\"m_Enabled\":1,\"titleEn\":\"Quests\",\"titleTr\":\"Görevler\",\"titleLabel\":{\"$n\":\"QuestPanel/PanelHeader/Title\"},\"closeButton\":{\"$n\":\"QuestPanel/PanelHeader/CloseButton/C_Button\"},\"closeTarget\":{\"$n\":\"QuestPanel\"},\"onClose\":{\"$event\":[{\"target\":{\"$n\":\"QuestPanel/QuestDetailsPanel\"},\"method\":\"SetActive\",\"mode\":6,\"arg\":false,\"state\":2}]},\"$type\":\"PanelHeader\"}"
+
+[node name="Title" type="Control" parent="QuestPanel/PanelHeader"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 34.0
+offset_top = -0.0
+offset_right = -68.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Panel\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":false,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Title\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="CloseButton" type="Control" parent="QuestPanel/PanelHeader"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -54
+offset_top = -22.0
+offset_right = -10
+offset_bottom = 22.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [1, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CloseButton\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_Button" type="Node" parent="QuestPanel/PanelHeader/CloseButton"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"QuestPanel/PanelHeader/CloseButton\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIButtonStyle" type="Node" parent="QuestPanel/PanelHeader/CloseButton"]
+script = ExtResource("19")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"kind\":2,\"primary\":0,\"applyOnEnable\":1,\"resizeToMetrics\":1,\"styleLabel\":1,\"maxLines\":1,\"overrideLabelColor\":0,\"labelColor\":{\"$c\":[1,1,1,1]},\"labelFontSize\":0,\"$type\":\"UIButtonStyle\"}"
+
+[node name="Text (TMP)" type="Control" parent="QuestPanel/PanelHeader/CloseButton"]
+script = ExtResource("13")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"X\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":28,\"autoSize\":true,\"minSize\":14,\"maxSize\":30,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":false,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"Text (TMP)\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="Hairline" type="Control" parent="QuestPanel/PanelHeader"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 16.0
+offset_top = -2
+offset_right = -16.0
+offset_bottom = 0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.2],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Hairline\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="QuestPanel/PanelHeader/Hairline"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":11,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="GoldRim" type="Control" parent="QuestPanel/PanelHeader"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.35],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_LayoutElement" type="Node" parent="QuestPanel/PanelHeader/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="QuestPanel/PanelHeader/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.35,\"$type\":\"UIRim\"}"
+
+[node name="GoldRim" type="Control" parent="QuestPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="QuestPanel/GoldRim"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="QuestPanel/GoldRim"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"

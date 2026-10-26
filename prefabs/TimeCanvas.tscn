@@ -1,0 +1,336 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/TimeUI.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/u/UAnimator.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/game/UIRoundedImage.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/game/ClickableIcon.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/u/USlider.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="12"]
+
+[node name="TimeCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":1,\"override\":false,\"mode\":0},\"name\":\"TimeCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_TimeUI" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"phaseText\":{\"$n\":\"TimePanel/PhaseText\"},\"dayCounterText\":{\"$n\":\"TimePanel/DayText\"},\"phaseIcon\":{\"$n\":\"TimePanel/PhaseIcon\"},\"progressBar\":{\"$n\":\"TimePanel/ProgressBar/C_Slider\"},\"morningIcon\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_sunrise.png\"},\"noonIcon\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_sun.png\"},\"eveningIcon\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_sun-cloud.png\"},\"nightIcon\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_moon.png\"},\"showDayCounter\":1,\"showProgressBar\":1,\"animateTransitions\":1,\"$type\":\"TimeUI\"}"
+
+[node name="TimePanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = -346.000002
+offset_top = 16.0
+offset_right = -16.000002
+offset_bottom = 140.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.593939, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"TimePanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Animator" type="Node" parent="TimePanel"]
+script = ExtResource("3")
+metadata/u = "{\"serializedVersion\":7,\"m_Enabled\":1,\"m_Avatar\":null,\"m_Controller\":null,\"m_CullingMode\":0,\"m_UpdateMode\":0,\"m_ApplyRootMotion\":0,\"m_LinearVelocityBlending\":0,\"m_StabilizeFeet\":0,\"m_AnimatePhysics\":0,\"m_WarningMessage\":null,\"m_HasTransformHierarchy\":1,\"m_AllowConstantClipSamplingOptimization\":1,\"m_KeepAnimatorStateOnDisable\":0,\"m_WriteDefaultValuesOnDisable\":0,\"$type\":\"Animator\",\"$anim\":{\"default\":\"TimePanelIdle\",\"states\":{\"TimePanelIdle\":{\"clip\":{\"length\":1,\"loop\":true,\"curves\":[]},\"transitions\":[{\"to\":\"TimePanelOpen\",\"conds\":[\"TimePanelOpened\"],\"exit\":false,\"exitTime\":0.75,\"duration\":0},{\"to\":\"TimePanelClose\",\"conds\":[\"TimePanelClosed\"],\"exit\":false,\"exitTime\":0.75,\"duration\":0}]},\"TimePanelOpen\":{\"clip\":{\"length\":0.5,\"loop\":false,\"curves\":[{\"path\":\"\",\"attr\":\"m_AnchoredPosition.x\",\"keys\":[[0,217,0,0],[0.5,-150,0,0]]}]},\"transitions\":[{\"to\":\"TimePanelClose\",\"conds\":[\"TimePanelClosed\"],\"exit\":false,\"exitTime\":0.5,\"duration\":0}]},\"TimePanelClose\":{\"clip\":{\"length\":0.5,\"loop\":false,\"curves\":[{\"path\":\"\",\"attr\":\"m_AnchoredPosition.x\",\"keys\":[[0,-150,0,0],[0.5,217,0,0]]}]},\"transitions\":[{\"to\":\"TimePanelOpen\",\"conds\":[\"TimePanelOpened\"],\"exit\":false,\"exitTime\":0.5,\"duration\":0}]}},\"any\":[],\"params\":[\"TimePanelOpened\",\"TimePanelClosed\"]}}"
+
+[node name="C_UIThemeApplier" type="Node" parent="TimePanel"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":0,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="TimePanel"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":28,\"$type\":\"UIRoundedImage\"}"
+
+[node name="DayText" type="Control" parent="TimePanel"]
+script = ExtResource("6")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 108
+offset_top = 22.0
+offset_right = 232
+offset_bottom = 62.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Day 1\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":30,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"DayText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="TimePanel/DayText"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":2,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="PhaseIcon" type="Control" parent="TimePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 22.0
+offset_top = 26.0
+offset_right = 94.0
+offset_bottom = 98.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_sunrise.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"PhaseIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="TimePanel/PhaseIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="PhaseText" type="Control" parent="TimePanel"]
+script = ExtResource("6")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 108
+offset_top = 59.0
+offset_right = 232
+offset_bottom = 93.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Morning\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":24,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":1,\"valign\":4096,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"PhaseText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="TimePanel/PhaseText"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":3,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Back" type="Control" parent="TimePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 235.0
+offset_top = 43.0
+offset_right = 273.0
+offset_bottom = 81.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Back\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="TimePanel/Back"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":0,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"TimePanel/Back\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="TimePanel/Back"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[0.38,0.325,0.27,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIClickSound" type="Node" parent="TimePanel/Back"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="TimePanel/Back"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":19,\"$type\":\"UIRoundedImage\"}"
+
+[node name="BackIcon" type="Control" parent="TimePanel/Back"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 7.0
+offset_bottom = 9.0
+scale = Vector2(-1.0, 1.0)
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_play-button.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"BackIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="TimePanel/Back/BackIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="Next" type="Control" parent="TimePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 279.0
+offset_top = 43.0
+offset_right = 317.0
+offset_bottom = 81.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.3,0.255,0.212,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Next\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Button" type="Node" parent="TimePanel/Next"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":0,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[1.28,1.28,1.28,1]},\"m_PressedColor\":{\"$c\":[0.82,0.82,0.82,1]},\"m_SelectedColor\":{\"$c\":[1,1,1,1]},\"m_DisabledColor\":{\"$c\":[1,1,1,0.35]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.08},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"TimePanel/Next\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_ClickableIcon" type="Node" parent="TimePanel/Next"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[0.38,0.325,0.27,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_UIClickSound" type="Node" parent="TimePanel/Next"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="TimePanel/Next"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":19,\"$type\":\"UIRoundedImage\"}"
+
+[node name="NextIcon" type="Control" parent="TimePanel/Next"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -9.0
+offset_right = 11.0
+offset_bottom = 9.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_play-button.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"NextIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="TimePanel/Next/NextIcon"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ProgressBar" type="Control" parent="TimePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 108
+offset_top = 100.0
+offset_right = 232
+offset_bottom = 108.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"name\":\"ProgressBar\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Slider" type="Node" parent="TimePanel/ProgressBar"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":0,\"m_TargetGraphic\":null,\"m_FillRect\":{\"$n\":\"TimePanel/ProgressBar/Fill Area/Fill\"},\"m_HandleRect\":null,\"m_Direction\":0,\"m_MinValue\":0,\"m_MaxValue\":1,\"m_WholeNumbers\":0,\"m_Value\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"Slider\"}"
+
+[node name="Background" type="Control" parent="TimePanel/ProgressBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.16,0.138,0.12,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Background\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="TimePanel/ProgressBar/Background"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":6,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="TimePanel/ProgressBar/Background"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":4,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Fill Area" type="Control" parent="TimePanel/ProgressBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Fill Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Fill" type="Control" parent="TimePanel/ProgressBar/Fill Area"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Fill\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="TimePanel/ProgressBar/Fill Area/Fill"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_UIRoundedImage" type="Node" parent="TimePanel/ProgressBar/Fill Area/Fill"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":4,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Handle Slide Area" type="Control" parent="TimePanel/ProgressBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Handle Slide Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="GoldRim" type="Control" parent="TimePanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="TimePanel/GoldRim"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="TimePanel/GoldRim"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":28,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"

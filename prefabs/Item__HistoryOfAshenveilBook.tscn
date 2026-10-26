@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/WorldItem.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/UIHoverRegion.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="4"]
+
+[node name="HistoryOfAshenveilBook" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = 175.0
+offset_right = 75.0
+offset_bottom = 275.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Item/Ashenveil/ChatGPT Image 15 May 2026 01_55_13.png#ChatGPT Image 15 May 2026 01_55_13_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"HistoryOfAshenveilBook\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_WorldItem" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"data\":{\"$so\":\"696ab38f074aa714b9760b7a7b418aa9\"},\"quantity\":1,\"catalogObjectiveID\":null,\"$type\":\"WorldItem\"}"
+
+[node name="HistoryOfAshenveilBookHoverRegion" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"shape\":{\"color\":[0.53333336,0.29803923,0.16078432,0.11764706],\"order\":3,\"poly\":[[-14.12443,40.177414],[-15.01451,39.891968],[-15.387951,39.242767],[-15.703782,39.11355],[-15.847342,38.510597],[-15.982432,37.684258],[-16.194357,37.001656],[-16.198149,36.5238],[-16.679985,35.639545],[-17.033508,34.78689],[-17.414154,34.37163],[-17.561222,33.394085],[-18.101229,32.079357],[-18.34011,30.272326],[-24.493149,14.67015],[-31.17812,-2.8816373],[-36.25845,-15.900913],[-36.359146,-19.371105],[-35.339207,-21.671673],[-34.25298,-23.196991],[-31.33126,-25.569172],[-30.021326,-25.786045],[-29.789455,-26.53964],[-29.944035,-27.15794],[-35.29639,-32.664883],[-30.059965,-30.597359],[-31.296612,-34.307316],[-29.750801,-33.148045],[-25.113377,-26.249918],[-23.45163,-20.028032],[-21.268173,-19.931416],[-22.896955,-27.564415],[-24.152134,-29.872297],[-26.11588,-31.937271],[-25.103638,-35.82429],[-21.500065,-32.56487],[-20.568804,-32.504147],[-20.285378,-33.475876],[-21.297615,-36.148182],[-24.071152,-40.581787],[-23.322092,-40.865223],[-19.637539,-38.354862],[-18.524069,-39.083687],[-17.936975,-37.707027],[-16.378117,-35.459866],[-15.205366,-31.575912],[-14.790101,-28.599285],[4.28891,-31.552711],[20.281836,-34.18518],[22.46323,-34.4723],[22.793364,-34.225555],[24.295069,-28.600058],[24.554022,-28.067455],[25.275309,-24.782797],[25.710794,-20.890808],[26.18248,-17.914696],[27.575098,-17.633911],[27.889563,-17.09482],[27.945719,-16.196377],[28.237715,-15.74713],[28.709404,-15.466345],[29.20356,-15.050805],[29.293404,-14.635266],[29.023865,-14.040064],[28.7431,-12.58005],[28.451101,-11.423303],[28.555523,-10.025554],[28.5634,-9.042443],[28.773214,-8.7977085],[29.04258,-7.9626646],[30.497147,-6.7506046],[32.11334,3.1082869],[31.951721,5.344041],[32.11334,7.1757145],[32.1763,9.655148],[32.975304,9.519261],[33.37452,8.586519],[34.92896,20.05053],[34.44321,20.957264],[34.37844,23.06223],[35.18805,23.871857],[34.96136,25.134878],[35.252827,26.948372],[34.216534,27.660818],[34.346066,30.478228],[34.914158,30.96296],[34.91788,31.400774],[35.004436,32.01562],[35.292194,34.181362],[35.046104,34.57908],[31.404144,35.08954],[26.010204,35.77932],[24.244404,36.11037],[21.885414,36.358635],[21.457762,35.765366],[18.119308,36.193058],[14.077296,36.85516],[14.215246,38.48299],[14.284225,39.821102],[13.953139,39.986626],[13.359942,40.014233],[11.401015,40.29015],[11.125115,40.510834],[9.869745,40.99366],[9.745592,41.848995],[8.517804,41.793888],[8.3660555,41.98702],[7.993584,41.945637],[7.8418355,41.573154],[7.593521,41.14551],[7.234846,41.13171],[6.9589434,41.918007],[5.6345973,42.12494],[4.820678,42.456017],[4.4757957,41.98699],[3.882599,41.3938],[3.786034,42.193928],[3.9515758,42.911263],[4.4068193,43.352734],[4.2412777,43.82176],[5.193153,45.477192],[5.4552627,45.601337],[5.0689955,45.863453],[3.6066964,45.863453],[0.43379202,45.73931],[-2.3390527,45.339245],[-4.422132,44.842644],[-6.394857,44.704723],[-6.8501005,44.732327],[-7.512261,44.511543],[-9.512573,44.0839],[-9.526364,43.380287],[-8.836604,42.842278],[-8.891785,42.428413],[-9.264256,42.26286],[-11.788788,42.73191],[-12.409574,42.759514],[-12.657887,42.37323],[-13.223495,42.442215],[-13.678736,42.02835],[-13.81669,41.421352],[-13.733917,40.924725],[-13.95464,40.82816]]},\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"HistoryOfAshenveilBookHoverRegion\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIHoverRegion" type="Node" parent="HistoryOfAshenveilBookHoverRegion"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"hoverShape\":{\"$n\":\"HistoryOfAshenveilBookHoverRegion\",\"type\":\"SpriteShapeRenderer\"},\"spriteShapeController\":{\"$n\":\"HistoryOfAshenveilBookHoverRegion\",\"type\":\"MonoBehaviour\"},\"hoverCollider\":{\"$n\":\"HistoryOfAshenveilBookHoverRegion\",\"type\":\"PolygonCollider2D\"},\"maxAlpha\":0.4,\"fadeSpeed\":8,\"$type\":\"UIHoverRegion\"}"
+
+[node name="C_Button" type="Node" parent="HistoryOfAshenveilBookHoverRegion"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"HistoryOfAshenveilBookHoverRegion\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"

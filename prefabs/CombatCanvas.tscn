@@ -1,0 +1,1001 @@
+[gd_scene load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/CombatUI.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/u/UText.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/USlider.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/game/UIRoundedImage.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/game/StatusEffectUI.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/game/UIThemeApplier.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/u/UScrollRect.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/u/UMask.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutGroup.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/u/UContentSizeFitter.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/u/ULayoutElement.gd" id="12"]
+[ext_resource type="Script" path="res://scripts/game/UIRim.gd" id="13"]
+[ext_resource type="Script" path="res://scripts/u/UCanvasGroup.gd" id="14"]
+[ext_resource type="Script" path="res://scripts/game/DamageFlash.gd" id="15"]
+[ext_resource type="Script" path="res://scripts/game/EnemyStats.gd" id="16"]
+[ext_resource type="Script" path="res://scripts/game/StatusEffectManager.gd" id="17"]
+[ext_resource type="Script" path="res://scripts/game/EnemyLoot.gd" id="18"]
+[ext_resource type="Script" path="res://scripts/game/ClickableIcon.gd" id="19"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="20"]
+[ext_resource type="Script" path="res://scripts/game/UIClickSound.gd" id="21"]
+[ext_resource type="Script" path="res://scripts/game/LocalizedText.gd" id="22"]
+[ext_resource type="Script" path="res://scripts/game/LootNotificationUI.gd" id="23"]
+
+[node name="CombatCanvas" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"canvas\":{\"order\":3,\"override\":false,\"mode\":0},\"name\":\"CombatCanvas\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CombatUI" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"combatPanel\":{\"$n\":\"CombatPanel\"},\"combatMapPanel\":null,\"enemySprite\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemySprite\"},\"enemyNameText\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemyName\"},\"enemyHealthBar\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemyHealthBar/C_Slider\"},\"enemyHealthText\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemyHealthText\"},\"playerNameText\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerName\"},\"playerHealthBar\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerHealthBar/C_Slider\"},\"playerHealthText\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerHealthText\"},\"playerEnergyBar\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerEnergyBar/C_Slider\"},\"playerEnergyText\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerEnergyText\"},\"playerTurnIndicator\":{\"$n\":\"CombatPanel/TurnIndicator/PlayerTurnIcon\"},\"enemyTurnIndicator\":{\"$n\":\"CombatPanel/TurnIndicator/EnemyTurnIcon\"},\"turnText\":{\"$n\":\"CombatPanel/TurnIndicator/TurnText\"},\"actionsParent\":{\"$n\":\"CombatPanel/ActionsPanel/ActionsContainer\"},\"actionButtonPrefab\":{\"$prefab\":\"res://prefabs/ActionButton.tscn\",\"node\":\"C_CombatActionButton\"},\"combatLogText\":{\"$n\":\"CombatPanel/CombatLogPanel/CombatLog\"},\"maxLogLines\":5,\"$type\":\"CombatUI\"}"
+
+[node name="CombatPanel" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -962.0
+offset_top = -542.0
+offset_right = 962.0
+offset_bottom = 542.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CombatPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="CombatBgMap" type="Control" parent="CombatPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -962.0
+offset_top = -542.0
+offset_right = 962.0
+offset_bottom = 542.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Scene/Background/ChatGPT Image 3 May 2026 22_46_31.png#ChatGPT Image 3 May 2026 22_46_31_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CombatBgMap\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerDisplay" type="Control" parent="CombatPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.5
+anchor_right = 0
+anchor_bottom = 0.5
+offset_left = 125.0
+offset_top = -50.0
+offset_right = 225.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"PlayerDisplay\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerName" type="Control" parent="CombatPanel/PlayerDisplay"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -425.0
+offset_right = 260.0
+offset_bottom = -375.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Player\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":true,\"minSize\":24,\"maxSize\":36,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"PlayerName\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerSprite" type="Control" parent="CombatPanel/PlayerDisplay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -350.0
+offset_right = 275.0
+offset_bottom = 100.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Scene/Character/char01_morning.png\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"PlayerSprite\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerHealthBar" type="Control" parent="CombatPanel/PlayerDisplay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 137.5
+offset_right = 225.0
+offset_bottom = 162.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"PlayerHealthBar\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Slider" type="Node" parent="CombatPanel/PlayerDisplay/PlayerHealthBar"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":0,\"m_TargetGraphic\":null,\"m_FillRect\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerHealthBar/Fill Area/Fill\"},\"m_HandleRect\":null,\"m_Direction\":0,\"m_MinValue\":0,\"m_MaxValue\":1,\"m_WholeNumbers\":0,\"m_Value\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"Slider\"}"
+
+[node name="Background" type="Control" parent="CombatPanel/PlayerDisplay/PlayerHealthBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0.16],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Background\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRoundedImage" type="Node" parent="CombatPanel/PlayerDisplay/PlayerHealthBar/Background"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Fill Area" type="Control" parent="CombatPanel/PlayerDisplay/PlayerHealthBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 5.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Fill Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Fill" type="Control" parent="CombatPanel/PlayerDisplay/PlayerHealthBar/Fill Area"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = -5.0
+offset_top = -0.0
+offset_right = 5.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.706,0.231,0.231,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Fill\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRoundedImage" type="Node" parent="CombatPanel/PlayerDisplay/PlayerHealthBar/Fill Area/Fill"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Handle Slide Area" type="Control" parent="CombatPanel/PlayerDisplay/PlayerHealthBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 10.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Handle Slide Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerHealthText" type="Control" parent="CombatPanel/PlayerDisplay"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 175.0
+offset_right = 225.0
+offset_bottom = 225.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Health: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"PlayerHealthText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerEnergyBar" type="Control" parent="CombatPanel/PlayerDisplay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 237.5
+offset_right = 225.0
+offset_bottom = 262.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"PlayerEnergyBar\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Slider" type="Node" parent="CombatPanel/PlayerDisplay/PlayerEnergyBar"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":0,\"m_TargetGraphic\":null,\"m_FillRect\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerEnergyBar/Fill Area/Fill\"},\"m_HandleRect\":null,\"m_Direction\":0,\"m_MinValue\":0,\"m_MaxValue\":1,\"m_WholeNumbers\":0,\"m_Value\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"Slider\"}"
+
+[node name="Background" type="Control" parent="CombatPanel/PlayerDisplay/PlayerEnergyBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0.16],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Background\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRoundedImage" type="Node" parent="CombatPanel/PlayerDisplay/PlayerEnergyBar/Background"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Fill Area" type="Control" parent="CombatPanel/PlayerDisplay/PlayerEnergyBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 5.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Fill Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Fill" type="Control" parent="CombatPanel/PlayerDisplay/PlayerEnergyBar/Fill Area"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = -5.0
+offset_top = -0.0
+offset_right = 5.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Fill\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRoundedImage" type="Node" parent="CombatPanel/PlayerDisplay/PlayerEnergyBar/Fill Area/Fill"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Handle Slide Area" type="Control" parent="CombatPanel/PlayerDisplay/PlayerEnergyBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 10.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Handle Slide Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerEnergyText" type="Control" parent="CombatPanel/PlayerDisplay"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 275.0
+offset_right = 225.0
+offset_bottom = 325.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Energy: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"PlayerEnergyText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerStatusEffectPanel" type="Control" parent="CombatPanel/PlayerDisplay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -125.0
+offset_top = 283
+offset_right = 225.0
+offset_bottom = 359
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"PlayerStatusEffectPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_StatusEffectUI" type="Node" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"effectManager\":null,\"bindToPlayer\":1,\"iconContainer\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerStatusEffectPanel/Viewport/IconContainer\"},\"iconPrefab\":{\"$prefab\":\"res://prefabs/StatusEffectIcon.tscn\",\"node\":\"C_StatusEffectIcon\"},\"$type\":\"StatusEffectUI\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_ScrollRect" type="Node" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerStatusEffectPanel/Viewport/IconContainer\"},\"m_Horizontal\":1,\"m_Vertical\":0,\"m_MovementType\":2,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":20,\"m_Viewport\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerStatusEffectPanel/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":0,\"m_VerticalScrollbarVisibility\":0,\"m_HorizontalScrollbarSpacing\":0,\"m_VerticalScrollbarSpacing\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="Viewport" type="Control" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -6.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_RectMask2D" type="Node" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel/Viewport"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"x\":0,\"y\":0,\"z\":0,\"w\":0},\"m_Softness\":{\"x\":0,\"y\":0},\"$type\":\"RectMask2D\"}"
+
+[node name="IconContainer" type="Control" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0
+offset_top = -0.0
+offset_right = 0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"name\":\"IconContainer\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel/Viewport/IconContainer"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":3,\"m_Spacing\":4,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":1,\"m_ChildControlHeight\":1,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel/Viewport/IconContainer"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="GoldRim" type="Control" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.45],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_LayoutElement" type="Node" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel/GoldRim"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="CombatPanel/PlayerDisplay/PlayerStatusEffectPanel/GoldRim"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":14,\"width\":2,\"opacity\":0.45,\"$type\":\"UIRim\"}"
+
+[node name="PlayerDamageFlash" type="Control" parent="CombatPanel/PlayerDisplay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -349.999985
+offset_right = 175.0
+offset_bottom = 100.000015
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"PlayerDamageFlash\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CanvasGroup" type="Node" parent="CombatPanel/PlayerDisplay/PlayerDamageFlash"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"m_Alpha\":1,\"m_Interactable\":1,\"m_BlocksRaycasts\":1,\"m_IgnoreParentGroups\":0,\"$type\":\"CanvasGroup\"}"
+
+[node name="C_DamageFlash" type="Node" parent="CombatPanel/PlayerDisplay/PlayerDamageFlash"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"_statsTarget\":null,\"flashImage\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerSprite\"},\"damageColor\":{\"$c\":[1,0,0,0.5]},\"healColor\":{\"$c\":[0,1,0,0.5]},\"flashDuration\":0.2,\"enableShake\":1,\"shakeTarget\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerSprite\"},\"shakeMagnitude\":5,\"shakeDuration\":0.1,\"healthBarFill\":{\"$n\":\"CombatPanel/PlayerDisplay/PlayerEnergyBar/Fill Area/Fill\"},\"$type\":\"DamageFlash\"}"
+
+[node name="EnemyDisplay" type="Control" parent="CombatPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 0.5
+anchor_right = 1
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = -200.0
+offset_bottom = -50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"EnemyDisplay\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_EnemyStats" type="Node" parent="CombatPanel/EnemyDisplay"]
+script = ExtResource("16")
+metadata/u = "{\"m_Enabled\":1,\"stats\":[{\"type\":0,\"baseValue\":0,\"currentValue\":100,\"minValue\":0,\"maxValue\":999},{\"type\":1,\"baseValue\":0,\"currentValue\":100,\"minValue\":0,\"maxValue\":999},{\"type\":5,\"baseValue\":0,\"currentValue\":5,\"minValue\":0,\"maxValue\":999},{\"type\":7,\"baseValue\":0,\"currentValue\":5,\"minValue\":0,\"maxValue\":999},{\"type\":8,\"baseValue\":0,\"currentValue\":5,\"minValue\":0,\"maxValue\":999}],\"destroyOnDeath\":1,\"deathDelay\":0.1,\"$type\":\"EnemyStats\"}"
+
+[node name="C_StatusEffectManager" type="Node" parent="CombatPanel/EnemyDisplay"]
+script = ExtResource("17")
+metadata/u = "{\"m_Enabled\":1,\"particleParent\":null,\"activeEffects\":[],\"$type\":\"StatusEffectManager\"}"
+
+[node name="C_EnemyLoot" type="Node" parent="CombatPanel/EnemyDisplay"]
+script = ExtResource("18")
+metadata/u = "{\"m_Enabled\":1,\"equipmentLootTable\":{\"$so\":\"6d6eb1cfc865cfd4b87d8e7492eb5045\"},\"possibleLoot\":[{\"$so\":\"73c6ba57e49883448b28722b10a9263f\"},{\"$so\":\"4a103015f6e17cb4981ddf7d2f528732\"}],\"lootChances\":[0.4,0.4],\"minGold\":10,\"maxGold\":50,\"luckDropChanceBonus\":0.005,\"showDropLog\":1,\"$type\":\"EnemyLoot\"}"
+
+[node name="EnemyName" type="Control" parent="CombatPanel/EnemyDisplay"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -210.0
+offset_top = -250.0
+offset_right = 210.0
+offset_bottom = -200.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Enemy\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":true,\"minSize\":24,\"maxSize\":36,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":false,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"EnemyName\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EnemySprite" type="Control" parent="CombatPanel/EnemyDisplay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -225.0
+offset_right = 225.0
+offset_bottom = 225.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Scene/Character/ComfyUI_00620_ (1).png\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EnemySprite\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EnemyHealthBar" type="Control" parent="CombatPanel/EnemyDisplay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -175.0
+offset_top = 210.0
+offset_right = 175.0
+offset_bottom = 240.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"EnemyHealthBar\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_Slider" type="Node" parent="CombatPanel/EnemyDisplay/EnemyHealthBar"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":0,\"m_TargetGraphic\":null,\"m_FillRect\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemyHealthBar/Fill Area/Fill\"},\"m_HandleRect\":null,\"m_Direction\":0,\"m_MinValue\":0,\"m_MaxValue\":1,\"m_WholeNumbers\":0,\"m_Value\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"Slider\"}"
+
+[node name="Background" type="Control" parent="CombatPanel/EnemyDisplay/EnemyHealthBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0.16],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Background\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRoundedImage" type="Node" parent="CombatPanel/EnemyDisplay/EnemyHealthBar/Background"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Fill Area" type="Control" parent="CombatPanel/EnemyDisplay/EnemyHealthBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0.25
+anchor_right = 1
+anchor_bottom = 0.75
+offset_left = 5.0
+offset_top = -0.0
+offset_right = -5.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Fill Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="Fill" type="Control" parent="CombatPanel/EnemyDisplay/EnemyHealthBar/Fill Area"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = -5.0
+offset_top = -0.0
+offset_right = 5.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.706,0.231,0.231,1],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"Fill\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIRoundedImage" type="Node" parent="CombatPanel/EnemyDisplay/EnemyHealthBar/Fill Area/Fill"]
+script = ExtResource("5")
+metadata/u = "{\"m_Enabled\":1,\"radius\":6,\"$type\":\"UIRoundedImage\"}"
+
+[node name="Handle Slide Area" type="Control" parent="CombatPanel/EnemyDisplay/EnemyHealthBar"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 10.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = false
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Handle Slide Area\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EnemyHealthText" type="Control" parent="CombatPanel/EnemyDisplay"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -175.0
+offset_top = 250.0
+offset_right = 175.0
+offset_bottom = 300.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Health: 100\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"EnemyHealthText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EnemyStatusEffectPanel" type="Control" parent="CombatPanel/EnemyDisplay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -175.0
+offset_top = 383
+offset_right = 175.0
+offset_bottom = 459
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 1]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EnemyStatusEffectPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_StatusEffectUI" type="Node" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel"]
+script = ExtResource("6")
+metadata/u = "{\"m_Enabled\":1,\"effectManager\":{\"$n\":\"CombatPanel/EnemyDisplay/C_StatusEffectManager\"},\"iconContainer\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemyStatusEffectPanel/Viewport/IconContainer\"},\"iconPrefab\":{\"$prefab\":\"res://prefabs/StatusEffectIcon.tscn\",\"node\":\"C_StatusEffectIcon\"},\"$type\":\"StatusEffectUI\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="C_ScrollRect" type="Node" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel"]
+script = ExtResource("8")
+metadata/u = "{\"m_Enabled\":1,\"m_Content\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemyStatusEffectPanel/Viewport/IconContainer\"},\"m_Horizontal\":1,\"m_Vertical\":0,\"m_MovementType\":2,\"m_Elasticity\":0.1,\"m_Inertia\":1,\"m_DecelerationRate\":0.135,\"m_ScrollSensitivity\":20,\"m_Viewport\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemyStatusEffectPanel/Viewport\"},\"m_HorizontalScrollbar\":null,\"m_VerticalScrollbar\":null,\"m_HorizontalScrollbarVisibility\":0,\"m_VerticalScrollbarVisibility\":0,\"m_HorizontalScrollbarSpacing\":0,\"m_VerticalScrollbarSpacing\":0,\"m_OnValueChanged\":{\"$event\":[]},\"$type\":\"ScrollRect\"}"
+
+[node name="Viewport" type="Control" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -6.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"Viewport\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_RectMask2D" type="Node" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel/Viewport"]
+script = ExtResource("9")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"x\":0,\"y\":0,\"z\":0,\"w\":0},\"m_Softness\":{\"x\":0,\"y\":0},\"$type\":\"RectMask2D\"}"
+
+[node name="IconContainer" type="Control" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel/Viewport"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 0
+offset_top = -0.0
+offset_right = 0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0, 0.5]
+metadata/u = "{\"name\":\"IconContainer\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel/Viewport/IconContainer"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":0,\"m_Right\":0,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":3,\"m_Spacing\":4,\"m_ChildForceExpandWidth\":0,\"m_ChildForceExpandHeight\":0,\"m_ChildControlWidth\":1,\"m_ChildControlHeight\":1,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="C_ContentSizeFitter" type="Node" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel/Viewport/IconContainer"]
+script = ExtResource("11")
+metadata/u = "{\"m_Enabled\":1,\"m_HorizontalFit\":2,\"m_VerticalFit\":0,\"$type\":\"ContentSizeFitter\"}"
+
+[node name="GoldRim" type="Control" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.45],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_LayoutElement" type="Node" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel/GoldRim"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="CombatPanel/EnemyDisplay/EnemyStatusEffectPanel/GoldRim"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":14,\"width\":2,\"opacity\":0.45,\"$type\":\"UIRim\"}"
+
+[node name="EnemyDamageFlash" type="Control" parent="CombatPanel/EnemyDisplay"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -225.0
+offset_right = 200.0
+offset_bottom = 225.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"EnemyDamageFlash\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_CanvasGroup" type="Node" parent="CombatPanel/EnemyDisplay/EnemyDamageFlash"]
+script = ExtResource("14")
+metadata/u = "{\"m_Enabled\":1,\"m_Alpha\":1,\"m_Interactable\":1,\"m_BlocksRaycasts\":1,\"m_IgnoreParentGroups\":0,\"$type\":\"CanvasGroup\"}"
+
+[node name="C_DamageFlash" type="Node" parent="CombatPanel/EnemyDisplay/EnemyDamageFlash"]
+script = ExtResource("15")
+metadata/u = "{\"m_Enabled\":1,\"_statsTarget\":{\"$n\":\"CombatPanel/EnemyDisplay/C_EnemyStats\"},\"flashImage\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemySprite\"},\"damageColor\":{\"$c\":[1,0,0,0.5]},\"healColor\":{\"$c\":[0,1,0,0.5]},\"flashDuration\":0.2,\"enableShake\":1,\"shakeTarget\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemySprite\"},\"shakeMagnitude\":5,\"shakeDuration\":0.1,\"healthBarFill\":{\"$n\":\"CombatPanel/EnemyDisplay/EnemyHealthBar/Fill Area/Fill\"},\"$type\":\"DamageFlash\"}"
+
+[node name="InventoryPanel" type="Control" parent="CombatPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = 50.0
+offset_top = -82.5
+offset_right = 250.0
+offset_bottom = -7.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.2,0.17,0.146,0.96],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"InventoryPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="CombatPanel/InventoryPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":9,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="InventoryIcon" type="Control" parent="CombatPanel/InventoryPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 13.75
+offset_top = 12.5
+offset_right = 63.75
+offset_bottom = 62.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/hud_backpack.png\"},\"color\":[0.784,0.659,0.431,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"InventoryIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_ClickableIcon" type="Node" parent="CombatPanel/InventoryPanel/InventoryIcon"]
+script = ExtResource("19")
+metadata/u = "{\"m_Enabled\":1,\"enableHoverEffect\":1,\"enableClickEffect\":1,\"enablePulseEffect\":0,\"hoverScale\":1.15,\"hoverDuration\":0.2,\"hoverTintColor\":{\"$c\":[1,0.88,0.62,1]},\"clickScale\":0.9,\"clickDuration\":0.1,\"pulseSpeed\":2,\"pulseAmount\":0.1,\"hoverSound\":null,\"clickSound\":null,\"$type\":\"ClickableIcon\"}"
+
+[node name="C_Button" type="Node" parent="CombatPanel/InventoryPanel/InventoryIcon"]
+script = ExtResource("20")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"CombatPanel/InventoryPanel/InventoryIcon\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
+
+[node name="C_UIClickSound" type="Node" parent="CombatPanel/InventoryPanel/InventoryIcon"]
+script = ExtResource("21")
+metadata/u = "{\"m_Enabled\":1,\"$type\":\"UIClickSound\"}"
+
+[node name="C_UIThemeApplier" type="Node" parent="CombatPanel/InventoryPanel/InventoryIcon"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":5,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="InventoryText" type="Control" parent="CombatPanel/InventoryPanel"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = 71.25
+offset_top = 12.5
+offset_right = 196.25
+offset_bottom = 62.5
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Inventory\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"InventoryText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LocalizedText" type="Node" parent="CombatPanel/InventoryPanel/InventoryText"]
+script = ExtResource("22")
+metadata/u = "{\"m_Enabled\":1,\"en\":\"Inventory\",\"tr\":\"Envanter\",\"$type\":\"LocalizedText\"}"
+
+[node name="GoldRim" type="Control" parent="CombatPanel/InventoryPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.35],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="CombatPanel/InventoryPanel/GoldRim"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="CombatPanel/InventoryPanel/GoldRim"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.35,\"$type\":\"UIRim\"}"
+
+[node name="TurnIndicator" type="Control" parent="CombatPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -50.0
+offset_top = 100.0
+offset_right = 50.0
+offset_bottom = 200.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"TurnIndicator\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="PlayerTurnIcon" type="Control" parent="CombatPanel/TurnIndicator"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -25.0
+offset_right = -50.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/turn_player.png\"},\"color\":[0.88,0.74,0.47,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"PlayerTurnIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="EnemyTurnIcon" type="Control" parent="CombatPanel/TurnIndicator"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Icon/GameIcons/turn_enemy.png\"},\"color\":[0.8,0.28,0.24,1],\"type\":0,\"preserveAspect\":true,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"EnemyTurnIcon\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="TurnText" type="Control" parent="CombatPanel/TurnIndicator"]
+script = ExtResource("3")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = -50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"Player's Turn\",\"color\":[0.784,0.659,0.431,1],\"vertexColor\":[1,1,1,1],\"fontSize\":36,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":0,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/Arvo/Arvo.ttf\",\"fallbacks\":[\"res://Assets/Fonts/WhispersSlab/WhispersSlab.ttf\",\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"Arvo SDF.asset\"}},\"name\":\"TurnText\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="ActionsPanel" type="Control" parent="CombatPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 1
+anchor_right = 0.5
+anchor_bottom = 1
+offset_left = -500.0
+offset_top = -236.0
+offset_right = 500.0
+offset_bottom = -12.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"ActionsPanel\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_UIThemeApplier" type="Node" parent="CombatPanel/ActionsPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="ActionsContainer" type="Control" parent="CombatPanel/ActionsPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -92.0
+offset_right = 500.0
+offset_bottom = 132.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"ActionsContainer\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_HorizontalLayoutGroup" type="Node" parent="CombatPanel/ActionsPanel/ActionsContainer"]
+script = ExtResource("10")
+metadata/u = "{\"m_Enabled\":1,\"m_Padding\":{\"m_Left\":40,\"m_Right\":40,\"m_Top\":0,\"m_Bottom\":0},\"m_ChildAlignment\":4,\"m_Spacing\":20,\"m_ChildForceExpandWidth\":1,\"m_ChildForceExpandHeight\":1,\"m_ChildControlWidth\":0,\"m_ChildControlHeight\":0,\"m_ChildScaleWidth\":0,\"m_ChildScaleHeight\":0,\"m_ReverseArrangement\":0,\"$type\":\"HorizontalLayoutGroup\"}"
+
+[node name="GoldRim" type="Control" parent="CombatPanel/ActionsPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LayoutElement" type="Node" parent="CombatPanel/ActionsPanel/GoldRim"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="CombatPanel/ActionsPanel/GoldRim"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"
+
+[node name="CombatLogPanel" type="Control" parent="CombatPanel"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = 76.0
+offset_right = 380.0
+offset_bottom = 276.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.118,0.1,0.086,0.97],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"CombatLogPanel\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIThemeApplier" type="Node" parent="CombatPanel/CombatLogPanel"]
+script = ExtResource("7")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"role\":8,\"applyOnEnable\":1,\"$type\":\"UIThemeApplier\"}"
+
+[node name="CombatLog" type="Control" parent="CombatPanel/CombatLogPanel"]
+script = ExtResource("3")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":20,\"autoSize\":true,\"minSize\":22,\"maxSize\":32,\"style\":0,\"halign\":1,\"valign\":256,\"wrap\":true,\"overflow\":3,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CombatLog\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="GoldRim" type="Control" parent="CombatPanel/CombatLogPanel"]
+script = ExtResource("1")
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0.0
+offset_top = -0.0
+offset_right = 0.0
+offset_bottom = -0.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[0.784,0.659,0.431,0.7],\"type\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":false,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"GoldRim\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_LayoutElement" type="Node" parent="CombatPanel/CombatLogPanel/GoldRim"]
+script = ExtResource("12")
+metadata/u = "{\"m_Enabled\":1,\"m_IgnoreLayout\":1,\"m_MinWidth\":-1,\"m_MinHeight\":-1,\"m_PreferredWidth\":-1,\"m_PreferredHeight\":-1,\"m_FlexibleWidth\":-1,\"m_FlexibleHeight\":-1,\"m_LayoutPriority\":1,\"$type\":\"LayoutElement\"}"
+
+[node name="C_UIRim" type="Node" parent="CombatPanel/CombatLogPanel/GoldRim"]
+script = ExtResource("13")
+metadata/u = "{\"m_Enabled\":1,\"theme\":{\"$so\":\"de29f55c5a042dd408d7a73bd864b5ad\"},\"radius\":22,\"width\":2,\"opacity\":0.7,\"$type\":\"UIRim\"}"
+
+[node name="LootNotifications" type="Control" parent="CombatPanel"]
+script = ExtResource("1")
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -425.0
+offset_top = -225.0
+offset_right = -25.0
+offset_bottom = -25.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"name\":\"LootNotifications\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_LootNotificationUI" type="Node" parent="CombatPanel/LootNotifications"]
+script = ExtResource("23")
+metadata/u = "{\"m_Enabled\":1,\"notificationPrefab\":{\"$prefab\":\"res://prefabs/LootNotification.tscn\",\"node\":\".\"},\"notificationParent\":{\"$n\":\"CombatPanel/LootNotifications\"},\"notificationDuration\":3,\"$type\":\"LootNotificationUI\"}"

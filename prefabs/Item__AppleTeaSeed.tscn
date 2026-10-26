@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/u/UImage.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/game/WorldItem.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/game/UIHoverRegion.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/u/UButton.gd" id="4"]
+
+[node name="AppleTeaSeed" type="Control"]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"image\":{\"enabled\":true,\"sprite\":{\"$spr\":\"Assets/Sprite/Item/Ashenveil/ChatGPT Image 15 May 2026 00_30_14.png#ChatGPT Image 15 May 2026 00_30_14_0\"},\"color\":[1,1,1,1],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"AppleTeaSeed\",\"tag\":\"Untagged\",\"layer\":5}"
+
+[node name="C_WorldItem" type="Node" parent="."]
+script = ExtResource("2")
+metadata/u = "{\"m_Enabled\":1,\"data\":{\"$so\":\"e254ba92ace86ef40978b6b3a93a4486\"},\"quantity\":1,\"$type\":\"WorldItem\"}"
+
+[node name="AppleTeaSeedRegion" type="Control" parent="."]
+script = ExtResource("1")
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+visible = true
+mouse_filter = 2
+metadata/pivot = [0.5, 0.5]
+metadata/u = "{\"shape\":{\"color\":[0.91764706,0.6039216,0.3647059,0.11764706],\"order\":3,\"poly\":[[-4.254562,27.577757],[-11.1154375,23.519207],[-21.300459,17.972528],[-28.199991,12.793049],[-32.103935,8.579893],[-35.447407,3.1685004],[-36.99352,-1.0446583],[-37.940514,-4.6587014],[-38.03714,-10.360001],[-37.47668,-13.626166],[-36.703625,-16.370512],[-33.263523,-21.975178],[-29.146994,-25.550568],[-26.228703,-27.116001],[-22.788605,-27.908386],[-19.11658,-27.889057],[-15.289954,-27.09668],[-12.468289,-25.685852],[-6.0132756,-21.434063],[-1.9547199,-17.008312],[1.0795264,-10.804529],[2.6836183,-5.1612177],[5.196046,-12.311998],[8.307586,-16.911678],[13.255147,-21.569359],[16.482662,-23.656603],[21.662144,-24.101114],[27.150845,-23.637281],[30.532972,-22.728937],[34.43691,-20.39045],[38.128258,-17.935995],[41.027218,-13.819492],[42.251694,-10.033827],[42.364326,-5.9614925],[41.835125,0.81704336],[39.87917,6.647388],[37.11575,12.042656],[33.563305,16.337112],[30.539211,19.237558],[26.289705,22.486502],[21.736677,25.409428],[18.352818,27.961369],[15.5198145,30.6707],[13.732312,33.357544],[12.585625,35.122543],[11.562599,35.594707],[10.202313,35.60595],[8.999417,34.98764],[8.246204,33.874672],[6.4249687,29.568975],[4.5475316,25.049679],[3.2771902,22.048058],[2.2766483,19.203821],[1.7370336,19.29376],[0.95008814,22.756308],[-0.027962808,25.78041],[-0.84920573,27.207079],[-2.2868948,27.9976],[-3.078846,28.018967]]},\"image\":{\"enabled\":true,\"sprite\":null,\"color\":[1,1,1,0],\"type\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1,\"fillClockwise\":true,\"fillOrigin\":0,\"ppum\":1,\"raycastTarget\":true,\"maskable\":true,\"raycastPadding\":[0,0,0,0]},\"name\":\"AppleTeaSeedRegion\",\"tag\":\"Untagged\",\"layer\":0}"
+
+[node name="C_UIHoverRegion" type="Node" parent="AppleTeaSeedRegion"]
+script = ExtResource("3")
+metadata/u = "{\"m_Enabled\":1,\"hoverShape\":{\"$n\":\"AppleTeaSeedRegion\",\"type\":\"SpriteShapeRenderer\"},\"spriteShapeController\":{\"$n\":\"AppleTeaSeedRegion\",\"type\":\"MonoBehaviour\"},\"hoverCollider\":{\"$n\":\"AppleTeaSeedRegion\",\"type\":\"PolygonCollider2D\"},\"maxAlpha\":0.4,\"fadeSpeed\":8,\"$type\":\"UIHoverRegion\"}"
+
+[node name="C_Button" type="Node" parent="AppleTeaSeedRegion"]
+script = ExtResource("4")
+metadata/u = "{\"m_Enabled\":1,\"m_Navigation\":{\"m_Mode\":3,\"m_WrapAround\":0,\"m_SelectOnUp\":null,\"m_SelectOnDown\":null,\"m_SelectOnLeft\":null,\"m_SelectOnRight\":null},\"m_Transition\":1,\"m_Colors\":{\"m_NormalColor\":{\"$c\":[1,1,1,1]},\"m_HighlightedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_PressedColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,1]},\"m_SelectedColor\":{\"$c\":[0.9607843,0.9607843,0.9607843,1]},\"m_DisabledColor\":{\"$c\":[0.78431374,0.78431374,0.78431374,0.5019608]},\"m_ColorMultiplier\":1,\"m_FadeDuration\":0.1},\"m_SpriteState\":{\"m_HighlightedSprite\":null,\"m_PressedSprite\":null,\"m_SelectedSprite\":null,\"m_DisabledSprite\":null},\"m_AnimationTriggers\":{\"m_NormalTrigger\":\"Normal\",\"m_HighlightedTrigger\":\"Highlighted\",\"m_PressedTrigger\":\"Pressed\",\"m_SelectedTrigger\":\"Selected\",\"m_DisabledTrigger\":\"Disabled\"},\"m_Interactable\":1,\"m_TargetGraphic\":{\"$n\":\"AppleTeaSeedRegion\"},\"m_OnClick\":{\"$event\":[]},\"$type\":\"Button\"}"
