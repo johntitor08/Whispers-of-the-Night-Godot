@@ -8955,7 +8955,7 @@ offset_bottom = 37.5
 visible = true
 mouse_filter = 2
 metadata/pivot = [0.5, 0.5]
-metadata/u = "{\"text\":{\"enabled\":true,\"text\":0,\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":40,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":1,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CurrencyText\",\"tag\":\"Untagged\",\"layer\":5}"
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"0\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":40,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":1,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CurrencyText\",\"tag\":\"Untagged\",\"layer\":5}"
 
 [node name="C_UIThemeApplier" type="Node" parent="ShopCanvas/ShopCanvas/MarketPanel/ShopPanel/Header/PlayerCurrency/CurrencyText"]
 script = ExtResource("41")
@@ -9359,7 +9359,7 @@ offset_bottom = 37.5
 visible = true
 mouse_filter = 2
 metadata/pivot = [0.5, 0.5]
-metadata/u = "{\"text\":{\"enabled\":true,\"text\":0,\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":40,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":1,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CurrencyText\",\"tag\":\"Untagged\",\"layer\":5}"
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"0\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":40,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":1,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CurrencyText\",\"tag\":\"Untagged\",\"layer\":5}"
 
 [node name="C_UIThemeApplier" type="Node" parent="ShopCanvas/ShopCanvas/MarketPanel/SellPanel/Header/PlayerCurrency/CurrencyText"]
 script = ExtResource("41")
@@ -12350,7 +12350,7 @@ offset_bottom = -20.0
 visible = true
 mouse_filter = 2
 metadata/pivot = [0.5, 0.5]
-metadata/u = "{\"text\":{\"enabled\":true,\"text\":0,\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"GoldAmount\",\"tag\":\"Untagged\",\"layer\":5}"
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"0\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"GoldAmount\",\"tag\":\"Untagged\",\"layer\":5}"
 
 [node name="C_UIThemeApplier" type="Node" parent="CurrencyCanvas/CurrencyCanvas/CurrencyPanel/GoldDisplay/GoldAmount"]
 script = ExtResource("41")
@@ -12453,7 +12453,7 @@ offset_bottom = -20.0
 visible = true
 mouse_filter = 2
 metadata/pivot = [0.5, 0.5]
-metadata/u = "{\"text\":{\"enabled\":true,\"text\":0,\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"GemsAmount\",\"tag\":\"Untagged\",\"layer\":5}"
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"0\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"GemsAmount\",\"tag\":\"Untagged\",\"layer\":5}"
 
 [node name="C_UIThemeApplier" type="Node" parent="CurrencyCanvas/CurrencyCanvas/CurrencyPanel/GemsDisplay/GemsAmount"]
 script = ExtResource("41")
@@ -12556,7 +12556,7 @@ offset_bottom = -20.0
 visible = true
 mouse_filter = 2
 metadata/pivot = [0.5, 0.5]
-metadata/u = "{\"text\":{\"enabled\":true,\"text\":0,\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"TokensAmount\",\"tag\":\"Untagged\",\"layer\":5}"
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"0\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"TokensAmount\",\"tag\":\"Untagged\",\"layer\":5}"
 
 [node name="C_UIThemeApplier" type="Node" parent="CurrencyCanvas/CurrencyCanvas/CurrencyPanel/TokensDisplay/TokensAmount"]
 script = ExtResource("41")
@@ -12659,7 +12659,7 @@ offset_bottom = -20.0
 visible = true
 mouse_filter = 2
 metadata/pivot = [0.5, 0.5]
-metadata/u = "{\"text\":{\"enabled\":true,\"text\":0,\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CreditsAmount\",\"tag\":\"Untagged\",\"layer\":5}"
+metadata/u = "{\"text\":{\"enabled\":true,\"text\":\"0\",\"color\":[0.886,0.835,0.733,1],\"vertexColor\":[1,1,1,1],\"fontSize\":34,\"autoSize\":false,\"minSize\":18,\"maxSize\":72,\"style\":1,\"halign\":2,\"valign\":512,\"wrap\":true,\"overflow\":0,\"margin\":[0,0,0,0],\"lineSpacing\":0,\"charSpacing\":0,\"wordSpacing\":0,\"paragraphSpacing\":0,\"raycastTarget\":true,\"rich\":true,\"font\":{\"ttf\":\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\",\"fallbacks\":[\"res://Assets/Asset Store/Gentleland/SteampunkUI/Fonts/RobotoSlab/RobotoSlab.ttf\"],\"name\":\"RobotoSlab SDF.asset\"}},\"name\":\"CreditsAmount\",\"tag\":\"Untagged\",\"layer\":5}"
 
 [node name="C_UIThemeApplier" type="Node" parent="CurrencyCanvas/CurrencyCanvas/CurrencyPanel/CreditsDisplay/CreditsAmount"]
 script = ExtResource("41")

@@ -94,8 +94,8 @@ func _reversed() -> bool:
 func _update_visuals() -> void:
 	var nv := normalizedValue
 	if fillRect is Control and is_instance_valid(fillRect):
-		var amin := RT.anchor_min(fillRect)
-		var amax := RT.anchor_max(fillRect)
+		var amin := Vector2.ZERO
+		var amax := Vector2.ONE
 		var ax := _axis()
 		if fillRect is UImage and fillRect.type == UImage.Type.FILLED:
 			fillRect.fillAmount = nv
@@ -108,8 +108,8 @@ func _update_visuals() -> void:
 		RT.set_anchor_min(fillRect, amin)
 		RT.set_anchor_max(fillRect, amax)
 	if handleRect is Control and is_instance_valid(handleRect):
-		var hmin := RT.anchor_min(handleRect)
-		var hmax := RT.anchor_max(handleRect)
+		var hmin := Vector2.ZERO
+		var hmax := Vector2.ONE
 		var ax2 := _axis()
 		var p := (1.0 - nv) if _reversed() else nv
 		hmin[ax2] = p

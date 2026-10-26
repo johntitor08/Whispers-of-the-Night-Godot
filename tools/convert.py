@@ -648,7 +648,7 @@ def convert_scriptable_objects():
     db = {}
     for p in glob.glob(os.path.join(uy.ASSETS, "**", "*.asset"), recursive=True):
         rel = os.path.relpath(p, uy.UNITY_ROOT)
-        if "/TextMesh Pro/" in rel or "/Asset Store/" in rel or "/Settings/" in rel:
+        if "/TextMesh Pro/" in rel or "/Asset Store/" in rel:
             continue
         try:
             docs = uy.load(rel)

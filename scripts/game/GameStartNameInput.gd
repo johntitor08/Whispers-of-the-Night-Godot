@@ -166,7 +166,7 @@ func FinalizeStart() -> void:
 		StorySelectionUI.Instance.ShowMainPanel()
 
 func CheckExistingProfile() -> void:
-	if SaveSystem.HasSaveFile() and SaveSystem.IsLoading:
+	if SaveSystem.HasSaveFile():
 		SaveSystem.SavingEnabled = true
 		if nameInputPanel != null:
 			U.SetActive(nameInputPanel, false)

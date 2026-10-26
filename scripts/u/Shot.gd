@@ -28,6 +28,10 @@ func _process(_d: float) -> void:
 		var parts := ck.split(":")
 		if parts.size() == 3 and int(parts[0]) == _frames:
 			_click(Vector2(float(parts[1]), float(parts[2])))
+	for st in str(_args.get("steps", "")).split(";", false):
+		var at := st.find("@")
+		if at > 0 and int(st.substr(0, at)) == _frames:
+			_run(st.substr(at + 1))
 	if _frames == 20 and not _steps.is_empty():
 		for s in _steps:
 			_run(s)
@@ -44,7 +48,21 @@ func _run(s: String) -> void:
 	if e.parse(s, ["U", "ES", "DB", "root"]) != OK:
 		push_error("eval parse: " + s)
 		return
-	e.execute([U, ES, DB, get_tree().current_scene], self)
+	var r = e.execute([U, ES, DB, get_tree().current_scene], self)
+	if e.has_execute_failed():
+		push_error("eval failed: " + s + " -> " + e.get_error_text())
+	else:
+		print("EVAL ", s, " => ", r)
+
+func cls(n: String):
+	for g in ProjectSettings.get_global_class_list():
+		if g["class"] == n:
+			return load(g["path"])
+	return null
+
+func inst(n: String):
+	var c = cls(n)
+	return c.Instance if c != null else null
 
 func _dump(n: Node) -> void:
 	for c in n.get_children():

@@ -91,6 +91,7 @@ class Doc:
 
 _file_cache = {}
 INT_ARRAY_KEYS = ("visibleOnBackgrounds", "itemRewardQuantities", "startingItemQty")
+SCALAR_TEXT_RE = re.compile(r"^(\s*(?:m_text|m_Name|m_TagString|m_Text|text|placeholderText): )(-?[0-9][0-9.eE+-]*|true|false|null|yes|no|on|off|True|False|Yes|No|On|Off|~)\s*$", re.M)
 INT_ARRAY_RE = re.compile(r"^(\s*(?:%s): )([0-9a-fA-F]*)\s*$" % "|".join(INT_ARRAY_KEYS), re.M)
 
 
@@ -119,6 +120,7 @@ def load(path):
     for i, m in enumerate(heads):
         end = heads[i + 1].start() if i + 1 < len(heads) else len(text)
         body = INT_ARRAY_RE.sub(r'\1"\2"', text[m.end():end])
+        body = SCALAR_TEXT_RE.sub(r'\1"\2"', body)
         try:
             data = yaml.load(body, Loader=Loader)
         except yaml.YAMLError:
