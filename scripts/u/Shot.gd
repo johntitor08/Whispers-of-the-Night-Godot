@@ -28,6 +28,10 @@ func _process(_d: float) -> void:
 		var parts := ck.split(":")
 		if parts.size() == 3 and int(parts[0]) == _frames:
 			_click(Vector2(float(parts[1]), float(parts[2])))
+	for dr in str(_args.get("drags", "")).split(",", false):
+		var q := dr.split(":")
+		if q.size() == 5 and int(q[0]) == _frames:
+			_drag(Vector2(float(q[1]), float(q[2])), Vector2(float(q[3]), float(q[4])))
 	for st in str(_args.get("steps", "")).split(";", false):
 		var at := st.find("@")
 		if at > 0 and int(st.substr(0, at)) == _frames:
@@ -96,3 +100,20 @@ func _click(p: Vector2) -> void:
 	Input.parse_input_event(u)
 	var h = ES.raycast(p)
 	print("CLICK ", p, " hit=", h.get_path() if h != null else null)
+
+func _mouse_btn(pressed: bool) -> void:
+	var d := InputEventMouseButton.new()
+	d.button_index = MOUSE_BUTTON_LEFT
+	d.pressed = pressed
+	Input.parse_input_event(d)
+
+func _drag(a: Vector2, b: Vector2) -> void:
+	ES.mouse_override = a
+	await get_tree().process_frame
+	_mouse_btn(true)
+	for i in 31:
+		await get_tree().process_frame
+		ES.mouse_override = a.lerp(b, i / 30.0)
+	await get_tree().process_frame
+	_mouse_btn(false)
+	print("DRAG ", a, " -> ", b)

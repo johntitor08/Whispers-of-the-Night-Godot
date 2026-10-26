@@ -23,6 +23,8 @@ func Start() -> void:
 
 func OnEnable() -> void:
 	TrySubscribe()
+	if lastBackgroundIndex >= 0:
+		Refresh(false)
 
 func OnDisable() -> void:
 	if bgSubscribed and SceneEvent.Instance != null:

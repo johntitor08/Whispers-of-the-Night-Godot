@@ -10,6 +10,7 @@ var _shapeStart := Vector2.ZERO
 var _shapePreviewSnap: Image
 var _views: Array = []
 var _dirty := true
+var _busy := false
 
 func Awake() -> void:
 	if Instance == null or not is_instance_valid(Instance):
@@ -69,7 +70,23 @@ func _mark_active() -> void:
 	LayerManager.Instance.ActiveLayer.dirty = true
 	RefreshDisplay()
 
+func RunFill(img: Image, pos: Vector2, col: Color) -> void:
+	_busy = true
+	var work: Image = img.duplicate()
+	var job := func() -> void:
+		FillTool.FloodFill(work, pos, col)
+	var id := WorkerThreadPool.add_task(job)
+	while not WorkerThreadPool.is_task_completed(id):
+		await U.frame()
+	WorkerThreadPool.wait_for_task_completion(id)
+	if is_instance_valid(self):
+		img.copy_from(work)
+		_busy = false
+		_mark_active()
+
 func OnPointerDown(e) -> void:
+	if _busy:
+		return
 	var pos = GetCanvasPos(e)
 	if pos == null:
 		return
@@ -77,10 +94,9 @@ func OnPointerDown(e) -> void:
 	var tool := int(bs.activeTool)
 	if tool == ToolType.Fill:
 		UndoRedoManager.Instance.Push(UndoRedoManager.TakeSnapshot(LayerManager.Instance.Layers))
-		FillTool.FloodFill(_active_img(), pos, bs.color)
+		RunFill(_active_img(), pos, bs.color)
 		if AudioManager.Instance != null:
 			AudioManager.Instance.PlayFill()
-		_mark_active()
 		return
 	if tool == ToolType.Eyedropper:
 		EyedropperTool.Sample(_active_img(), pos)
@@ -95,6 +111,8 @@ func OnPointerDown(e) -> void:
 	_strokeStarted = false
 
 func OnDrag(e) -> void:
+	if _busy:
+		return
 	var pos = GetCanvasPos(e)
 	if pos == null:
 		return
@@ -156,6 +174,8 @@ func Update() -> void:
 		bs.activeTool = ToolType.Eyedropper
 
 func Undo() -> void:
+	if _busy:
+		return
 	var state = UndoRedoManager.Instance.Undo()
 	if state == null:
 		return
@@ -164,6 +184,8 @@ func Undo() -> void:
 		AudioManager.Instance.PlayUndo()
 
 func Redo() -> void:
+	if _busy:
+		return
 	var state = UndoRedoManager.Instance.Redo()
 	if state == null:
 		return

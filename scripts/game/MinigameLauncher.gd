@@ -3,6 +3,7 @@ extends Mono
 
 const PuzzleSceneName := "PuzzleGame"
 const DrawingSceneName := "DrawingApp"
+const PERSISTENT := ["MinigameLauncher", "TimePhaseManager", "GameAudioManager", "ScenarioManager", "ProfileManager", "CurrencyManager", "PlayerBuffManager", "CombatManager", "ShopManager", "PlayerStats", "EquipmentManager", "QuestManager", "DialogueManager", "InventoryManager", "OriginManager"]
 static var Instance: MinigameLauncher
 var _busy := false
 var _inMinigame := false
@@ -35,7 +36,7 @@ func Launch(sceneName: String) -> void:
 	var mine := _top_of(root)
 	_hiddenRoots.clear()
 	for c in root.get_children():
-		if c == mine or not (c is CanvasItem or c is CanvasLayer):
+		if c == mine or not (c is CanvasItem or c is CanvasLayer) or _is_persistent(c):
 			continue
 		if c.visible:
 			_hiddenRoots.append(c)
@@ -57,6 +58,12 @@ func Launch(sceneName: String) -> void:
 	await U.frame()
 	_inMinigame = true
 	_busy = false
+
+func _is_persistent(n: Node) -> bool:
+	for c in n.get_children():
+		if c is Mono and c.get_script() != null and str(c.get_script().get_global_name()) in PERSISTENT:
+			return true
+	return false
 
 func _top_of(root: Node) -> Node:
 	var n: Node = gameObject

@@ -189,8 +189,12 @@ func handlers(go, method: String) -> Array:
 
 func execute(go, method: String, data) -> bool:
 	var hs := handlers(go, method)
+	var live := []
 	for h in hs:
 		if is_instance_valid(h) and h._active:
+			live.append(h)
+	for h in live:
+		if is_instance_valid(h):
 			h.call(method, data)
 	return not hs.is_empty()
 
