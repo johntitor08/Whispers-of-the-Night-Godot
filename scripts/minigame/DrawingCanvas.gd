@@ -75,10 +75,13 @@ func RunFill(img: Image, pos: Vector2, col: Color) -> void:
 	var work: Image = img.duplicate()
 	var job := func() -> void:
 		FillTool.FloodFill(work, pos, col)
-	var id := WorkerThreadPool.add_task(job)
-	while not WorkerThreadPool.is_task_completed(id):
-		await U.frame()
-	WorkerThreadPool.wait_for_task_completion(id)
+	if OS.has_feature("web"):
+		job.call()
+	else:
+		var id := WorkerThreadPool.add_task(job)
+		while not WorkerThreadPool.is_task_completed(id):
+			await U.frame()
+		WorkerThreadPool.wait_for_task_completion(id)
 	if is_instance_valid(self):
 		img.copy_from(work)
 		_busy = false

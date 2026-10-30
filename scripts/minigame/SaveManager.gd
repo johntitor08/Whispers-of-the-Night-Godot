@@ -17,7 +17,7 @@ func SavePNG(filename := "") -> String:
 	var nm := "%s_%s" % [defaultFileName, stamp] if filename.is_empty() else filename
 	var dir := OS.get_system_dir(OS.SYSTEM_DIR_PICTURES).path_join("Whispers of the Night")
 	var path := dir.path_join(nm + ".png")
-	var ok := DirAccess.make_dir_recursive_absolute(dir) == OK and flat.save_png(path) == OK
+	var ok := not OS.has_feature("web") and DirAccess.make_dir_recursive_absolute(dir) == OK and flat.save_png(path) == OK
 	if not ok:
 		path = ProjectSettings.globalize_path("user://" + nm + ".png")
 		flat.save_png(path)
